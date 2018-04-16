@@ -1,16 +1,21 @@
-<h1>Update Gif</h1>
-<h1>Add a new gif</h1>
+<div class="container">
+  <div class="row">
+    <div class="col col-xs-12 col-sm-4 col-md-4 col-sm-offset-4">
+      <h2>Update Gif</h2>
 
-<%= simple_form_for(@gif) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :title, required: true, autofocus: true %>
-    <%= f.input :language, collection: [ "English", "Chinese", "Swahili", "German", "Russian", "Portuguese" ] %>
-    <%= f.input :file %>
-    <%= f.input :file_cache, as: :hidden %>
-  </div>
+      <%= simple_form_for(@gif) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :title, required: true, autofocus: true %>
+        <%= f.input :language, collection: [ "English", "Chinese", "Swahili", "German", "Russian", "Portuguese" ] %>
+        <%= f.input :file %>
+        <%= f.input :file_cache, as: :hidden %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Submit" %>
+      <div class="form-actions">
+        <%= f.button :submit, "Submit" %>
+      </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
