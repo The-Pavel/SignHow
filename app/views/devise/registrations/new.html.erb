@@ -1,22 +1,29 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col col-xs-12 col-sm-4 col-md-4 col-sm-offset-4">
+      <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :first_name, required: true, autofocus: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :email, required: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :is_teacher, as: :radio_buttons, label: 'Are you a teacher?', required: true %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
+      <div class="form-inputs">
+        <%= f.input :first_name, required: true, autofocus: true %>
+        <%= f.input :last_name, required: true %>
+        <%= f.input :email, required: true %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, required: true %>
+        <%= f.input :is_teacher, as: :radio_buttons, label: 'Are you a teacher?', required: true %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
