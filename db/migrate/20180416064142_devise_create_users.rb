@@ -34,8 +34,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       t.string :first_name
       t.string :last_name
-      t.boolean :is_teacher
-      t.boolean :is_admin
+      t.boolean :is_teacher, null: false, default: false
+      t.boolean :is_admin, null: false, default: false
 
       t.timestamps null: false
     end
