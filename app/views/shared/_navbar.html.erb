@@ -1,7 +1,7 @@
 <div class="navbar-signhow">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-signhow-brand" do %>
-    <%= image_tag "SignHowLogo.png", height: 50 %>
+    <%= image_tag "Logo.svg", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -21,7 +21,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-signhow-item">
         <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-signhow-dropdown-menu">
             <li><a href="#">Profile</a></li>
             <li><a href="#">Dashboard</a></li>
@@ -35,6 +35,7 @@
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-signhow-item navbar-signhow-link" %>
+      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-signhow-item navbar-signhow-link" %>
     <% end %>
   </div>
 
