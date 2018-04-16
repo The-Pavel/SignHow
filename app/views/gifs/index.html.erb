@@ -1,0 +1,6 @@
+<h1>Gifs</h1>
+<% @gifs.each do |gif| %>
+  <h1><%= gif.title %></h1>
+  <li><%= gif.language %></li>
+  <li><%= cl_image_tag gif.file, height: 300, width: 275, crop: :fill %></li>
+<% end  %>

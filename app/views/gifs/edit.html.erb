@@ -1,0 +1,16 @@
+<h1>Update Gif</h1>
+<h1>Add a new gif</h1>
+
+<%= simple_form_for(@gif) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.input :title, required: true, autofocus: true %>
+    <%= f.input :language, collection: [ "English", "Chinese", "Swahili", "German", "Russian", "Portuguese" ] %>
+    <%= f.input :file %>
+    <%= f.input :file_cache, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit" %>
+  </div>
+<% end %>
