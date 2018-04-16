@@ -75,3 +75,34 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.btn-blue {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 2px;
+  font-weight: bold;
+  background: $blue;
+  transition: background 0.3s ease;
+  opacity: 0.7;
+}
+.btn-blue:hover {
+  opacity: 1;
+  background: $blue;
+  text-decoration: none;
+  color: white;
+}
+.btn-purple {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 2px;
+  font-weight: bold;
+  background: $purple;
+  transition: background 0.3s ease;
+  opacity: 0.7;
+}
+.btn-purple:hover {
+  opacity: 1;
+  background: $purple;
+  text-decoration: none;
+  color: white;
+}

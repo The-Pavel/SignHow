@@ -11,12 +11,10 @@
 
       <!-- Links when logged in -->
 
-      <%= link_to "Add a Sign", "#", class: "navbar-signhow-item navbar-signhow-link" %>
+      <%= link_to "Add a Sign", "#", class: "btn-purple" %>
       <%= link_to "Dashboard", "#", class: "navbar-signhow-item navbar-signhow-link" %>
-      <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <%= link_to "Messages", class: "navbar-signhow-item navbar-signhow-link" %>
-      </div>
+        <%= link_to "Messages", "#", class: "navbar-signhow-item navbar-signhow-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-signhow-item">
@@ -34,7 +32,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-signhow-item navbar-signhow-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn-blue"%>
     <% end %>
   </div>
 
