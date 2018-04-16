@@ -7,8 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# GIF.delete_all
-
+Gif.delete_all
 User.delete_all
 
 
@@ -21,13 +20,13 @@ User.create(first_name: Faker::Pokemon.name, last_name: Faker::Pokemon.move, ema
 end
 
 # puts "created #{User.count} users"
-#
+
+
 # # Seeding Meals:
-#
-# categories = %w(Sichuan Yunnan Xinjiang Hunan)
-#
-# 15.times do
-#   Meal.create(name: Faker::Food.dish, category: categories.sample, description: Faker::Food.description, price: Faker::Number.between(1, 10), user_id: User.all.sample.id, picture: images.sample)
-# end
-#
+languages = %w(English Chinese Dutch Swahili)
+
+15.times do
+Gif.create(title: Faker::Food.dish, language: languages.sample, file: Faker::Fillmurray.image, user_id: User.all.sample.id)
+end
+
 # puts "created #{Meal.count} meals"
