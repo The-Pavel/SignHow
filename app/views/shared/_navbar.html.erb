@@ -10,10 +10,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-
-      <%= link_to "Add a Sign", "#", class: "btn-purple" %>
+    <% if current_user.is_teacher %>
+      <%= link_to "Add a Sign", new_gif_path , class: "btn-purple" %>
+    <% end %>
       <%= link_to "Dashboard", "#", class: "navbar-signhow-item navbar-signhow-link" %>
-
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-signhow-item">
         <div class="dropdown">
@@ -30,9 +31,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "btn-blue" %>
-      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "btn-purple" %>
-      <%= link_to t(".sign_up", default: "Add a Sign"), new_user_registration_path, class: "btn-blue" %>
+      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "signup" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "login" %>
+      <%= link_to t(".sign_up", default: "Add a Sign"), new_user_registration_path, class: "addsign" %>
     <% end %>
   </div>
 

@@ -1,0 +1,27 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: 2px;
+    border-color: gray;
+    background-color: white;
+}
+
+.word {
+    font-weight: bold;
+}
+
+.language {
+    font-weight: lighter;
+}
+
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.tag {
+    color: $blue;
+}
+
+
+
