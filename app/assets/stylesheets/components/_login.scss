@@ -1,0 +1,40 @@
+.login-row h2 {
+  font-size: 22px;
+  text-align: center;
+  color: $blue;
+  font-weight: bold;
+  margin-top: 46px;
+  margin-bottom: 46px;
+}
+
+.login-row .login {
+  border: 1px solid white;
+  margin-left: -70px;
+  margin-right: -70px;
+  background: white;
+  margin-bottom: 20px
+}
+
+.login .form-actions .btn{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 26px;
+  background-color: $purple;
+  padding: 10px 152px;
+}
+
+.login .form-actions {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.login-row {
+  height:100%;
+}
+
+
+
+
+
