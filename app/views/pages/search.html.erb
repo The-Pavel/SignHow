@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-xs-12 col-sm-4 col-md-4 col-sm-offset-4">
+      <h3>Displaying results for:</h3>
+      <h4>"<%= @query %>"</h4>
+      <br>
+      <%= form_tag search_path, method: :get do %>
+      <%= label_tag "Search again?" %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+        placeholder: ""
+        %>
+        <% end %>
+        <br>
+      <% @gifs.each do |gif| %>
+      <h4><%= gif.title %></h4>
+      <p><%= gif.language %></p>
+      <%= cl_image_tag gif.file, height: 300, width: 275, crop: :fill%>
+      <% end %>
+    </div>
+  </div>
+</div>
