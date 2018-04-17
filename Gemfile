@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.3'
 
 
-
+gem "pundit"
 gem 'ngrok-tunnel'
 gem 'omniauth'
 gem 'figaro'
