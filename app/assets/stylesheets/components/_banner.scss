@@ -1,0 +1,40 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 75vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  background-attachment: fixed;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner h1 {
+  font-size: 80px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  padding-bottom: 15px;
+  margin-top: 10px;
+}
+
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  padding-bottom: 35px;
+  opacity: 0.6;
+  margin: 50px;
+}
+
+.banner-profile {
+  // position: absolute;
+  width: 200px;
+  height: 200px;
+  background: url(tuf9y3gbpec7pi2hayjn.jpg);
+  // border: 2px solid #F2F2F2;
+  box-sizing: border-box;
+  border-radius: 121px;
+}

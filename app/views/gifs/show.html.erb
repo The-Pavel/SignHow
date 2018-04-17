@@ -1,0 +1,4 @@
+<h1><%= @gif.title %></h1>
+<p><%= @gif.language %></p>
+<p><%= cl_image_tag @gif.file, height: 300, width: 275, crop: :fill %></p>
+<%= link_to "Delete GIF", gif_path, method: :delete %>
