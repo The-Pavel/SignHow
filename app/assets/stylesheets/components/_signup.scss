@@ -1,0 +1,37 @@
+.title {
+  text-align: center;
+  color: $blue;
+  margin-top: 46px;
+  margin-bottom: 46px;
+}
+
+.row .signup {
+  border: 1px solid white;
+  margin-left: -60px;
+  margin-right: -60px;
+}
+
+.form-inputs {
+  margin: 25px 35px;
+}
+
+legend {
+  font-size: 16px;
+  border-bottom: none;
+  color: $blue;
+  font-weight: bold;
+}
+
+.signup .form-actions {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 26px;
+}
+
+.signup .form-actions .btn {
+  background: $purple;
+  color: white;
+  font-size: 14px;
+  padding: 10px 156px;
+}
