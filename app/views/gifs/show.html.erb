@@ -1,12 +1,18 @@
 <h1><%= @gif.title %></h1>
 <p><%= @gif.language %></p>
 <p><%= cl_image_tag @gif.file, height: 300, width: 275, crop: :fill %></p>
-<% if @gif.user_id == current_user.id %>
-  <%= link_to "Delete GIF", gif_path, method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
-  <%= link_to "Edit GIF", edit_gif_path(@gif) %>
+<% if user_signed_in? %>
+  <% if @gif.user_id == current_user.id %>
+    <%= link_to "Delete GIF", gif_path, method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
+    <%= link_to "Edit GIF", edit_gif_path(@gif) %>
+  <% end %>
+<% else  %>
+  <%= link_to "Sign up to add a sign", user_registration_path %>
 <% end %>
-<% if current_user.favorited_by_type('Gif').include?(@gif) %>
-  <%= button_to "Unfavorite", unfavorite_path(@gif), method: :post %>
-<% else %>
-  <%= button_to "Favorite", favorite_path(@gif), method: :post %>
+<% if user_signed_in? %>
+  <% if current_user.favorited_by_type('Gif').include?(@gif) %>
+    <%= button_to "Unfavorite", unfavorite_path(@gif), method: :post %>
+  <% else %>
+    <%= button_to "Favorite", favorite_path(@gif), method: :post %>
+  <% end %>
 <% end %>

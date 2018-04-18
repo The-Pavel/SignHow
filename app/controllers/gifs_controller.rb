@@ -1,5 +1,5 @@
 class GifsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:show]
   def favorite
     @gif = Gif.find(params[:id])
     current_user.favorite @gif
