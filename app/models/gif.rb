@@ -4,6 +4,8 @@ class Gif < ApplicationRecord
   validates :language, presence: true
   validates :file, presence: true
   mount_uploader :file, PhotoUploader
+  acts_as_favoritable
+
 
   LANGUAGES = %w[  Language
 Afrikaans
@@ -149,5 +151,6 @@ Yucatec
 Zapotec
 Zulu
 ]
+
 
 end
