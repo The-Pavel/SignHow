@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get '/search', to: 'pages#search', as: 'search'
   get '/dashboard/:id' , to: "pages#dashboard", as: 'dashboard'
   post '/gifs/:id' , to: "gifs#favorite", as: 'favorite'
-  # get '/dashboard/:id/favorites' , to: "pages#favorites", as: 'get_favorites'
+  post '/gifs/unfavorite/:id' , to: "gifs#unfavorite", as: 'unfavorite'
 end

@@ -38,6 +38,10 @@ class ApplicationPolicy
     return true
   end
 
+  def unfavorite?
+    true
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end
