@@ -34,6 +34,10 @@ class ApplicationPolicy
     record.user == user
   end
 
+  def favorite?
+    return true
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end

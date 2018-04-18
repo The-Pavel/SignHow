@@ -7,3 +7,5 @@
 <% if @gif.user_id == current_user.id %>
   <%= link_to "Edit GIF", edit_gif_path(@gif) %>
 <% end %>
+
+<%= button_to "Favorite", favorite_path(@gif), method: :post %>
