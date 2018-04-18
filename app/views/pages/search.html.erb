@@ -20,19 +20,20 @@
 
 <br>
 <br>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-4">
+<div class="container">
+  <div class="row">
     <% @gifs.each do |gif| %>
+    <div class="col col-xs-12 col-sm-4 col-md-4">
+
       <div class="card">
-        <%= cl_image_tag gif.file%>
-        <div class="container">
+        <%= cl_image_tag gif.file, class: "gif" %>
           <h4 class="word"><b><%= gif.title %></b></h4>
-            <br>
+          <br>
           <p class="language"><%= gif.language %></p>
           <p class="tag">#tags</p>
-        </div>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
+
