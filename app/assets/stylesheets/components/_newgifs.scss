@@ -1,0 +1,61 @@
+.newgifs-row h4 {
+  text-align: center;
+  color: $blue;
+  margin-top: 46px;
+  margin-bottom: 46px;
+}
+
+.newgifs-row .newgifs {
+  border: 1px solid white;
+  margin-left: -70px;
+  margin-right: -70px;
+  background: white;
+}
+
+.newgifs .form-inputs {
+  margin: 50px 40px;
+  font-size: 14px;
+}
+
+.newgifs .form-actions .btn {
+  background: $purple;
+  color: white;
+  font-size: 14px;
+  padding: 10px 80px;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+}
+
+#dropbox {
+  position:relative;
+  width:410px;
+  height:300px;
+  border:2px dashed gray;
+  padding:15px;
+  background:white;
+  margin-top: 25px;
+}
+
+#dropbox img {
+  width: 70px;
+  margin: 36px 150px;
+}
+
+#dropbox::before {
+  content:"or drag and drop here";
+  display: block;
+  text-align: center;
+  align-items: center;
+  font-size:14px;
+  padding:28px 0;
+  left:0;
+  color: gray;
+}
+
+.preview {
+  display:inline-block;
+  width:100px;
+  height:auto;
+  margin:0 15px 15px;
+}
