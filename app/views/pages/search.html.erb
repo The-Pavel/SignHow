@@ -3,6 +3,7 @@
     <div class="col col-xs-12 col-sm-4 col-md-4 col-sm-offset-4">
       <h3>Displaying results for:</h3>
       <h4>"<%= @query %>"</h4>
+      <h4>"<%= @query_language %>"</h4>
       <br>
       <%= form_tag search_path, method: :get do %>
       <%= label_tag "Search again?" %>
@@ -26,6 +27,7 @@
     <div class="col col-xs-12 col-sm-4 col-md-4">
 
       <div class="card">
+
         <%= cl_image_tag gif.file, class: "gif" %>
           <h4 class="word"><b><%= gif.title %></b></h4>
           <br>
