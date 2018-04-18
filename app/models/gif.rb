@@ -4,6 +4,8 @@ class Gif < ApplicationRecord
   validates :language, presence: true
   validates :file, presence: true
   mount_uploader :file, PhotoUploader
+  acts_as_favoritable
+
 
   LANGUAGES = %w[  Language
 Afrikaans
@@ -19,7 +21,7 @@ Assamese
 Aymara
 Azerbaijani
 Balochi
-Bamanankan Bashkort Bashkir
+Bamanankan-Bashkort-Bashkir
 Basque
 Belarusan
 Bengali
@@ -40,7 +42,8 @@ Dakota
 Danish
 Dari
 Dholuo
-DutchEnglish
+Dutch-English
+English
 Esperanto
 Estonian
 Éwé
@@ -52,10 +55,10 @@ Gikuyu
 Greek
 Guarani
 Gujarati
-Haitian Creole
+Haitian-Creole
 Hausa
 Hawaiian
-Hawaiian Creole
+Hawaiian-Creole
 Hebrew
 Hiligaynon
 Hindi
@@ -149,5 +152,6 @@ Yucatec
 Zapotec
 Zulu
 ]
+
 
 end

@@ -21,5 +21,6 @@ class PagesController < ApplicationController
   def dashboard
     @user = User.find(params[:id])
     @gifs = Gif.where('gifs.user_id = ?', current_user.id)
+    @favorites = @user.favorited_by_type 'Gif'
   end
 end
