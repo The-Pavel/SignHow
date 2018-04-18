@@ -12,14 +12,14 @@ class GifsController < ApplicationController
   def new
     @gif = Gif.new
     @gif.user = current_user
-    authorize @gif if @gif.user.is_teacher
+    authorize @gif
 
   end
 
   def create
     @gif = Gif.new(gif_params)
     @gif.user = current_user
-    authorize @gif if @gif.user.is_teacher
+    authorize @gif
     if @gif.save
       redirect_to gif_path(@gif)
     else
