@@ -1,43 +1,47 @@
 <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60');">
   <div class="banner-content">
     <h2>Welcome to the Global Sign Language Dictionary</h2>
+    <div class="search">
+      <%= form_tag search_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+        placeholder: "Search by Word or Phrase"
+        %>
+      </div>
+      <%= select_tag :query_language, options_for_select(Gif::LANGUAGES)
+        %>
+        <%= submit_tag %>
+          <% end %>
+
     <p>200,000 Signs | 300+ Sign Languages | 40 Countries | 1.2 Million Users</p>
   </div>
 </div>
 
 <br>
 
-<div class="search">
-  <%= form_tag search_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search by Title or Language"
-    %>
-    <button type="submit" class="searchButton">
-      <i class="fa fa-search"></i>
-      <% end %>
-    </button>
-</div>
 
 <div class="container">
   <br>
-  <h2 class="discover-title">Discover new sign languages from around the world</h2>
+  <h4 class="discover-title">Discover new sign languages from around the world</h4>
   <br>
   <br>
+
 
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
-        <img src='https://i.ytimg.com/vi/vK-mAwKMxQg/maxresdefault.jpg'  style="width:100%">
+    <% @gifs.each do |gif| %>
+    <div class="col col-xs-12 col-sm-4 col-md-4">
 
-        <div class="container">
-          <h4 class="word"><b>Word/Phrase</b></h4>
+      <%= link_to gif_path(gif) do %>
+      <div class="card">
+        <%= cl_image_tag gif.file, class: "gif" %>
+          <h4 class="word"><b><%= gif.title %></b></h4>
           <br>
-          <p class="language">Language</p>
+          <p class="language"><%= gif.language %></p>
           <p class="tag">#tags</p>
-        </div>
       </div>
+      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
