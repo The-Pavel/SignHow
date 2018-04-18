@@ -2,10 +2,17 @@ class GifsController < ApplicationController
 
   def favorite
     @gif = Gif.find(params[:id])
-    @favorite = current_user.favorite @gif
+    current_user.favorite @gif
     authorize @gif
+    redirect_to dashboard_path(current_user)
   end
 
+  def unfavorite
+    @gif = Gif.find(params[:id])
+    current_user.favorite(@gif).destroy
+    authorize @gif
+    redirect_to dashboard_path(current_user)
+  end
 
   def index
     @gifs = Gif.all
