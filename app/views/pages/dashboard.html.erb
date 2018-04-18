@@ -1,65 +1,74 @@
-<br>
 <div class="tabs">
-  <a class="tab active" href="#">
+  <a class="tab" data-toggle="tab" href="#home">
     <h3><%=@user.favorites.count%></h3>
     <p> Favorites</p>
   </a>
-  <a class="tab" href="#">
+  <a class="tab" data-toggle="tab" href="#menu1">
     <h3><%=@user.gifs.count%></h3>
     <p> My Signs</p>
   </a>
-  <a class="tab" href="#">
+  <a class="tab" data-toggle="tab" href="#menu2">
     <h3><i class="fa fa-user"></i></h3>
     <p> Profile</p>
   </a>
-  <a class="tab" href="#">
+  <a class="tab" data-toggle="tab" href="#menu2">
     <h3><i class="fa fa-star"></i></h3>
     <p> Premium</p>
   </a>
 </div>
 
-<br>
 
-<div class="gif-tabs">
-  <div class="row">
-    <h4> My Signs</h4>
-    <% @user.gifs.each do |gif| %>
-    <div class="col col-xs-12 col-sm-4 col-md-4">
-      <%= link_to gif_path(gif) do %>
-      <div class="card">
-        <%= cl_image_tag gif.file, class: "gif" %>
-        <h4 class="word"><b><%= gif.title %></b></h4>
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <div class="gif-tabs">
+
+      <div class="row">
         <br>
-        <p class="language"><%= gif.language %></p>
-        <p class="tag">#tags</p>
-        <% end %>
-      </div>
-      <%= link_to "Edit GIF", edit_gif_path(gif) %>
-      <%= link_to "Delete GIF", gif_path(gif), method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<br>
-
-<div class="gif-tabs">
-
-  <div class="row">
-    <br>
-    <h4> Favorite Signs</h4>
-    <% @favorites.each do |favorite| %>
-    <div class="col col-xs-12 col-sm-4 col-md-4">
-      <%= link_to gif_path(favorite) do %>
-      <div class="card">
-        <%= cl_image_tag favorite.file, class: "gif" %>
-        <h4 class="word"><b><%= favorite.title %></b></h4>
-        <br>
-        <p class="language"><%= favorite.language %></p>
-        <p class="tag">#tags</p>
+        <h4> Favorite Signs</h4>
+        <% @favorites.each do |favorite| %>
+        <div class="col col-xs-12 col-sm-4 col-md-4">
+          <%= link_to gif_path(favorite) do %>
+          <div class="card">
+            <%= cl_image_tag favorite.file, class: "gif" %>
+            <h4 class="word"><b><%= favorite.title %></b></h4>
+            <br>
+            <p class="language"><%= favorite.language %></p>
+            <p class="tag">#tags</p>
+            <% end %>
+          </div>
+        </div>
         <% end %>
       </div>
     </div>
-    <% end %>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <div class="gif-tabs">
+      <div class="row">
+        <br>
+        <h4> My Signs</h4>
+        <% @user.gifs.each do |gif| %>
+        <div class="col col-xs-12 col-sm-4 col-md-4">
+          <%= link_to gif_path(gif) do %>
+          <div class="card">
+            <%= cl_image_tag gif.file, class: "gif" %>
+            <h4 class="word"><b><%= gif.title %></b></h4>
+            <br>
+            <p class="language"><%= gif.language %></p>
+            <p class="tag">#tags</p>
+            <% end %>
+          </div>
+          <%= link_to "Edit GIF", edit_gif_path(gif) %>
+          <%= link_to "Delete GIF", gif_path(gif), method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="menu2" class="tab-pane fade">
+    <h3>Menu 2</h3>
+    <p>Some content in menu 2.</p>
   </div>
 </div>
+
+
+<br>
