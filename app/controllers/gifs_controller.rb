@@ -1,4 +1,19 @@
 class GifsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
+  def favorite
+    @gif = Gif.find(params[:id])
+    current_user.favorite @gif
+    authorize @gif
+    redirect_to dashboard_path(current_user)
+  end
+
+  def unfavorite
+    @gif = Gif.find(params[:id])
+    current_user.favorite(@gif).destroy
+    authorize @gif
+    redirect_to dashboard_path(current_user)
+  end
+
   def index
     @gifs = Gif.all
     authorize @gifs
@@ -13,7 +28,6 @@ class GifsController < ApplicationController
     @gif = Gif.new
     @gif.user = current_user
     authorize @gif
-
   end
 
   def create
@@ -21,7 +35,7 @@ class GifsController < ApplicationController
     @gif.user = current_user
     authorize @gif
     if @gif.save
-      redirect_to gif_path(@gif)
+      redirect_to dashboard_path(current_user)
     else
       render :new
     end
@@ -36,7 +50,7 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     authorize @gif if @gif.user_id == current_user.id
     if @gif.update(gif_params)
-      redirect_to gif_path(@gif)
+      redirect_to dashboard_path(current_user)
     else
       render :new
     end
@@ -47,7 +61,7 @@ class GifsController < ApplicationController
     @user = @gif.user
     authorize @gif
     @gif.destroy if @gif.user_id == current_user.id
-    redirect_to root_path
+    redirect_to dashboard_path(current_user)
   end
 
   private
