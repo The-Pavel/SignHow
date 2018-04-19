@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   post '/gifs/upvote/:id' , to: "gifs#upvote", as: 'upvote'
   post '/gifs/downvote/:id' , to: "gifs#downvote", as: 'downvote'
   get '/about', to: 'pages#about', as: 'about'
-
+  get '/tagged', to: "gifs#tagged", as: :tagged
 end
