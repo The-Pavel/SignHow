@@ -27,7 +27,9 @@
         <p class="language"><%= @gif.language %></p>
         <p>Upvotes: <%= @gif.get_upvotes.size %></p>
         <p>Downvotes: <%= @gif.get_downvotes.size %></p>
-        <p class="tag">#tags</p>
+          <% @gif.tags.each do |tag| %>
+            <div class="tag"><%= tag.name %></div>
+          <% end %>
         <% if user_signed_in? %>
           <% if @gif.user_id == current_user.id %>
             <%= link_to "Delete GIF", gif_path, method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
