@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
-
+gem 'acts-as-taggable-on', '~> 5.0'
 gem "pundit"
 gem 'ngrok-tunnel'
 gem 'omniauth'
@@ -21,7 +21,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'omniauth-facebook'
 
-
+gem 'acts_as_votable', '~> 0.11.1'
 gem 'acts_as_favoritor'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'

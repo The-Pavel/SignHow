@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get '/dashboard/:id' , to: "pages#dashboard", as: 'dashboard'
   post '/gifs/:id' , to: "gifs#favorite", as: 'favorite'
   post '/gifs/unfavorite/:id' , to: "gifs#unfavorite", as: 'unfavorite'
-
+  post '/gifs/upvote/:id' , to: "gifs#upvote", as: 'upvote'
+  post '/gifs/downvote/:id' , to: "gifs#downvote", as: 'downvote'
   get '/about', to: 'pages#about', as: 'about'
-
+  get '/tagged', to: "gifs#tagged", as: :tagged
 end
