@@ -19,14 +19,14 @@ User.create(first_name: 'Martin', last_name: 'Tannenberger', email: 'martin.tann
 User.create(first_name: Faker::Pokemon.name, last_name: Faker::Pokemon.move, email: Faker::Internet.email, password: '123456', is_teacher: [true, false].sample)
 end
 
-# puts "created #{User.count} users"
+puts "created #{User.count} users"
 
 
 # # Seeding Meals:
 languages = %w(English Chinese Dutch Swahili)
 
 15.times do
-Gif.create(title: Faker::Food.dish, language: languages.sample, file: Faker::Fillmurray.image, user_id: User.all.sample.id)
+Gif.create(title: Faker::Food.dish, language: languages.sample, remote_file_url: Faker::Fillmurray.image(true), user_id: User.all.sample.id)
 end
 
-# puts "created #{Meal.count} meals"
+puts "created #{Gif.count} signs"
