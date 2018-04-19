@@ -1,13 +1,13 @@
 class GifsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
-  def tagged
-    if params[:tag].present?
-      @gifs = Gif.tagged_with(params[:tag])
-    else
-      @restaurants = Gif.all
-    end
-  end
+  # def tagged
+    # if params[:tag].present?
+      # @tags = Gif.tagged_with(params[:tag_list], :any => true)
+    # else
+      # @gifs = Gif.all
+    # end
+  # end
 
   def upvote
     @gif = Gif.find(params[:id])
@@ -44,6 +44,7 @@ class GifsController < ApplicationController
 
   def show
     @gif = Gif.find(params[:id])
+    @gifs = @gif.find_related_tags.to_a
     authorize @gif
   end
 

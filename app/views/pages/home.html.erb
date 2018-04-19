@@ -47,7 +47,9 @@
           <h4 class="word"><b><%= gif.title %></b></h4>
           <br>
           <p class="language"><%= gif.language %></p>
-          <p class="tag">#tags</p>
+          <% gif.tags.each do |tag| %>
+            <div class="tag"><%= tag.name %></div>
+          <% end %>
           <p>Upvotes: <%= gif.get_upvotes.size %></p>
           <p>Downvotes: <%= gif.get_downvotes.size %></p>
       </div>
