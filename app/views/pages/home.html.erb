@@ -48,6 +48,8 @@
           <br>
           <p class="language"><%= gif.language %></p>
           <p class="tag">#tags</p>
+          <p>Upvotes: <%= gif.get_upvotes.size %></p>
+          <p>Downvotes: <%= gif.get_downvotes.size %></p>
       </div>
       <% end %>
     </div>

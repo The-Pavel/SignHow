@@ -21,7 +21,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'omniauth-facebook'
 
-
+gem 'acts_as_votable', '~> 0.11.1'
 gem 'acts_as_favoritor'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
