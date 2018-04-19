@@ -1,5 +1,20 @@
 class GifsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
+
+  def upvote
+    @gif = Gif.find(params[:id])
+    @gif.upvote_from current_user
+    authorize @gif
+    redirect_to gif_path(@gif)
+  end
+
+  def downvote
+    @gif = Gif.find(params[:id])
+    @gif.downvote_from current_user
+    authorize @gif
+    redirect_to gif_path(@gif)
+  end
+
   def favorite
     @gif = Gif.find(params[:id])
     current_user.favorite @gif
