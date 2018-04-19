@@ -17,9 +17,13 @@
         <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
       </div>
       <div class="search-3">
-        <%= submit_tag "", :class => 'searchbutton' %>
-              <i class="fa fa-search" style = "font-size: 40px; margin-right: 15px; margin-top: 5px;"></i>
+
+        <%= button_tag type: 'submit', class: "searchbutton" do %>
+            <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+          <% end %>
         <% end %>
+
+
       </div>
     </div>
 

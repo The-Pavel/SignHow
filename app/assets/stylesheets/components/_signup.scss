@@ -7,8 +7,8 @@
 
 .row .signup {
   border: 1px solid white;
-  margin-left: -60px;
-  margin-right: -60px;
+  margin-left: -90px;
+  margin-right: -90px;
 }
 
 .form-inputs {
@@ -26,16 +26,57 @@ legend {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-bottom: 26px;
+  margin-bottom: 40px;
 }
 
 .signup .form-actions .btn {
   background: $purple;
   color: white;
-  font-size: 14px;
-  padding: 10px 156px;
+  font-size: 18px;
+  padding: 10px 190px;
+  border-radius: 5px;
 }
 
 .multi-links {
   margin-bottom: 30px
+}
+
+.signup .fb {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 26px;
+  background-color: #4267b2;
+  padding: 10px 48px;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.mysubmit {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 26px;
+  background-color: $purple;
+  padding: 10px 48px;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.login-page .form-actions .btn{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  background-color: $purple;
+  color: white;
+  padding: 10px 152px;
+  border-radius: 5px;
+  width: 100%;
 }
