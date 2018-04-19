@@ -3,6 +3,7 @@
   color: $blue;
   margin-top: 46px;
   margin-bottom: 46px;
+
 }
 
 .row .signup {
@@ -27,6 +28,7 @@ legend {
   text-align: center;
   justify-content: center;
   margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .signup .form-actions .btn {
@@ -45,7 +47,7 @@ legend {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin: 26px;
+  margin: auto;
   background-color: #4267b2;
   padding: 10px 48px;
   color: white;
@@ -53,13 +55,14 @@ legend {
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
+  width: 60%;
 }
 
-.mysubmit {
+.new {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin: 26px;
+  margin: auto;
   background-color: $purple;
   padding: 10px 48px;
   color: white;
@@ -67,6 +70,7 @@ legend {
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
+  width: 60%;
 }
 
 .login-page .form-actions .btn{
@@ -80,3 +84,18 @@ legend {
   border-radius: 5px;
   width: 100%;
 }
+
+
+.or h3{
+  font-size: 20px;
+  text-align: center;
+  color: black
+}
+
+.signup .form-size {
+  margin-bottom: 30px;
+}
+
+
+
+
