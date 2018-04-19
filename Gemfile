@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
-
+gem 'acts-as-taggable-on', '~> 5.0'
 gem "pundit"
 gem 'ngrok-tunnel'
 gem 'omniauth'

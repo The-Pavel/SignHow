@@ -6,6 +6,7 @@ class Gif < ApplicationRecord
   mount_uploader :file, PhotoUploader
   acts_as_favoritable
   acts_as_votable
+  acts_as_taggable_on :tags
 
   LANGUAGES = %w[  Language
 Afrikaans

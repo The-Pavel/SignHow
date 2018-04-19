@@ -29,12 +29,13 @@
 
 #dropbox {
   position:relative;
-  width:410px;
-  height:300px;
+  width:80%;
+  height:70%;
   border:2px dashed gray;
   padding:15px;
   background:white;
   margin-top: 25px;
+  display: flex;
 }
 
 #dropbox img {

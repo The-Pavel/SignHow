@@ -17,9 +17,13 @@
         <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
       </div>
       <div class="search-3">
-        <%= submit_tag "", :class => 'searchbutton' %>
-              <i class="fa fa-search" style = "font-size: 40px; margin-right: 15px; margin-top: 5px;"></i>
+
+        <%= button_tag type: 'submit', class: "searchbutton" do %>
+            <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+          <% end %>
         <% end %>
+
+
       </div>
     </div>
 
@@ -47,7 +51,10 @@
           <h4 class="word"><b><%= gif.title %></b></h4>
           <br>
           <p class="language"><%= gif.language %></p>
-          <p class="tag">#tags</p>
+
+          <% gif.tag_list.each do |tag| %>
+            <div class="tag"><%= tag %></div>
+          <% end %>
           <p class="upvotes">Upvotes: <%= gif.get_upvotes.size %></p>
           <p class="downvotes">Downvotes: <%= gif.get_downvotes.size %></p>
 

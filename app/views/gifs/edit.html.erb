@@ -8,6 +8,7 @@
       <div class="form-inputs">
         <%= f.input :title, required: true, autofocus: true %>
         <%= f.input :language, collection: [ "English", "Chinese", "Swahili", "German", "Russian", "Portuguese" ] %>
+        <%= f.input :tag_list %>
         <%= f.input :file %>
         <%= f.input :file_cache, as: :hidden %>
       </div>
