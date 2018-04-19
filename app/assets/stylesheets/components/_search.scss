@@ -2,6 +2,7 @@
   width: auto;
   position: relative;
   margin-top: 50px;
+  margin-bottom: 60px;
   border: none;
   overflow: hidden;
   display: flex;
@@ -42,7 +43,7 @@
   width: 70px;
   text: none;
   background: $blue;
-  z-index:999;
+  // z-index:999;
   cursor: pointer;
 }
 
@@ -52,11 +53,6 @@
   cursor: pointer;
   font-size: 20px;
   border: none;
-}
-
-.arrow-down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
 }
 
 
