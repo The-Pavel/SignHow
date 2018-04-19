@@ -1,3 +1,7 @@
+.login-container {
+  height: 80vh;
+}
+
 .login-row h2 {
   font-size: 22px;
   text-align: center;
@@ -7,34 +11,62 @@
   margin-bottom: 46px;
 }
 
-.login-row .login {
+.login-row .login-page {
   border: 1px solid white;
-  margin-left: -70px;
-  margin-right: -70px;
+  margin-left: -50px;
+  margin-right: -40px;
   background: white;
-  margin-bottom: 20px
+  // margin-bottom: 50px
 }
 
-.login .form-actions .btn{
+.login-page .form-actions .btn{
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-bottom: 26px;
+  margin-bottom: 32px;
   background-color: $purple;
+  color: white;
   padding: 10px 152px;
+  border-radius: 5px;
+  width: 100%;
 }
 
-.login .form-actions {
+.login-page .form-actions {
   display: flex;
   text-align: center;
   justify-content: center;
 }
 
-.login-row {
-  height:100%;
+
+.login-page .fb {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 26px;
+  background-color: #4267b2;
+  padding: 10px 48px;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
 }
 
+.login-page .form-inputs {
+  border-top: 1px solid #dfdfdf;
+}
 
+.login-page {
+  background-color: $blue;
+  color: $blue;
+  padding: 10px 32px;
+  border: 1px solid $blue;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-size: 15px;
+}
 
-
-
+.login-page:hover {
+  opacity: 1;
+  text-decoration: none;
+}
