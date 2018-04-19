@@ -5,6 +5,7 @@
   border: none;
   overflow: hidden;
   display: flex;
+  // transform: translate(-50%, -50%);
 }
 
 .search .search-1,
@@ -45,6 +46,18 @@
   cursor: pointer;
 }
 
+.searchbutton {
+  position: absolute;
+  right: -2px;
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+}
+
+.arrow-down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 
 
 
