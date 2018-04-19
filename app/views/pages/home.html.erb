@@ -1,18 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60');">
   <div class="banner-content">
     <h2>Welcome to the Global Sign Language Dictionary</h2>
+
     <div class="search">
-      <%= form_tag search_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-        placeholder: "Search by Word or Phrase"
+      <div class="search-1">
+        <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+          placeholder: "Search by Word or Phrase"
         %>
       </div>
-      <%= select_tag :query_language, options_for_select(Gif::LANGUAGES)
-        %>
-        <%= submit_tag %>
-          <% end %>
+     <!--  </div> -->
+      <div class="search-2">
+        <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
+      </div>
+      <div class="search-3">
+        <%= submit_tag "" %>
+        <i class="fa fa-search" style="font-size: 22px; position: absolute; margin-top: 30px;" ></i>
+      </div>
+      <% end %>
+    </div>
 
     <p>200,000 Signs | 300+ Sign Languages | 40 Countries | 1.2 Million Users</p>
   </div>
