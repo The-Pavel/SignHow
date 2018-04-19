@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    return true
+    true
   end
 
   def show?
@@ -39,6 +39,14 @@ class ApplicationPolicy
   end
 
   def unfavorite?
+    true
+  end
+
+  def upvote?
+    true
+  end
+
+  def downvote?
     true
   end
 

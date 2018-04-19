@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :gifs
   acts_as_favoritor
+  acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, omniauth_providers: [:facebook]
