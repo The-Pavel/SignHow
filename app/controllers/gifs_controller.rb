@@ -1,6 +1,14 @@
 class GifsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
+  # def tagged
+    # if params[:tag].present?
+      # @tags = Gif.tagged_with(params[:tag_list], :any => true)
+    # else
+      # @gifs = Gif.all
+    # end
+  # end
+
   def upvote
     @gif = Gif.find(params[:id])
     @gif.upvote_from current_user
@@ -36,6 +44,7 @@ class GifsController < ApplicationController
 
   def show
     @gif = Gif.find(params[:id])
+    @gifs = @gif.find_related_tags.to_a
     authorize @gif
   end
 
@@ -81,6 +90,6 @@ class GifsController < ApplicationController
 
   private
   def gif_params
-    params.require(:gif).permit(:title, :language, :file, :file_cache)
+    params.require(:gif).permit(:title, :language, :file, :file_cache, :tag_list)
   end
 end
