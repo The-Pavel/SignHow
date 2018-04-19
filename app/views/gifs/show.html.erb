@@ -65,6 +65,16 @@
 
 </section>
 
+<% @gifs.each do |gif| %>
+  <o><%= gif.title %></o>
+  <p><%= gif.language %></p>
+  <p><%= cl_image_tag gif.file %></p>
+  <% gif.tag_list.each do |tag| %>
+    <div class="tag"><%= tag %></div>
+  <% end %>
+<% end  %>
+
+
 
 
 
