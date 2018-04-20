@@ -1,5 +1,7 @@
 .login-container {
   height: 80vh;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .login-row h2 {
@@ -34,7 +36,7 @@
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 18px;
+  // font-size: 18px;
   border-radius: 5px;
   width: 60%;
 }
@@ -55,7 +57,7 @@
   background-color: #4267b2;
   padding: 10px 48px;
   color: white;
-  font-size: 18px;
+  // font-size: 18px;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
@@ -65,7 +67,7 @@
 .login-page {
   background-color: $blue;
   color: $blue;
-  padding: 10px 32px;
+  padding: 28px 30px;
   border: 1px solid $blue;
   border-radius: 5px;
   transition: background 0.3s ease;
@@ -122,10 +124,19 @@ input:-webkit-autofill:focus {
   background-color: $purple;
   padding: 10px 48px;
   color: white;
-  font-size: 18px;
+  // font-size: 18px;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
   width: 60%;
 }
 
+.multi-links {
+  margin: 30px;
+}
+
+.fa {
+  margin-right: 8px;
+  font-size: 10px;
+  margin-top: 2.5px;
+}
