@@ -6,6 +6,7 @@
   background-size: cover !important;
   display: flex;
   align-items: center;
+  background-attachment: fixed;
   justify-content: center;
   width: 100%;
 }
@@ -40,8 +41,8 @@
   margin: 20px;
 }
 
-
-
-
-
-
+.beta-banner {
+  text-align: center;
+  color: RGBA(56, 185, 197, 1.00);
+  justify-content: center;
+}
