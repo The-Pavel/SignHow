@@ -3,7 +3,7 @@
 }
 
 .login-row h2 {
-  font-size: 22px;
+  font-size: 26px;
   text-align: center;
   color: $blue;
   font-weight: bold;
@@ -13,23 +13,32 @@
 
 .login-row .login-page {
   border: 1px solid white;
-  margin-left: -50px;
-  margin-right: -40px;
+  margin-left: -10px;
+  margin-right: -10px;
   background: white;
-  // margin-bottom: 50px
 }
 
-.login-page .form-actions .btn{
+.login-row .login-page h3{
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  font-weight: light;
+}
+
+.login-page .actions-button{
   display: flex;
   text-align: center;
   justify-content: center;
   margin-bottom: 32px;
   background-color: $purple;
   color: white;
-  padding: 10px 152px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
   border-radius: 5px;
-  width: 100%;
+  width: 60%;
 }
+
 
 .login-page .form-actions {
   display: flex;
@@ -42,7 +51,7 @@
   display: flex;
   text-align: center;
   justify-content: center;
-  margin: 26px;
+  margin: auto;
   background-color: #4267b2;
   padding: 10px 48px;
   color: white;
@@ -50,10 +59,7 @@
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
-}
-
-.login-page .form-inputs {
-  border-top: 1px solid #dfdfdf;
+  width: 60%;
 }
 
 .login-page {
@@ -70,3 +76,56 @@
   opacity: 1;
   text-decoration: none;
 }
+
+input {
+    background: white;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0px 9999px white;
+}
+
+input:-webkit-autofill {
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 0 0px 9999px white;
+}
+
+input:focus,
+input:-webkit-autofill:focus {
+    border-color: #66afe9;
+    -webkit-box-shadow: inset 0 0 0px 9999px white,
+                        0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+
+.form-inputs .hr-with-text {
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  margin: 10px auto 0 auto;
+}
+
+.hr-with-text .or {
+  display: inline-block;
+  position: relative;
+  top: -10px;
+  padding: 0 .5em;
+  background: #fff;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+.btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  background-color: $purple;
+  padding: 10px 48px;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 60%;
+}
+
