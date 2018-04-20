@@ -1,8 +1,13 @@
+.newgifs {
+  margin-bottom: 36px;
+}
+
 .newgifs-row h4 {
   text-align: center;
   color: $blue;
-  margin-top: 46px;
-  margin-bottom: 40px;
+  margin-top: 28px;
+  margin-bottom: 28px;
+  font-size: 26px;
 }
 
 .newgifs-row .newgifs {
@@ -15,14 +20,16 @@
 .newgifs .form-inputs {
   margin: 50px 40px;
   font-size: 14px;
+  color: $blue;
 }
 
 .newgifs .form-actions .btn {
   background: $purple;
   color: white;
-  font-size: 14px;
+  font-size: 18px;
   padding: 10px 80px;
-  display: block;
+  display: flex;
+  text-align: center;
   margin: auto;
   border-radius: 5px;
 }
@@ -39,7 +46,7 @@
 
 #dropbox img {
   width: 70px;
-  // margin: 100px 140px;
+  margin: 100px 140px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,8 +61,8 @@
   content:"or drag and drop here";
   position: absolute;
   top: 30px;
-  right: 130px;
-  display: block;
+  right: 140px;
+  // display: flex;
   text-align: center;
   font-size:14px;
   color: gray;
