@@ -6,7 +6,6 @@
   background-size: cover !important;
   display: flex;
   align-items: center;
-  background-attachment: fixed;
   justify-content: center;
   width: 100%;
 }
@@ -19,17 +18,17 @@
   background-size: cover !important;
   display: flex;
   align-items: center;
-  background-attachment: fixed;
+  // background-attachment: fixed;
   overflow: hidden;
   width: 100%;
 }
 
 .banner h1 {
-  font-size: 85px;
+  font-size: 95px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   padding-bottom: 30px;
-  margin-top: 10px;
+  margin: 20px;
 }
 
 .banner p {

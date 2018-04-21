@@ -6,12 +6,16 @@
   height: 100%;
 }
 
+.title h4 {
+  font-size: 26px;
+}
+
 .row .signup {
   border: 1px solid white;
-  margin-left: -90px;
-  margin-right: -90px;
+  margin-left: -10px;
+  margin-right: -10px;
   padding-top: 28px;
-  padding-bottom: 28px;
+  padding-bottom: 30px;
 }
 
 .form-inputs {
@@ -53,11 +57,9 @@ legend {
   background-color: #4267b2;
   padding: 12px 48px;
   color: white;
-  // font-size: 18px;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
-  // width: 60%;
   margin-left: 40px;
   margin-right: 40px;
 }
