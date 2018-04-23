@@ -1,24 +1,26 @@
 
 <div class="container">
-  <div class="search">
-    <div class="search-1">
-      <%= form_tag search_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-        placeholder: "Search by Word or Phrase"
-      %>
-    </div>
-   <!--  </div> -->
-    <div class="search-2">
-      <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
-    </div>
-    <div class="search-3">
+  <div class="row">
+    <div class="search">
+      <div class="search-1">
+        <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+          placeholder: "Search by Word or Phrase"
+        %>
+      </div>
+     <!--  </div> -->
+      <div class="search-2">
+        <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
+      </div>
+      <div class="search-3">
 
-      <%= button_tag type: 'submit', class: "searchbutton" do %>
-          <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+        <%= button_tag type: 'submit', class: "searchbutton" do %>
+            <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
 
 
     </div>
@@ -27,79 +29,92 @@
 
 
 
-<section>
+  <section>
 
 
+  <div class="row">
+    <div class="col col-xs-12 col-sm-6 col-md-4">
+      <div class="big-card">
+        <%= cl_image_tag @gif.file, class: "big-card-gif" %>
+        <h4 class="big-card-word"><b><%= @gif.title %></b></h4>
+        <br>
+        <p class="big-card-language"><%= @gif.language %></p>
 
-  <div class="container-big-card">
-    <div class="big-card">
-      <%= cl_image_tag @gif.file, class: "big-card-gif" %>
-      <h4 class="big-card-word"><b><%= @gif.title %></b></h4>
-      <br>
-      <p class="big-card-language"><%= @gif.language %></p>
+        <% if user_signed_in? %>
+          <% if current_user.voted_up_on? @gif %>
+          <i class="fas fa-thumbs-up fa-lg upvotes"></i>
+          <%= @gif.get_upvotes.size %>
 
-      <% if user_signed_in? %>
-        <% if current_user.voted_up_on? @gif %>
-        <i class="fas fa-thumbs-up fa-2x upvotes"></i>
-        <%= @gif.get_upvotes.size %>
-
-        <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
-            <i class="fas fa-thumbs-down fa-2x"></i>
-            <% end %>
-            <%= @gif.get_downvotes.size %>
-        <% elsif current_user.voted_down_on? @gif %>
-          <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
-
-            <i class="fas fa-thumbs-up fa-2x"></i>
-            <% end %>
-            <%= @gif.get_upvotes.size %>
-            <i class="fas fa-thumbs-down fa-2x downvotes"></i>
-            <%= @gif.get_downvotes.size %>
-
-        <% else  %>
-          <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
-            <i class="fas fa-thumbs-up fa-2x"></i>
-            <% end %>
-            <%= @gif.get_upvotes.size %>
           <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
-            <i class="fas fa-thumbs-down fa-2x"></i>
+              <i class="fas fa-thumbs-down fa-lg"></i>
+              <% end %>
+              <%= @gif.get_downvotes.size %>
+          <% elsif current_user.voted_down_on? @gif %>
+            <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
+
+              <i class="fas fa-thumbs-up fa-lg"></i>
+              <% end %>
+              <%= @gif.get_upvotes.size %>
+              <i class="fas fa-thumbs-down fa-lg downvotes"></i>
+              <%= @gif.get_downvotes.size %>
+
+          <% else  %>
+            <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
+              <i class="fas fa-thumbs-up fa-lg"></i>
+              <% end %>
+              <%= @gif.get_upvotes.size %>
+            <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
+              <i class="fas fa-thumbs-down fa-lg"></i>
+              <% end %>
+              <%= @gif.get_downvotes.size %>
+
+          <% end %>
+        <% end %>
+
+        <% @gif.tags.each do |tag| %>
+          <div class="tag"><%= tag.name %></div>
+        <% end %>
+
+        <p class="big-card-tag">#tags</p>
+
+
+      </div>
+    </div>
+
+
+    <div class="col col-xs-12 col-sm-6 col-md-8">
+      <div class="container-info">
+        <div class="info-content">
+          <p>Gif ID:</p>
+          <p>Upload Date:</p>
+          <p>Created by:</p>
+        </div>
+        <div class="container-sign-options">
+
+          <% if user_signed_in? %>
+            <% if current_user.favorited_by_type('Gif').include?(@gif) %>
+              <%= link_to "Unfavorite", unfavorite_path(@gif), class: "btn-purple", method: :post %>
+            <% else %>
+              <%= link_to "Favorite", favorite_path(@gif), class: "btn-purple", method: :post %>
             <% end %>
-            <%= @gif.get_downvotes.size %>
+          <% end %>
+          <a class="btn-blue">download</a>
+          <a class="btn-white">inappropriate?</a>
 
-        <% end %>
-      <% end %>
+        </div>
+        <div class="embed-info" >
 
-      <% @gif.tags.each do |tag| %>
-        <div class="tag"><%= tag.name %></div>
-      <% end %>
+          <p>Embed URL</p>
+          <div class="embed-bar">
+            <%= form_tag search_path, method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+              placeholder: "https://www.signhow.co/gifs/id"
+              %>
+            </div>
+            <% end %>
 
-      <p class="big-card-tag">#tags</p>
-
-
-    </div>
-  </div>
-
-
-  <div class="container-info">
-    <div class="info-content">
-      <p>Gif ID:</p>
-      <p>Upload Date:</p>
-      <p>Created by:</p>
-    </div>
-    <div class="container-sign-options">
-
-      <% if user_signed_in? %>
-        <% if current_user.favorited_by_type('Gif').include?(@gif) %>
-          <%= link_to "Unfavorite", unfavorite_path(@gif), class: "btn-purple", method: :post %>
-        <% else %>
-          <%= link_to "Favorite", favorite_path(@gif), class: "btn-purple", method: :post %>
-        <% end %>
-      <% end %>
-      <a class="btn-blue">download</a>
-      <a class="btn-white">inappropriate?</a>
-
-    </div>
-    <div class="embed-info" >
 
       <p>Embed URL</p>
       <div class="embed-bar">
@@ -109,11 +124,21 @@
         class: "form-control",
           placeholder: "https://www.signhow.co/gifs/#{@gif.id}"
           %>
-        </div>
-        <% end %>
 
+        </div>
+
+        <div class="container-sign-options">
+          <div class</div>
+          <% if user_signed_in? %>
+            <% if @gif.user_id == current_user.id %>
+              <%= link_to "Delete", gif_path, class: "btn-delete", method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
+              <%= link_to "Edit", edit_gif_path(@gif), class: "btn-white" %>
+            <% end %>
+          <% end %>
+        </div>
 
       </div>
+
     <div class="container-icons">
       <%= social_share_button_tag('Share to Facebook', :url => gif_path(@gif), desc: @gif.title) %>
     <!--   <a href="#"><i class="fa fa-facebook"></i></a>
@@ -121,30 +146,19 @@
       <a href="#"><i class="fa fa-instagram"></i></a>
       <a href="#"><i class="fa fa-linkedin"></i></a>
       <a href="#"><i class="fa fa-envelope"></i></a> -->
+
     </div>
 
-    <div class="container-sign-options">
-      <div class</div>
-      <% if user_signed_in? %>
-        <% if @gif.user_id == current_user.id %>
-          <%= link_to "Delete", gif_path, class: "btn-delete", method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
-          <%= link_to "Edit", edit_gif_path(@gif), class: "btn-white" %>
-        <% end %>
+  </section>
+
+    <% @gifs.each do |gif| %>
+      <o><%= gif.title %></o>
+      <p><%= gif.language %></p>
+      <p><%= cl_image_tag gif.file %></p>
+      <% gif.tag_list.each do |tag| %>
+        <div class="tag"><%= tag %></div>
       <% end %>
-    </div>
-
-  </div>
-
-</section>
-
-<% @gifs.each do |gif| %>
-  <o><%= gif.title %></o>
-  <p><%= gif.language %></p>
-  <p><%= cl_image_tag gif.file %></p>
-  <% gif.tag_list.each do |tag| %>
-    <div class="tag"><%= tag %></div>
-  <% end %>
-<% end  %>
+    <% end  %>
 
 </div>
 
