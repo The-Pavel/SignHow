@@ -27,14 +27,34 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     current_user.favorite @gif
     authorize @gif
-    redirect_to dashboard_path(current_user)
+      if @gif.favorited
+        respond_to do |format|
+          format.html { redirect_to gif_path(@gif) }
+          format.js
+        end
+      else
+        respond_to do |format|
+          format.html { render 'gifs/show' }
+          format.js
+        end
+      end
   end
 
   def unfavorite
     @gif = Gif.find(params[:id])
     current_user.favorite(@gif).destroy
     authorize @gif
-    redirect_to dashboard_path(current_user)
+      if @gif.favorited
+        respond_to do |format|
+          format.html { redirect_to gif_path(@gif) }
+          format.js
+        end
+      else
+        respond_to do |format|
+          format.html { render 'gifs/show' }
+          format.js
+        end
+      end
   end
 
   def index

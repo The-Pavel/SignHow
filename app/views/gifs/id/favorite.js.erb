@@ -1,0 +1,16 @@
+function refreshForm(innerHTML) {
+  const newFavoriteForm = document.getElementById('new_favorite');
+  newFavoriteForm.innerHTML = innerHTML;
+}
+
+function addFavorite(favoriteHTML) {
+  const favorites = document.getElementById('favorites');
+  favorites.insertAdjacentHTML('beforeend', favoriteHTML);
+}
+
+<% if @favorite.errors.any? %>
+  refreshForm('<%= j render "favorites/form", gif: @gif, favorite: @favorite %>');
+<% else %>
+  addFavorite('<%= j render "favorites/show", favorite: @favorite %>');
+  refreshForm('<%= j render "favorites/form", gif: @gif, favorite: Favorite.new %>');
+<% end %>
