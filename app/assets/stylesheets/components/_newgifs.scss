@@ -1,5 +1,6 @@
 .newgifs {
-  margin-bottom: 36px;
+  margin-top: 46px;
+  margin-bottom: 46px;
 }
 
 .newgifs-row h4 {
@@ -12,8 +13,8 @@
 
 .newgifs-row .newgifs {
   border: 1px solid white;
-  margin-left: -70px;
-  margin-right: -70px;
+  margin-left: -10px;
+  margin-right: -10px;
   background: white;
 }
 
@@ -26,7 +27,6 @@
 .newgifs .form-actions .btn {
   background: $purple;
   color: white;
-  font-size: 18px;
   padding: 10px 80px;
   display: flex;
   text-align: center;
@@ -61,7 +61,7 @@
   content:"or drag and drop here";
   position: absolute;
   top: 30px;
-  right: 140px;
+  right: 132px;
   // display: flex;
   text-align: center;
   font-size:14px;
