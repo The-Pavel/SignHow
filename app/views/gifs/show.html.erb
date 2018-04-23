@@ -107,7 +107,7 @@
         <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-          placeholder: "https://www.signhow.co/gifs/id"
+          placeholder: "https://www.signhow.co/gifs/#{@gif.id}"
           %>
         </div>
         <% end %>
@@ -115,11 +115,12 @@
 
       </div>
     <div class="container-icons">
-      <a href="#"><i class="fa fa-facebook"></i></a>
+      <%= social_share_button_tag('Share to Facebook', :url => gif_path(@gif), desc: @gif.title) %>
+    <!--   <a href="#"><i class="fa fa-facebook"></i></a>
       <a href="#"><i class="fa fa-twitter"></i></a>
       <a href="#"><i class="fa fa-instagram"></i></a>
       <a href="#"><i class="fa fa-linkedin"></i></a>
-      <a href="#"><i class="fa fa-envelope"></i></a>
+      <a href="#"><i class="fa fa-envelope"></i></a> -->
     </div>
 
     <div class="container-sign-options">
