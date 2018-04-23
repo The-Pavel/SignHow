@@ -44,18 +44,19 @@
       <% if user_signed_in? %>
         <% if current_user.voted_up_on? @gif %>
           <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
-            <i class="fas fa-thumbs-down fa-lg"></i>
+            <i class="fas fa-thumbs-down fa-2x"></i>
             <% end %>
         <% elsif current_user.voted_down_on? @gif %>
           <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
-            <i class="fas fa-thumbs-up fa-lg"></i>
+          <%= @gif.get_upvotes.size %>
+            <i class="fas fa-thumbs-up fa-2x"></i>
             <% end %>
         <% else  %>
-          <%= link_to upvote_path(@gif), method: :post do %>
-            <a><i class="fas fa-thumbs-up fa-lg"></i></a>
+          <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
+            <a><i class="fas fa-thumbs-up fa-2x"></i></a>
             <% end %>
-          <%= link_to downvote_path(@gif), method: :post do %>
-            <i class="fas fa-thumbs-down fa-lg"></i>
+          <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
+            <i class="fas fa-thumbs-down fa-2x"></i>
             <% end %>
 
         <% end %>
