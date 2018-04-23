@@ -61,8 +61,36 @@
           <% gif.tag_list.each do |tag| %>
             <div class="tag"><%= tag %></div>
           <% end %>
-          <p class="upvotes">Upvotes: <%= gif.get_upvotes.size %></p>
-          <p class="downvotes">Downvotes: <%= gif.get_downvotes.size %></p>
+          <% if user_signed_in? %>
+            <% if current_user.voted_up_on? gif %>
+            <i class="fas fa-thumbs-up upvotes"></i>
+            <%= gif.get_upvotes.size %>
+
+            <%= link_to downvote_path(gif), class: "downvotes", method: :post do %>
+                <i class="fas fa-thumbs-down"></i>
+                <% end %>
+                <%= gif.get_downvotes.size %>
+            <% elsif current_user.voted_down_on? gif %>
+              <%= link_to upvote_path(gif), class: "upvotes", method: :post do %>
+
+                <i class="fas fa-thumbs-up"></i>
+                <% end %>
+                <%= gif.get_upvotes.size %>
+                <i class="fas fa-thumbs-down downvotes"></i>
+                <%= gif.get_downvotes.size %>
+
+            <% else  %>
+              <%= link_to upvote_path(gif), class: "upvotes", method: :post do %>
+                <i class="fas fa-thumbs-up"></i>
+                <% end %>
+                <%= gif.get_upvotes.size %>
+              <%= link_to downvote_path(gif), class: "downvotes", method: :post do %>
+                <i class="fas fa-thumbs-down"></i>
+                <% end %>
+                <%= gif.get_downvotes.size %>
+
+            <% end %>
+          <% end %>
 
       </div>
       <% end %>
