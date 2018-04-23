@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "About", about_path %>
+      <%= link_to "About", about_path, class: "about" %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signup" %>
       <%= link_to "Dashboard", dashboard_path(current_user), class: "signup" %>
       <%= link_to "Add a Sign", new_gif_path , class: "btn-purple" %>
@@ -32,7 +32,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "About", about_path %>
+      <%= link_to "About", about_path, class: "about"%>
       <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "signup" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "login" %>
       <%= link_to t(".sign_up", default: "Add a Sign"), new_user_registration_path, class: "addsign" %>
