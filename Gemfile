@@ -20,7 +20,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'omniauth-facebook'
-
+gem 'simple_form_fancy_uploads'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'acts_as_favoritor'
 gem 'cloudinary'
