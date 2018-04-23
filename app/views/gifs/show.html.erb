@@ -116,13 +116,15 @@
             <% end %>
 
 
-          </div>
-        <div class="container-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-envelope"></i></a>
+      <p>Embed URL</p>
+      <div class="embed-bar">
+        <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+          placeholder: "https://www.signhow.co/gifs/#{@gif.id}"
+          %>
+
         </div>
 
         <div class="container-sign-options">
@@ -136,6 +138,15 @@
         </div>
 
       </div>
+
+    <div class="container-icons">
+      <%= social_share_button_tag('Share to Facebook', :url => gif_path(@gif), desc: @gif.title) %>
+    <!--   <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-envelope"></i></a> -->
+
     </div>
 
   </section>
