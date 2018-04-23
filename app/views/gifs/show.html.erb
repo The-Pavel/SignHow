@@ -38,26 +38,33 @@
       <br>
       <p class="big-card-language"><%= @gif.language %></p>
 
-      <p class="btn-white"> <%= @gif.get_upvotes.size %></p>
-      <p class="btn-white"> <%= @gif.get_downvotes.size %></p>
-
       <% if user_signed_in? %>
         <% if current_user.voted_up_on? @gif %>
-          <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
+        <i class="fas fa-thumbs-up fa-2x upvotes"></i>
+        <%= @gif.get_upvotes.size %>
+
+        <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
             <i class="fas fa-thumbs-down fa-2x"></i>
             <% end %>
+            <%= @gif.get_downvotes.size %>
         <% elsif current_user.voted_down_on? @gif %>
           <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
-          <%= @gif.get_upvotes.size %>
+
             <i class="fas fa-thumbs-up fa-2x"></i>
             <% end %>
+            <%= @gif.get_upvotes.size %>
+            <i class="fas fa-thumbs-down fa-2x downvotes"></i>
+            <%= @gif.get_downvotes.size %>
+
         <% else  %>
           <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
-            <a><i class="fas fa-thumbs-up fa-2x"></i></a>
+            <i class="fas fa-thumbs-up fa-2x"></i>
             <% end %>
+            <%= @gif.get_upvotes.size %>
           <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
             <i class="fas fa-thumbs-down fa-2x"></i>
             <% end %>
+            <%= @gif.get_downvotes.size %>
 
         <% end %>
       <% end %>
