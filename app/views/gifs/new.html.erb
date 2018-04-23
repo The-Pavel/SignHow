@@ -12,11 +12,11 @@
           <%= f.input :title, required: true, autofocus: true %>
           <%= f.input :language, collection: [ "English", "Chinese", "Swahili", "German", "Russian", "Portuguese" ] %>
           <%= f.input :tag_list %>
-          <%= f.input :file %>
+          <%= f.input :file, label: "Please upload a file in the .gif format" %>
           <%= f.input :file_cache, as: :hidden %>
 
           <div class="form-actions">
-            <%= f.button :submit, "Upload a video" %>
+            <%= f.button :submit, "Submit" %>
           </div>
           <!--  Drag & Drop -->
           <div id="dropbox"><img src="https://image.flaticon.com/icons/svg/337/337936.svg" alt=""></div>
