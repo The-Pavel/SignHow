@@ -10,6 +10,11 @@
     padding-bottom: 15px;
 }
 
+.card-description {
+  height: 150px;
+  width: 100%;
+}
+
 .word {
     font-weight: bold;
     margin-left: 20px;
@@ -34,7 +39,7 @@
 
 .gif {
     width: 100%;
-    max-height: 240px;
+    height: 240px;
     object-fit: cover;
 
 }
