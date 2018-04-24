@@ -8,6 +8,7 @@
     position: relative;
     color: black;
     padding-bottom: 15px;
+
 }
 
 .card-description {
@@ -16,14 +17,18 @@
 }
 
 .word {
+    font-size: 35px;
     font-weight: bold;
     margin-left: 20px;
+    color: black;
 
 }
 
 .language {
+    font-size: 25px;
     font-weight: lighter;
     margin-left: 20px;
+    color: black;
 }
 
 
@@ -52,5 +57,12 @@
 .downvotes {
     margin-left:
     20px;
+}
+
+.container-cards {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 

@@ -1,3 +1,4 @@
+
 <div class="beta-banner">
   <br>
   <h4>~ We are still in beta, please excuse the testing. ~</h4>
@@ -40,12 +41,15 @@
 <br>
 
 
-<div class="container">
+<div>
   <br>
   <h4 class="discover-title">Discover new sign languages from around the world</h4>
   <br>
   <br>
 
+  <div class="container-cards">
+    <%= render 'card' %>
+  </div>
 
   <div class="row">
     <% @gifs.each do |gif| %>
@@ -93,10 +97,8 @@
             <% end %>
           <% end %>
         </div>
-
       </div>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</div>
+   </div>
+ </div>
+
+
