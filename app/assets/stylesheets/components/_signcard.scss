@@ -35,6 +35,8 @@
     color: $blue;
     margin-left: 20px;
     margin-top: 15px;
+    display: inline;
+    font-size: 13px;
 }
 
 .gif {
@@ -44,14 +46,22 @@
 
 }
 
-.upvotes {
-    margin-left:
-    20px;
+.upvotes-sm {
+  margin-left: 5px;
+  position: relative;
+
+
+
+
+
 }
 
-.downvotes {
-    margin-left:
-    20px;
+.downvotes-sm {
+  margin-left: 5px;
+  position: relative;
+
+
+
 }
 
 .container-cards {
@@ -59,5 +69,20 @@
     display: flex;
     flex-wrap: wrap;
 
+
+}
+
+.votes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info-container {
+  position: relative;
+  height: 135px;
 }
 
