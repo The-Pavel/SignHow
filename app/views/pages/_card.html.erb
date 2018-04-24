@@ -1,0 +1,52 @@
+<div class="row">
+  <% @gifs.each do |gif| %>
+  <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
+
+    <div class="card">
+    <%= link_to gif_path(gif) do %>
+      <%= cl_image_tag gif.file, class: "gif" %>
+      <div>
+        <h4 class="word"><b><%= gif.title %></b></h4>
+        <br>
+        <p class="language"><%= gif.language %></p>
+        <% gif.tag_list.each do |tag| %>
+          <div class="tag"><%= tag %></div>
+        <% end %>
+        <% end %>
+        <% if user_signed_in? %>
+          <% if current_user.voted_up_on? gif %>
+          <i class="fas fa-thumbs-up upvotes"></i>
+          <%= gif.get_upvotes.size %>
+
+          <%= link_to downvote_path(gif), class: "downvotes", method: :post do %>
+              <i class="fas fa-thumbs-down"></i>
+              <% end %>
+              <%= gif.get_downvotes.size %>
+          <% elsif current_user.voted_down_on? gif %>
+            <%= link_to upvote_path(gif), class: "upvotes", method: :post do %>
+
+              <i class="fas fa-thumbs-up"></i>
+              <% end %>
+              <%= gif.get_upvotes.size %>
+              <i class="fas fa-thumbs-down downvotes"></i>
+              <%= gif.get_downvotes.size %>
+
+          <% else  %>
+            <%= link_to upvote_path(gif), class: "upvotes", method: :post do %>
+              <i class="fas fa-thumbs-up"></i>
+              <% end %>
+              <%= gif.get_upvotes.size %>
+            <%= link_to downvote_path(gif), class: "downvotes", method: :post do %>
+              <i class="fas fa-thumbs-down"></i>
+              <% end %>
+              <%= gif.get_downvotes.size %>
+
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  <% end %>
+</div>
+
