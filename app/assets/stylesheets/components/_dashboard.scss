@@ -2,7 +2,7 @@
   background: #F2F2F2;
   display: flex;
   padding: 10px 10px 0 10px;
-  margin: 25px 20px;
+  margin: 28px 45px;
 }
 
 .tabs a {
@@ -40,6 +40,10 @@
 }
 
 .gif-tabs {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.tab-content {
+  height: 100vh;
 }
