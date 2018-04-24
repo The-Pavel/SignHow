@@ -1,0 +1,5 @@
+<% if current_user.favorited_by_type('Gif').include?(@gif) %>
+  <%= link_to "Unfavorite", unfavorite_path(@gif), class: "favorite-unactive", method: :post, remote: true %>
+<% else %>
+  <%= link_to "Favorite", favorite_path(@gif), class: "favorite-active", method: :post, remote: true %>
+<% end %>

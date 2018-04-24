@@ -13,14 +13,34 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     @gif.upvote_from current_user
     authorize @gif
-    redirect_to gif_path(@gif)
+      if current_user.voted_for? @gif
+        respond_to do |format|
+          format.html { redirect_to gif_path(@gif) }
+          format.js { render 'voted' }
+        end
+      else
+        respond_to do |format|
+          format.html { render 'gifs/show' }
+          format.js { render 'voted' }
+        end
+      end
   end
 
   def downvote
     @gif = Gif.find(params[:id])
     @gif.downvote_from current_user
     authorize @gif
-    redirect_to gif_path(@gif)
+      if current_user.voted_as_when_voted_for @gif
+        respond_to do |format|
+          format.html { redirect_to gif_path(@gif) }
+          format.js { render 'voted' }
+        end
+      else
+        respond_to do |format|
+          format.html { render 'gifs/show' }
+          format.js { render 'voted' }
+        end
+      end
   end
 
   def favorite
@@ -30,12 +50,12 @@ class GifsController < ApplicationController
       if @gif.favorited
         respond_to do |format|
           format.html { redirect_to gif_path(@gif) }
-          format.js
+          format.js { render 'favorite' }
         end
       else
         respond_to do |format|
           format.html { render 'gifs/show' }
-          format.js
+          format.js { render 'favorite' }
         end
       end
   end
@@ -44,21 +64,21 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     current_user.favorite(@gif).destroy
     authorize @gif
-      if @gif.favorited
+      if !@gif.favorited
         respond_to do |format|
           format.html { redirect_to gif_path(@gif) }
-          format.js
+          format.js { render 'favorite' }
         end
       else
         respond_to do |format|
           format.html { render 'gifs/show' }
-          format.js
+          format.js { render 'favorite' }
         end
       end
   end
 
   def index
-    @gifs = Gif.all
+    @gifs = Gif.last(3)
     authorize @gifs
   end
 
