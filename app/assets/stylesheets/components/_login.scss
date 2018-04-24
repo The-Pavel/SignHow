@@ -140,3 +140,10 @@ input:-webkit-autofill:focus {
   font-size: 10px;
   margin-top: 2.5px;
 }
+
+.btn :hover {
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  background: #CE4ED4;
+}

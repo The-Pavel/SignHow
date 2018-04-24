@@ -12,8 +12,8 @@
       <!-- Links when logged in -->
       <%= link_to "About", about_path, class: "about" %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "signup" %>
-      <%= link_to "Dashboard", dashboard_path(current_user), class: "signup" %>
-      <%= link_to "Add a Sign", new_gif_path , class: "btn-purple" %>
+      <%= link_to "Dashboard", dashboard_path(current_user), class: "dashboard" %>
+      <%= link_to "Add a Sign", new_gif_path , class: "addsign" %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-signhow-item">
         <div class="dropdown">
