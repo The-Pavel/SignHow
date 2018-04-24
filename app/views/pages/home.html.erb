@@ -5,7 +5,7 @@
   <br>
 </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60');">
   <div class="banner-content">
     <h2>Welcome to the Global Sign Language Dictionary</h2>
@@ -17,18 +17,18 @@
         params[:query],
         class: "form-control",
           placeholder: "Search by Word or Phrase"
-        %>
-      </div>
-     <!--  </div> -->
-      <div class="search-2">
-        <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
-      </div>
-      <div class="search-3">
+          %>
+        </div>
+        <!--  </div> -->
+        <div class="search-2">
+          <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
+        </div>
+        <div class="search-3">
 
-        <%= button_tag type: 'submit', class: "searchbutton" do %>
-            <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+          <%= button_tag type: 'submit', class: "searchbutton" do %>
+          <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
           <% end %>
-        <% end %>
+          <% end %>
 
 
       </div>
@@ -38,19 +38,19 @@
   </div>
 </div>
 
-<br>
-
-
-<div>
-  <br>
-  <h4 class="discover-title">Discover new sign languages from around the world</h4>
-  <br>
   <br>
 
-  <div class="container-cards">
-    <%= render 'card' %>
+
+  <div>
+    <br>
+    <h4 class="discover-title">Discover new sign languages from around the world</h4>
+    <br>
+    <br>
+
+    <div class="container-cards">
+      <%= render 'card' %>
+    </div>
+
+
+    </div>
   </div>
-
-</div>
-
-

@@ -1,62 +1,20 @@
 <div class="row">
   <% @gifs.each do |gif| %>
-  <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
-
-    <div class="card">
-    <%= link_to gif_path(gif) do %>
-      <%= cl_image_tag gif.file, class: "gif" %>
-      <div class= "card-info-container">
-        <h4 class="word"><b><%= gif.title %></b></h4>
-        <br>
-        <p class="language"><%= gif.language %></p>
-        <% gif.tag_list.each do |tag| %>
-          <div class="tag"><%= tag %></div>
-        <% end %>
-        <% end %>
-        <div class="votes">
-          <div>
-            <%= gif.get_upvotes.size %>
-          <% if user_signed_in? %>
-            <% if current_user.voted_up_on? gif %>
-            <i class="fas fa-thumbs-up upvotes-sm"></i>
-          </div>
-
-          <div>
-            <%= gif.get_downvotes.size %>
-            <%= link_to downvote_path(gif), class: "downvotes-sm", method: :post do %>
-                <i class="fas fa-thumbs-down"></i>
-                <% end %>
-          </div>
-            <% elsif current_user.voted_down_on? gif %>
-          <div>
-              <%= gif.get_upvotes.size %>
-              <%= link_to upvote_path(gif), class: "upvotes-sm", method: :post do %>
-
-                <i class="fas fa-thumbs-up"></i>
-                <% end %>
-                <%= gif.get_downvotes.size %>
-                <i class="fas fa-thumbs-down downvotes-sm"></i>
-          </div>
-            <% else  %>
-          <div>
-                <%= gif.get_upvotes.size %>
-              <%= link_to upvote_path(gif), class: "upvotes-sm", method: :post do %>
-                <i class="fas fa-thumbs-up"></i>
-          </div>
-                <% end %>
-          <div>
-                <%= gif.get_downvotes.size %>
-              <%= link_to downvote_path(gif), class: "downvotes-sm", method: :post do %>
-                <i class="fas fa-thumbs-down"></i>
-                <% end %>
-          </div>
+    <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
+      <div class="card">
+        <%= link_to gif_path(gif) do %>
+          <%= cl_image_tag gif.file, class: "gif" %>
+          <div class= "card-info-container">
+            <h4 class="word"><b><%= gif.title %></b></h4>
+            <br>
+            <p class="language"><%= gif.language %></p>
+            <% gif.tag_list.each do |tag| %>
+              <div class="tag"><%= tag %></div>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
-
-  </div>
   <% end %>
 </div>
 

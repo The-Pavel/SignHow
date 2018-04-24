@@ -41,34 +41,9 @@
         <p class="big-card-language"><%= @gif.language %></p>
 
         <% if user_signed_in? %>
-          <% if current_user.voted_up_on? @gif %>
-          <i class="fas fa-thumbs-up fa-lg upvotes"></i>
-          <%= @gif.get_upvotes.size %>
-
-          <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
-              <i class="fas fa-thumbs-down fa-lg"></i>
-              <% end %>
-              <%= @gif.get_downvotes.size %>
-          <% elsif current_user.voted_down_on? @gif %>
-            <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
-
-              <i class="fas fa-thumbs-up fa-lg"></i>
-              <% end %>
-              <%= @gif.get_upvotes.size %>
-              <i class="fas fa-thumbs-down fa-lg downvotes"></i>
-              <%= @gif.get_downvotes.size %>
-
-          <% else  %>
-            <%= link_to upvote_path(@gif), class: "upvotes", method: :post do %>
-              <i class="fas fa-thumbs-up fa-lg"></i>
-              <% end %>
-              <%= @gif.get_upvotes.size %>
-            <%= link_to downvote_path(@gif), class: "downvotes", method: :post do %>
-              <i class="fas fa-thumbs-down fa-lg"></i>
-              <% end %>
-              <%= @gif.get_downvotes.size %>
-
-          <% end %>
+        <div id="voting-action">
+          <%= render 'voted' %>
+        </div>
         <% end %>
 
         <% @gif.tags.each do |tag| %>
@@ -92,11 +67,10 @@
         <div class="container-sign-options">
 
           <% if user_signed_in? %>
-            <% if current_user.favorited_by_type('Gif').include?(@gif) %>
-              <%= link_to "Unfavorite", unfavorite_path(@gif), class: "btn-purple", method: :post %>
-            <% else %>
-              <%= link_to "Favorite", favorite_path(@gif), class: "btn-purple", method: :post %>
-            <% end %>
+            <div id="favorite-action">
+              <%= render 'favorited' %>
+            </div>
+
           <% end %>
           <a class="btn-blue">download</a>
           <a class="btn-white">inappropriate?</a>
