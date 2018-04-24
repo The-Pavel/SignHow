@@ -102,28 +102,18 @@
           <a class="btn-white">inappropriate?</a>
 
         </div>
-        <div class="embed-info" >
+        <div class="embed-info">
 
-          <p>Embed URL</p>
-          <div class="embed-bar">
-            <%= form_tag search_path, method: :get do %>
-            <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-              placeholder: "https://www.signhow.co/gifs/id"
-              %>
-            </div>
-            <% end %>
+      <p>Embed URL</p>
+      <div class="embed-bar">
+        <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+          placeholder: "https://www.signhow.co/gifs/#{@gif.id}"
+          %>
 
-
-          </div>
-        <div class="container-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-envelope"></i></a>
-        </div>
+      </div>
 
         <div class="container-sign-options">
           <div class</div>
@@ -136,9 +126,22 @@
         </div>
 
       </div>
+
+    <div class="container-icons">
+      <%= social_share_button_tag('Share with friends', :url => gif_path(@gif), desc: @gif.title) %>
+    <!--   <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-envelope"></i></a> -->
+
     </div>
 
   </section>
+
+
+
+
 
     <% @gifs.each do |gif| %>
       <o><%= gif.title %></o>
@@ -150,4 +153,4 @@
     <% end  %>
 
 </div>
-
+<% end %>
