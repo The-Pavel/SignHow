@@ -1,3 +1,5 @@
+require 'tempfile'
+
 class GifsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
@@ -7,6 +9,11 @@ class GifsController < ApplicationController
     # else
       # @gifs = Gif.all
     # end
+  # end
+  # def convert!
+  #   # `ffmpeg -i #{file} -filter_complex "fps=8,scale=-1:320,setsar=1,palettegen" #{palette_path}`
+  #   # `ffmpeg -i #{file} -i #{palette_path} -filter_complex "[0]fps=10,scale=-1:340,setsar=1[x];[x][1:v]paletteuse" #{gif_path}`
+  #   `ffmpeg -i #{file} #{file[0..-4]+'.gif'}`
   # end
 
   def upvote
@@ -98,10 +105,23 @@ class GifsController < ApplicationController
     @gif = Gif.new(gif_params)
     @gif.user = current_user
     authorize @gif
-    if @gif.save
-      redirect_to dashboard_path(current_user)
+    if @gif.file.path[-3..-1] == 'gif'
+      if @gif.save
+        redirect_to dashboard_path(current_user)
+      else
+        render :new
+      end
     else
-      render :new
+      file = Tempfile.new('foo')
+      file.close
+      `ffmpeg -i #{@gif.file.path} #{file.path}.gif`
+      @gif.file = File.open("#{file.path}.gif")
+      if @gif.save
+        file.unlink
+        redirect_to dashboard_path(current_user)
+      else
+        render :new
+      end
     end
   end
 
