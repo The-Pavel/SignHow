@@ -86,12 +86,14 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     @gifs = @gif.find_related_tags.to_a
     authorize @gif
+    @title = "Signs"
   end
 
   def new
     @gif = Gif.new
     @gif.user = current_user
     authorize @gif
+    @title = "Add a Sign"
   end
 
   def create
