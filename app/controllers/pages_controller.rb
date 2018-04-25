@@ -4,6 +4,15 @@ class PagesController < ApplicationController
 
   def home
     @gifs = Gif.order(cached_votes_up: :desc).last(6)
+    @title = "Home"
+  end
+
+  def about
+    @title = "About"
+  end
+
+  def how_it_works
+    @title = "How it Works"
   end
 
   def search
@@ -16,11 +25,13 @@ class PagesController < ApplicationController
     end
     @query = params[:query]
     @query_language = params[:query_language]
+    @title = "Search"
   end
 
   def dashboard
     @user = User.find(params[:id])
     @gifs = Gif.where('gifs.user_id = ?', current_user.id)
     @favorites = @user.favorited_by_type 'Gif'
+    @title = "Dashboard"
   end
 end
