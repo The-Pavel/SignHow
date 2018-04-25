@@ -8,7 +8,7 @@ class Gif < ApplicationRecord
   acts_as_votable
   acts_as_taggable_on :tags
 
-  LANGUAGES = ["Select Language",
+  LANGUAGES = [
 "Adamorobe Sign Language (Ghana) - [ads]",
 "Afghan Sign Language - [afg]",
 "Al-Sayyid Bedouin Sign Language (Israel) - [syy]",

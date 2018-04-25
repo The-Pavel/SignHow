@@ -21,7 +21,7 @@
         </div>
         <!--  </div> -->
         <div class="search-2">
-          <%= select_tag :query_language, options_for_select(Gif::LANGUAGES) %>
+          <%= select_tag :query_language, options_for_select(Gif::LANGUAGES), :include_blank => true, :prompt => "Select a Language" %>
         </div>
         <div class="search-3">
 
@@ -46,7 +46,7 @@
     <h4 class="discover-title">Discover new sign languages from around the world</h4>
     <br>
     <br>
-    
+
     <div class="container-cards">
       <!-- renders six cards -->
       <%= render 'card' %>
