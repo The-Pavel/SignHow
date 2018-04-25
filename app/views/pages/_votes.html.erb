@@ -7,33 +7,33 @@
       </div>
       <div>
         <%= gif.get_downvotes.size %>
-        <%= link_to downvote_path(gif), class: "downvotes-sm", method: :post do %>
-          <i class="fas fa-thumbs-down"></i>
+        <%= link_to downvote_path(gif),  method: :post do %>
+          <i class="fas fa-thumbs-down downvotes-sm"></i>
         <% end %>
       </div>
     <% elsif current_user.voted_down_on? gif %>
       <div>
         <%= gif.get_upvotes.size %>
-        <%= link_to upvote_path(gif), class: "upvotes-sm", method: :post do %>
-        <i class="fas fa-thumbs-up"></i>
+        <%= link_to upvote_path(gif),  method: :post do %>
+        <i class="fas fa-thumbs-up upvotes-sm"></i>
         <% end %>
       </div>
       <div>
         <%= gif.get_downvotes.size %>
         <i class="fas fa-thumbs-down downvotes-sm"></i>
-s
+
       </div>
     <% else  %>
       <div>
         <%= gif.get_upvotes.size %>
-        <%= link_to upvote_path(gif), class: "upvotes-sm", method: :post do %>
-        <i class="fas fa-thumbs-up"></i>
+        <%= link_to upvote_path(gif),  method: :post do %>
+        <i class="fas fa-thumbs-up upvotes-sm"></i>
         <% end %>
       </div>
       <div>
         <%= gif.get_downvotes.size %>
-        <%= link_to downvote_path(gif), class: "downvotes-sm", method: :post do %>
-        <i class="fas fa-thumbs-down"></i>
+        <%= link_to downvote_path(gif),  method: :post do %>
+        <i class="fas fa-thumbs-down downvotes-sm"></i>
         <% end %>
       </div>
     <% end %>
