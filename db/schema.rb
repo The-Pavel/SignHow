@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20180424095449) do
     t.inet "last_sign_in_ip"
     t.string "first_name"
     t.string "last_name"
-    t.boolean "is_teacher"
+    t.boolean "is_teacher", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
