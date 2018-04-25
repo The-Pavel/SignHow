@@ -1,43 +1,44 @@
 <div class="container">
-  <div class="row">
-    <div class="col col-xs-12 col-sm-4 col-md-4 col-sm-offset-4">
-      <h3>Displaying results for:</h3>
-      <h4>"<%= @query %>"</h4>
-      <h4>"<%= @query_language %>"</h4>
-      <br>
+
+  <h3>Displaying results for:</h3>
+  <h4>"<%= @query %>"</h4>
+  <h4>"<%= @query_language %>"</h4>
+
+
+  <div class="search">
+    <div class="search-1">
       <%= form_tag search_path, method: :get do %>
-      <%= label_tag "Search again?" %>
       <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-        placeholder: ""
+        placeholder: "Search by Word or Phrase"
         %>
-        <% end %>
-        <br>
+    </div>
+      <!--  </div> -->
+    <div class="search-2">
+
+      <%= select_tag :query_language, options_for_select(Gif::LANGUAGES), :include_blank => true, :prompt => "Select a Language" %>
+
+    </div>
+    <div class="search-3">
+
+      <%= button_tag type: 'submit', class: "searchbutton" do %>
+      <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+      <% end %>
+      <% end %>
+
 
     </div>
   </div>
-</div>
 
-<br>
-<br>
-<div class="container">
-  <div class="row">
-    <% @gifs.each do |gif| %>
-    <div class="col col-xs-12 col-sm-4 col-md-4">
 
-      <div class="card">
 
-        <%= cl_image_tag gif.file, class: "gif" %>
-          <h4 class="word"><b><%= gif.title %></b></h4>
-          <br>
-          <p class="language"><%= gif.language %></p>
-          <% gif.tag_list.each do |tag| %>
-            <div class="tag"><%= tag %></div>
-          <% end %>
-      </div>
-    </div>
-    <% end %>
+
+  <div>
+  <%= render 'card' %>
   </div>
+
 </div>
+
+
 
