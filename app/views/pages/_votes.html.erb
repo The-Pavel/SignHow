@@ -1,0 +1,43 @@
+<div class="votes">
+  <% if user_signed_in? %>
+    <% if current_user.voted_up_on? gif %>
+      <div>
+        <%= gif.get_upvotes.size %>
+        <i class="fas fa-thumbs-up upvotes-sm"></i>
+      </div>
+      <div>
+        <%= gif.get_downvotes.size %>
+        <%= link_to downvote_path(gif), class: "downvotes-sm", method: :post do %>
+          <i class="fas fa-thumbs-down"></i>
+        <% end %>
+      </div>
+    <% elsif current_user.voted_down_on? gif %>
+      <div>
+        <%= gif.get_upvotes.size %>
+        <%= link_to upvote_path(gif), class: "upvotes-sm", method: :post do %>
+        <i class="fas fa-thumbs-up"></i>
+        <% end %>
+      </div>
+      <div>
+        <%= gif.get_downvotes.size %>
+        <i class="fas fa-thumbs-down downvotes-sm"></i>
+s
+      </div>
+    <% else  %>
+      <div>
+        <%= gif.get_upvotes.size %>
+        <%= link_to upvote_path(gif), class: "upvotes-sm", method: :post do %>
+        <i class="fas fa-thumbs-up"></i>
+        <% end %>
+      </div>
+      <div>
+        <%= gif.get_downvotes.size %>
+        <%= link_to downvote_path(gif), class: "downvotes-sm", method: :post do %>
+        <i class="fas fa-thumbs-down"></i>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
