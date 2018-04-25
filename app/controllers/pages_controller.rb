@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     if params[:query].present? || params[:query_language].present?
       sql_query = "title ILIKE :query"
       sql_query_language = "language ILIKE :query_language"
-      @gifs = Gif.where("title ILIKE ?" , "#{params[:query]}%").or(Gif.where("language ILIKE ?" , "%#{params[:query_language]}%")).order(cached_votes_up: :desc)
+      @gifs = Gif.where("title ILIKE ?" , "%#{params[:query]}%").where("language ILIKE ?", "%#{params[:query_language]}%").order(cached_votes_up: :desc)
     else
       @gifs = Gif.order(cached_votes_up: :desc)
     end
