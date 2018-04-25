@@ -1,11 +1,12 @@
 
+
 <div class="beta-banner">
   <br>
   <h4>~ We are still in beta, please excuse the testing. ~</h4>
   <br>
 </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="banner" style="background-image: url('https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60');">
   <div class="banner-content">
     <h2>Welcome to the Global Sign Language Dictionary</h2>
@@ -21,7 +22,9 @@
         </div>
         <!--  </div> -->
         <div class="search-2">
+
           <%= select_tag :query_language, options_for_select(Gif::LANGUAGES), :include_blank => true, :prompt => "Select a Language" %>
+
         </div>
         <div class="search-3">
 
@@ -41,6 +44,7 @@
   <br>
 
 
+
   <div>
     <br>
     <h4 class="discover-title">Discover new sign languages from around the world</h4>
@@ -48,58 +52,9 @@
     <br>
 
     <div class="container-cards">
-      <!-- renders six cards -->
       <%= render 'card' %>
     </div>
-    <!-- <div class="row">
-      <% @gifs.each do |gif| %>
-      <div class="col col-xs-12 col-sm-8 col-md-4">
 
-        <%= link_to gif_path(gif) do %>
-        <div class="card">
-          <%= cl_image_tag gif.file, class: "gif" %>
 
-          <div class="card-description">
-            <h4 class="word"><b><%= gif.title %></b></h4>
-            <br>
-            <p class="language"><%= gif.language %></p>
-            <% gif.tag_list.each do |tag| %>
-            <div class="tag"><%= tag %></div>
-            <% end %>
-            <% if user_signed_in? %>
-            <% if current_user.voted_up_on? gif %>
-            <i class="fas fa-thumbs-up upvotes"></i>
-            <%= gif.get_upvotes.size %>
 
-            <%= link_to downvote_path(gif), class: "downvotes", method: :post do %>
-            <i class="fas fa-thumbs-down"></i>
-            <% end %>
-            <%= gif.get_downvotes.size %>
-            <% elsif current_user.voted_down_on? gif %>
-            <%= link_to upvote_path(gif), class: "upvotes", method: :post do %>
 
-            <i class="fas fa-thumbs-up"></i>
-            <% end %>
-            <%= gif.get_upvotes.size %>
-            <i class="fas fa-thumbs-down downvotes"></i>
-            <%= gif.get_downvotes.size %>
-
-            <% else  %>
-            <%= link_to upvote_path(gif), class: "upvotes", method: :post do %>
-            <i class="fas fa-thumbs-up"></i>
-            <% end %>
-            <%= gif.get_upvotes.size %>
-            <%= link_to downvote_path(gif), class: "downvotes", method: :post do %>
-            <i class="fas fa-thumbs-down"></i>
-            <% end %>
-            <%= gif.get_downvotes.size %>
-
-            <% end %>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
-      </div>
-      <% end %> -->
-    </div>
-  </div>
