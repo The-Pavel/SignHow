@@ -152,7 +152,9 @@
       "Zimbabwe Sign Language - [zib]",
       ] %>
         <%= f.input :tag_list %>
-        <%= f.input :file %>
+        <%= f.file_field :file, id: "avatar-upload" %>
+          <div class="form-group">
+            <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/>
         <%= f.input :file_cache, as: :hidden %>
       </div>
 
