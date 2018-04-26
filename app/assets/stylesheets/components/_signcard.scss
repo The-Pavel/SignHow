@@ -8,6 +8,7 @@
     position: relative;
     color: black;
     padding-bottom: 15px;
+
 }
 
 .card-link{
@@ -30,12 +31,14 @@
     font-size: 28px;
     font-weight: bold;
     color: black;
-    margin-top: 18px;
+    margin-top: 14px;
+
 }
 
 .card-language {
     font-size: 16px;
     font-weight: lighter;
+
 
     color: black;
 }
@@ -47,13 +50,12 @@
 
 .tag {
     color: $blue;
-    margin-right: 5px;
-    margin-top: 15px;
-    display: inline;
+
     font-size: 16px;
     border: 1px solid $blue;
     border-radius: 5px;
-    padding: 4px 4px
+    padding: 4px 4px;
+    position: absolute;
 }
 
 .gif {
@@ -106,8 +108,8 @@
 
 .card-info-container {
   position: relative;
-  // height: 135px;
   padding: 20px;
+  margin-bottom: 30px;
 }
 
 .card-title {
