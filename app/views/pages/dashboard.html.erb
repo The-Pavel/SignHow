@@ -31,11 +31,10 @@
                 <h4 class="word"><b><%= favorite.title %></b></h4>
                 <br>
                 <p class="language"><%= favorite.language %></p>
-                <% @gifs.each do |gif| %>
-                  <% gif.tags.each do |tag| %>
-                    <div class="tag"><%= tag.name %></div>
+                  <% favorite.tag_list.each do |tag| %>
+                    <div class="tag"><%= tag %></div>
                   <% end %>
-                <% end %>
+
               </div>
             <% end %>
           </div>
@@ -49,7 +48,7 @@
       <div class="row">
         <br>
         <h4>My Signs</h4>
-        <% @user.gifs.each do |gif| %>
+        <% @gifs.each do |gif| %>
           <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
             <%= link_to gif_path(gif) do %>
               <div class="card">
@@ -57,11 +56,10 @@
                 <h4 class="word"><b><%= gif.title %></b></h4>
                 <br>
                 <p class="language"><%= gif.language %></p>
-                <% @gifs.each do |gif| %>
                   <% gif.tag_list.each do |tag| %>
                     <div class="tag"><%= tag %></div>
                   <% end %>
-                <% end %>
+
               </div>
             <% end %>
             <%= link_to "Edit GIF", edit_gif_path(gif) %>
