@@ -50,6 +50,10 @@ class ApplicationPolicy
     true
   end
 
+  def tagged?
+    true
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end

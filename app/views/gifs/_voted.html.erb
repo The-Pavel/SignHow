@@ -1,28 +1,41 @@
-<% if current_user.voted_up_on? @gif %>
-<i class="fas fa-thumbs-up fa-lg upvotes"></i>
-<%= @gif.get_upvotes.size %>
+<div class="votes">
+  <% if user_signed_in? %>
+    <% if current_user.voted_up_on? @gif %>
+      <div>
+        <%= @gif.get_upvotes.size %>
+        <i class="fas fa-thumbs-up upvotes-sm"></i>
+      </div>
+      <div>
+        <%= @gif.get_downvotes.size %>
+        <%= link_to downvote_path(@gif),  method: :post do %>
+          <i class="fas fa-thumbs-down downvotes-sm"></i>
+        <% end %>
+      </div>
+    <% elsif current_user.voted_down_on? @gif %>
+      <div>
+        <%= @gif.get_upvotes.size %>
+        <%= link_to upvote_path(@gif),  method: :post do %>
+        <i class="fas fa-thumbs-up upvotes-sm"></i>
+        <% end %>
+      </div>
+      <div>
+        <%= @gif.get_downvotes.size %>
+        <i class="fas fa-thumbs-down downvotes-sm"></i>
 
-<%= link_to downvote_path(@gif), class: "downvotes", method: :post, remote: true do %>
-    <i class="fas fa-thumbs-down fa-lg"></i>
+      </div>
+    <% else  %>
+      <div>
+        <%= @gif.get_upvotes.size %>
+        <%= link_to upvote_path(@gif),  method: :post do %>
+        <i class="fas fa-thumbs-up upvotes-sm"></i>
+        <% end %>
+      </div>
+      <div>
+        <%= @gif.get_downvotes.size %>
+        <%= link_to downvote_path(@gif),  method: :post do %>
+        <i class="fas fa-thumbs-down downvotes-sm"></i>
+        <% end %>
+      </div>
     <% end %>
-    <%= @gif.get_downvotes.size %>
-<% elsif current_user.voted_down_on? @gif %>
-  <%= link_to upvote_path(@gif), class: "upvotes", method: :post, remote: true do %>
-
-  <i class="fas fa-thumbs-up fa-lg"></i>
-    <% end %>
-    <%= @gif.get_upvotes.size %>
-    <i class="fas fa-thumbs-down fa-lg downvotes"></i>
-    <%= @gif.get_downvotes.size %>
-
-<% else  %>
-  <%= link_to upvote_path(@gif), class: "upvotes", method: :post, remote: true do %>
-    <i class="fas fa-thumbs-up fa-lg"></i>
-    <% end %>
-    <%= @gif.get_upvotes.size %>
-  <%= link_to downvote_path(@gif), class: "downvotes", method: :post, remote: true do %>
-    <i class="fas fa-thumbs-down fa-lg"></i>
-    <% end %>
-    <%= @gif.get_downvotes.size %>
-
-<% end %>
+  <% end %>
+</div>

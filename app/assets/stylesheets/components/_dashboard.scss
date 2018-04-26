@@ -55,3 +55,40 @@
 .tab-pane fade in active {
   height: 100vh;
 }
+
+.profile-row {
+  justify-content: center;
+  background-color: white;
+  padding: 50px;
+  line-height: 50px;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.profile-content {
+  // position: absolute;
+
+}
+
+
+.dashboard-avatar {
+  height: 150px;
+  border: 2px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.wrapper{
+  width: 90%;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+.back-dashboard-cards{
+  background: #38B9C5;
+  background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+  background: -o-linear-gradient(45deg,  #CC77E2);
+  background: linear-gradient(45deg,  #38B9C5);
+}
