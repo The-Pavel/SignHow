@@ -33,10 +33,13 @@
             <br>
             <p class="language"><%= favorite.language %></p>
             <% favorite.tag_list.each do |tag| %>
+
             <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
+
             <% end %>
 
           </div>
+
           <div class="votes">
             <% if user_signed_in? %>
             <% if current_user.voted_up_on? favorite %>
@@ -78,6 +81,7 @@
             <% end %>
             <% end %>
           </div>
+
         </div>
         <% end %>
       </div>
