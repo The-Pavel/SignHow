@@ -119,7 +119,26 @@
 
   </section>
 
+  <div class="row">
+    <div class="col col-xs-12 col-sm-6 col-md-4">
+        <div class="big-card">
+        <% @gifs.each do |gif| %>
+          <%= cl_image_tag @gif.file, class: "big-card-gif" %>
 
+          <div class= "card-info-container">
+            <h4 class="big-card-word"><b><%= @gif.title %></b></h4>
+            <br>
+            <p class="language"><%= @gif.language %></p>
+            <% @gif.tag_list.each do |tag| %>
+              <div class="tag"><%= tag %></div>
+            <% end %>
+          <% end %>
+
+
+          </div>
+        </div>
+    </div>
+  </div>
 
 
 
