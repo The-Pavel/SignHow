@@ -62,7 +62,7 @@
         <div class="info-content">
           <p>Gif ID: <%= @gif.id %></p>
           <p>Upload Date: <%= @gif.created_at.strftime("%d %b. %Y") %></p>
-          <p>Created by:<%= @gif.user.first_name %> <%= @gif.user.last_name %></p>
+          <p>Created by: <%= @gif.user.first_name %> <%= @gif.user.last_name %></p>
         </div>
         <div class="container-sign-options">
 
@@ -108,6 +108,7 @@
 
   </section>
 
+
   <div class="section-title"><h4>Related Signs</h4></div>
 
   <div class="row">
@@ -133,4 +134,3 @@
 
 
 </div>
-
