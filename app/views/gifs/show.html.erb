@@ -53,6 +53,7 @@
       </div>
 
 
+
       <div class="col-xs-12 col-sm-6 col-md-8">
         <div class="container-info">
           <div class="info-content">
@@ -61,6 +62,7 @@
             <p>Created by:<%= @gif.user.first_name %> <%= @gif.user.last_name %></p>
           </div>
           <div class="container-sign-options">
+
 
             <% if user_signed_in? %>
             <!-- TODO: FIX THIS -->
@@ -107,6 +109,8 @@
 
 
 
+
+
     <% @gifs.each do |gif| %>
       <div class="row">
 
@@ -133,3 +137,4 @@
 
   </div> <!-- container -->
 </div> <!-- show page -->
+
