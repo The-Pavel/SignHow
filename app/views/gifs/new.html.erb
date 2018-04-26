@@ -2,7 +2,7 @@
   <div class="newgifs-row">
     <div class="col col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
 
-      <h4><strong>Add a new gif</strong></h4>
+      <h4><strong>Add a new sign</strong></h4>
 
       <div class="newgifs">
         <%= simple_form_for(@gif) do |f| %>
@@ -154,7 +154,7 @@
         "Zambian Sign Language - [zsl]",
         "Zimbabwe Sign Language - [zib]",
         ] %>
-          <%= f.input :tag_list %>
+          <%= f.input :tag_list, label: "Please input tags separated by commas" %>
           <%= f.file_field :file, id: "avatar-upload" %>
           <div class="form-group">
             <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/>

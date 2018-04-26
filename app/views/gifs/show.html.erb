@@ -34,21 +34,26 @@
 
   <div class="row">
     <div class="col col-xs-12 col-sm-6 col-md-4">
-      <div class="big-card">
-        <%= cl_image_tag @gif.file, class: "big-card-gif" %>
-        <h4 class="big-card-word"><b><%= @gif.title %></b></h4>
-        <br>
-        <p class="big-card-language"><%= @gif.language %></p>
+        <div class="big-card">
 
-        <% if user_signed_in? %>
-        <div id="voting-action">
-          <%= render 'voted' %>
-        </div>
-        <% end %>
+          <%= cl_image_tag @gif.file, class: "big-card-gif" %>
 
-        <% @gif.tags.each do |tag| %>
-          <div class="big-card-tag"><%= tag.name %></div>
-        <% end %>
+          <div class= "card-info-container">
+            <h4 class="big-card-word"><b><%= @gif.title %></b></h4>
+            <br>
+            <p class="language"><%= @gif.language %></p>
+            <% @gif.tag_list.each do |tag| %>
+              <div class="tag"><%= tag %></div>
+            <% end %>
+
+            <% if user_signed_in? %>
+            <div id="voting-action">
+              <%= render 'voted' %>
+            </div>
+            <% end %>
+          </div>
+
+
 
        <!--  <p class="big-card-tag">#tags</p> -->
 
@@ -67,7 +72,8 @@
         <div class="container-sign-options">
 
           <% if user_signed_in? %>
-            <div id="favorite-action">
+          <!-- TODO: FIX THIS -->
+            <div id="favorite-action" style="margin-top: 12px;">
               <%= render 'favorited' %>
             </div>
 
@@ -86,6 +92,7 @@
         class: "form-control",
           placeholder: "https://www.signhow.co/gifs/#{@gif.id}"
           %>
+        <% end %>
 
       </div>
 
@@ -113,18 +120,29 @@
 
   </section>
 
+  <div class="tagged-results"><h4>Tagged Results</h4></div>
 
-
-
-
+  <div class="row">
     <% @gifs.each do |gif| %>
-      <o><%= gif.title %></o>
-      <p><%= gif.language %></p>
-      <p><%= cl_image_tag gif.file %></p>
-      <% gif.tag_list.each do |tag| %>
-        <div class="tag"><%= tag %></div>
-      <% end %>
-    <% end  %>
+      <div class="col col-xs-12 col-sm-3">
+        <div class="card">
+          <%= link_to gif_path(gif), class: "card-link" do %>
+          <%= cl_image_tag gif.file, class: "gif" %>
+          <% end %>
+
+          <div class= "card-info-container">
+            <h4 class="word"><b><%= gif.title %></b></h4>
+            <br>
+            <p class="language"><%= gif.language %></p>
+            <% gif.tag_list.each do |tag| %>
+            <div class="tag"><%= tag %></div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 
 </div>
-<% end %>
+
