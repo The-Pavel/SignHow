@@ -78,10 +78,12 @@
                   <% end %>
                 </div>
               </div>
-                <p class="card-language"><%= favorite.language %></p>
+              <p class="card-language"><%= favorite.language %></p>
+              <div class= "tag-container">
                 <% favorite.tag_list.each do |tag| %>
                   <div class="tag"><%= tag %></div>
                 <% end %>
+              </div>
 
             </div>
 
@@ -149,10 +151,12 @@
                   <% end %>
                 </div>
               </div>
-                <p class="card-language"><%= gif.language %></p>
+              <p class="card-language"><%= gif.language %></p>
+              <div class="tag-container">
                 <% gif.tag_list.each do |tag| %>
                   <div class="tag"><%= tag %></div>
                 <% end %>
+              </div>
             </div>
             <div class= "my-cards-edit-delete">
 
