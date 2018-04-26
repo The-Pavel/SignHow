@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def home
-    @gifs = Gif.order(cached_votes_up: :desc).last(6)
+    @gifs = Gif.order(cached_votes_up: :desc).first(6)
     @title = "Home"
   end
 
@@ -30,7 +30,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = User.find(params[:id])
-    @gifs = Gif.where('gifs.user_id = ?', current_user.id)
+    # @gifs = Gif.order(cached_votes_up: :desc)
+    @gifs = current_user.gifs
     @favorites = @user.favorited_by_type 'Gif'
     @title = "Dashboard"
   end
