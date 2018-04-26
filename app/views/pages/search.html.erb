@@ -1,8 +1,8 @@
 <div class="container">
 
   <h3>Displaying results for:</h3>
-  <h4>Word or Phrase: <%= @query %></h4>
-  <h4>Language: <%= @query_language %></h4>
+  <h4 class="section-title">Word or Phrase: <%= @query %></h4>
+  <h4 class="section-title">Language: <%= @query_language %></h4>
 
 
   <div class="search">
@@ -34,8 +34,8 @@
 
 
 
-  <div>
-  <%= render 'card' %>
+  <div class="container-cards">
+    <%= render 'card' %>
   </div>
 
 </div>

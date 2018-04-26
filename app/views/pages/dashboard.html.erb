@@ -1,5 +1,5 @@
 <div class="tabs">
-  <a class="tab" data-toggle="tab" href="#home">
+  <a class="tab active" data-toggle="tab" href="#home">
     <h3><%=@user.favorites.count%></h3>
     <p> Favorites</p>
   </a>
@@ -22,251 +22,288 @@
     <div class="gif-tabs">
       <div class="row">
         <br>
-        <h4>Favorite Signs</h4>
+        <h4 class="section-title">Favorite Signs</h4>
         <% @favorites.each do |favorite| %>
-        <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
-          <%= link_to gif_path(favorite) do %>
+
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
           <div class="card">
-            <%= cl_image_tag favorite.file, class: "gif" %>
+            <%= link_to gif_path(favorite) do %>
+              <%= cl_image_tag favorite.file, class: "gif" %>
             <% end %>
-            <h4 class="word"><b><%= favorite.title %></b></h4>
-            <br>
-            <p class="language"><%= favorite.language %></p>
-            <% favorite.tag_list.each do |tag| %>
-            <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
-            <% end %>
+            <div class="card-info-container">
+              <div class="card-title">
+                <h4 class="card-word"><b><%= favorite.title %></b></h4>
+                <div class="card-votes">
+                  <% if user_signed_in? %>
+                  <% if current_user.voted_up_on? favorite %>
+                    <div>
+                      <%= favorite.get_upvotes.size %>
+                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                    </div>
+                    <div>
+                      <%= favorite.get_downvotes.size %>
+                      <%= link_to downvote_path(favorite),  method: :post do %>
+                      <i class="fas fa-thumbs-down downvotes-sm"></i>
+                      <% end %>
+                    </div>
+                  <% elsif current_user.voted_down_on? favorite %>
+                    <div>
+                      <%= favorite.get_upvotes.size %>
+                      <%= link_to upvote_path(favorite),  method: :post do %>
+                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= favorite.get_downvotes.size %>
+                      <i class="fas fa-thumbs-down downvotes-sm"></i>
 
-          </div>
-          <div class="votes">
-            <% if user_signed_in? %>
-            <% if current_user.voted_up_on? favorite %>
-            <div>
-              <%= favorite.get_upvotes.size %>
-              <i class="fas fa-thumbs-up upvotes-sm"></i>
+                    </div>
+                  <% else  %>
+                    <div>
+                      <%= favorite.get_upvotes.size %>
+                      <%= link_to upvote_path(favorite),  method: :post do %>
+                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= favorite.get_downvotes.size %>
+                      <%= link_to downvote_path(favorite),  method: :post do %>
+                      <i class="fas fa-thumbs-down downvotes-sm"></i>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <% end %>
+                </div>
+              </div>
+                <p class="card-language"><%= favorite.language %></p>
+                <% favorite.tag_list.each do |tag| %>
+                  <div class="tag"><%= tag %></div>
+                <% end %>
             </div>
-            <div>
-              <%= favorite.get_downvotes.size %>
-              <%= link_to downvote_path(favorite),  method: :post do %>
-              <i class="fas fa-thumbs-down downvotes-sm"></i>
-              <% end %>
-            </div>
-            <% elsif current_user.voted_down_on? favorite %>
-            <div>
-              <%= favorite.get_upvotes.size %>
-              <%= link_to upvote_path(favorite),  method: :post do %>
-              <i class="fas fa-thumbs-up upvotes-sm"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= favorite.get_downvotes.size %>
-              <i class="fas fa-thumbs-down downvotes-sm"></i>
 
-            </div>
-            <% else  %>
-            <div>
-              <%= favorite.get_upvotes.size %>
-              <%= link_to upvote_path(favorite),  method: :post do %>
-              <i class="fas fa-thumbs-up upvotes-sm"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= favorite.get_downvotes.size %>
-              <%= link_to downvote_path(favorite),  method: :post do %>
-              <i class="fas fa-thumbs-down downvotes-sm"></i>
-              <% end %>
-            </div>
-            <% end %>
-            <% end %>
           </div>
         </div>
         <% end %>
-      </div>
-    </div>
-  </div>
 
+      </div> <!-- row -->
+    </div> <!-- gif-tabs -->
+  </div>
   <div id="menu1" class="tab-pane fade">
     <div class="gif-tabs">
       <div class="row">
         <br>
-        <h4>My Signs</h4>
+        <h4 class="section-title">My Signs</h4>
         <% @gifs.each do |gif| %>
-        <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
-          <%= link_to gif_path(gif) do %>
+        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
           <div class="card">
-            <%= cl_image_tag gif.file, class: "gif" %>
-            <h4 class="word"><b><%= gif.title %></b></h4>
-            <br>
-            <p class="language"><%= gif.language %></p>
-            <% gif.tag_list.each do |tag| %>
-            <div class="tag"><%= tag %></div>
+            <%= link_to gif_path(gif) do %>
+              <%= cl_image_tag gif.file, class: "gif" %>
             <% end %>
-          </div>
-          <div class="votes">
-            <% if user_signed_in? %>
-            <% if current_user.voted_up_on? gif %>
-            <div>
-              <%= gif.get_upvotes.size %>
-              <i class="fas fa-thumbs-up upvotes-sm"></i>
-            </div>
-            <div>
-              <%= gif.get_downvotes.size %>
-              <%= link_to downvote_path(gif),  method: :post do %>
-              <i class="fas fa-thumbs-down downvotes-sm"></i>
-              <% end %>
-            </div>
-            <% elsif current_user.voted_down_on? gif %>
-            <div>
-              <%= gif.get_upvotes.size %>
-              <%= link_to upvote_path(gif),  method: :post do %>
-              <i class="fas fa-thumbs-up upvotes-sm"></i>
-              <% end %>
-            </div>
-            <div>
-              <%= gif.get_downvotes.size %>
-              <i class="fas fa-thumbs-down downvotes-sm"></i>
+            <div class="card-info-container">
+              <div class="card-title">
+                <h4 class="card-word"><b><%= gif.title %></b></h4>
+                <div class="card-votes">
+                  <% if user_signed_in? %>
+                  <% if current_user.voted_up_on? gif %>
+                    <div>
+                      <%= gif.get_upvotes.size %>
+                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                    </div>
+                    <div>
+                      <%= gif.get_downvotes.size %>
+                      <%= link_to downvote_path(gif),  method: :post do %>
+                      <i class="fas fa-thumbs-down downvotes-sm"></i>
+                      <% end %>
+                    </div>
+                  <% elsif current_user.voted_down_on? gif %>
+                    <div>
+                      <%= gif.get_upvotes.size %>
+                      <%= link_to upvote_path(gif),  method: :post do %>
+                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= gif.get_downvotes.size %>
+                      <i class="fas fa-thumbs-down downvotes-sm"></i>
 
+                    </div>
+                  <% else  %>
+                    <div>
+                      <%= gif.get_upvotes.size %>
+                      <%= link_to upvote_path(gif),  method: :post do %>
+                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <% end %>
+                    </div>
+                    <div>
+                      <%= gif.get_downvotes.size %>
+                      <%= link_to downvote_path(gif),  method: :post do %>
+                      <i class="fas fa-thumbs-down downvotes-sm"></i>
+                      <% end %>
+                    </div>
+                  <% end %>
+                  <% end %>
+                </div>
+              </div>
+                <p class="card-language"><%= gif.language %></p>
+                <% gif.tag_list.each do |tag| %>
+                  <div class="tag"><%= tag %></div>
+                <% end %>
             </div>
-            <% else  %>
-            <div>
-              <%= gif.get_upvotes.size %>
-              <%= link_to upvote_path(gif),  method: :post do %>
-              <i class="fas fa-thumbs-up upvotes-sm"></i>
-              <% end %>
+            <div class= "my-cards-edit-delete">
+
+            <%= link_to "Edit ", edit_gif_path(gif) %>
+            <%= link_to "Delete ", gif_path(gif), method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
             </div>
-            <div>
-              <%= gif.get_downvotes.size %>
-              <%= link_to downvote_path(gif),  method: :post do %>
-              <i class="fas fa-thumbs-down downvotes-sm"></i>
-              <% end %>
-            </div>
-            <% end %>
-            <% end %>
           </div>
-          <% end %>
-          <%= link_to "Edit GIF", edit_gif_path(gif) %>
-          <%= link_to "Delete GIF", gif_path(gif), method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
         </div>
+
+
         <% end %>
       </div>
     </div>
   </div>
 
-<div id="menu2" class="tab-pane fade">
-  <div class="tab-content">
-    <div class="gif-tabs">
-      <div class="profile-row">
-        <div class="profile-content">
-          <%= cl_image_tag current_user.photo, class: "dashboard-avatar", id: "navbar-wagon-menu" %>
-          <br>
-          <br>
-          <%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%>
-          <br>
-          <%= current_user.email %>
-          <br>
-          Favorites: <%= current_user.favorites.count %>
-          <br>
-          Your Signs: <%= current_user.gifs.count %>
-          <br>
-          <br>
-          <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
+  <div id="menu2" class="tab-pane fade">
+
+
+        <div class="profile-row">
+          <div class="profile-content">
+            <%= cl_image_tag current_user.photo, class: "dashboard-avatar", id: "navbar-wagon-menu" %>
+            <br>
+            <br>
+            <%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%>
+            <br>
+            <%= current_user.email %>
+            <br>
+            Favorites: <%= current_user.favorites.count %>
+            <br>
+            Your Signs: <%= current_user.gifs.count %>
+            <br>
+            <br>
+            <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
+          </div>
+        </div>
+
+
+  </div>
+
+  <div id="menu3" class="tab-pane fade">
+    <br>
+    <div class="wrapper">
+      <div class="row">
+      <div class="cols-about">
+        <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+          <div class="container-about">
+            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+              <div class="inner">
+                <p>Free $0</p>
+                <ul>
+                1 account
+                </ul>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <ul>Upload unlimited signs</ul>
+                <ul>Manage your signs</ul>
+                <ul>Favorite signs</ul>
+                <ul>Share your signs</ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+          <div class="container-about">
+            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+              <div class="inner">
+                <p>Inidividual $8</p>
+                <ul>
+                1 account
+                </ul>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <ul>Upload unlimited signs</ul>
+                <ul>Manage your signs</ul>
+                <ul>Favorite signs</ul>
+                <ul>Share your signs</ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+          <div class="container-about">
+            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+              <div class="inner">
+                <p>Small 30$</p>
+                <ul>
+                Up to 20 accounts
+                </ul>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <ul>Upload unlimited signs</ul>
+                <ul>Manage your signs</ul>
+                <ul>Favorite signs</ul>
+                <ul>Share your signs</ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+          <div class="container-about">
+            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+              <div class="inner">
+                <p>Corporate 90$</p>
+                <ul>
+                Up to 50 accounts
+                </ul>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <ul>Upload unlimited signs</ul>
+                <ul>Manage your signs</ul>
+                <ul>Favorite signs</ul>
+                <ul>Share your signs</ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>
 
-<div id="menu3" class="tab-pane fade">
-  <br>
-  <div class="wrapper">
-    <div class="row">
-    <div class="cols-about">
-      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-        <div class="container-about">
-          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-            <div class="inner">
-              <p>Free $0</p>
-              <ul>
-              1 account
-              </ul>
-            </div>
-          </div>
-          <div class="back">
-            <div class="inner">
-              <ul>Upload unlimited signs</ul>
-              <ul>Manage your signs</ul>
-              <ul>Favorite signs</ul>
-              <ul>Share your signs</ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-        <div class="container-about">
-          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-            <div class="inner">
-              <p>Inidividual $8</p>
-              <ul>
-              1 account
-              </ul>
-            </div>
-          </div>
-          <div class="back">
-            <div class="inner">
-              <ul>Upload unlimited signs</ul>
-              <ul>Manage your signs</ul>
-              <ul>Favorite signs</ul>
-              <ul>Share your signs</ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-        <div class="container-about">
-          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-            <div class="inner">
-              <p>Small 30$</p>
-              <ul>
-              Up to 20 accounts
-              </ul>
-            </div>
-          </div>
-          <div class="back">
-            <div class="inner">
-              <ul>Upload unlimited signs</ul>
-              <ul>Manage your signs</ul>
-              <ul>Favorite signs</ul>
-              <ul>Share your signs</ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-        <div class="container-about">
-          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-            <div class="inner">
-              <p>Corporate 90$</p>
-              <ul>
-              Up to 50 accounts
-              </ul>
-            </div>
-          </div>
-          <div class="back">
-            <div class="inner">
-              <ul>Upload unlimited signs</ul>
-              <ul>Manage your signs</ul>
-              <ul>Favorite signs</ul>
-              <ul>Share your signs</ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-</div>
 <br>
 <br>
+
+<script type="text/javascript">
+  var tabs = document.getElementsByClassName('tab');
+  console.log(tabs);
+
+  for (var i = 0; i < tabs.length; i++) {
+    (function(index) {
+
+      tabs[index].addEventListener("click", function(event)
+        {
+          for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active")
+          }
+          console.log("clicked");
+          var clickedTab = tabs[index];
+          clickedTab.classList.add("active");
+        });
+    })(i);
+  }
+
+
+
+</script>
+

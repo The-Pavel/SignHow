@@ -1,8 +1,11 @@
 .tabs {
-  background: #F2F2F2;
+  background: $blue;
   display: flex;
-  padding: 10px 10px 0 10px;
-  margin: 28px 45px;
+  margin: 20px 60px;
+}
+
+.tab-content {
+  margin: 0px 60px;
 }
 
 .tabs a {
@@ -22,15 +25,16 @@
 }
 
 .tabs p {
-  opacity: 0.5;
+
   margin-bottom: 0;
 }
 
 .tab {
-  background: linear-gradient(-145deg, #6B9EC0, #637784);
+  background: $blue;
   flex: 0 0 25%;
   text-align: center;
   padding: 20px 0;
+  color: $blue;
 }
 
 // .tab:first-child {
@@ -44,12 +48,11 @@
 .tab.active {
   background: white;
   color: black;
+  border: solid;
+  border-color: $blue;
 }
 
-.gif-tabs {
-  margin-left: 60px;
-  margin-right: 60px;
-}
+
 
 
 .tab-pane fade in active {
@@ -65,13 +68,12 @@
   align-items: center;
   text-align: center;
   flex-wrap: wrap;
-}
-
-.profile-content {
-  // position: absolute;
 
 }
 
+.my-cards-edit-delete {
+  margin-left: 20px;
+}
 
 .dashboard-avatar {
   height: 150px;
