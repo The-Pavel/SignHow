@@ -3,11 +3,8 @@
     <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
         <div class="card">
       <%= link_to gif_path(gif), class: "card-link" do %>
-
-          <%= gif.file? ? (cl_image_tag gif.file, class: "gif") : (image_tag "signhowbg.jpeg") %>
-
+          <%= cl_image_tag gif.file, class: "gif" %>
           <% end %>
-
           <div class= "card-info-container">
             <h4 class="word"><b><%= gif.title %></b></h4>
             <br>
@@ -62,3 +59,6 @@
     </div>
   <% end %>
 </div>
+
+
+
