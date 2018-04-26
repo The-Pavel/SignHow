@@ -131,7 +131,7 @@ class GifsController < ApplicationController
     if @gif.update(gif_params)
       redirect_to dashboard_path(current_user)
     else
-      render :new
+      render :edit
     end
   end
 

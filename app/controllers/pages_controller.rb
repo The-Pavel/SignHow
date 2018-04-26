@@ -31,7 +31,7 @@ class PagesController < ApplicationController
   def dashboard
     @user = User.find(params[:id])
     # @gifs = Gif.order(cached_votes_up: :desc)
-    @gifs = Gif.where('gifs.user_id = ?', current_user.id)
+    @gifs = current_user.gifs
     @favorites = @user.favorited_by_type 'Gif'
     @title = "Dashboard"
   end
