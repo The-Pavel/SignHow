@@ -3,7 +3,14 @@ require 'tempfile'
 class GifsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
-
+  def tagged
+    if params[:tag].present?
+      @gifs = Gif.tagged_with(params[:tag]).order(cached_votes_up: :desc)
+    else
+      @gifs = Gif.all.order(cached_votes_up: :desc)
+    end
+    authorize @gifs
+  end
 
   def upvote
     @gif = Gif.find(params[:id])
@@ -118,6 +125,9 @@ class GifsController < ApplicationController
         render :new
       end
     end
+
+  rescue Cloudinary::CarrierWave::UploadError
+    render plain: "Reduce video size to allow upload"
   end
 
   def edit
