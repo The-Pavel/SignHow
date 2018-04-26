@@ -1,6 +1,7 @@
 .search {
-  width: auto;
-  position: relative;
+  width: 90%;
+  margin: auto;
+  // position: relative;
   margin-top: 50px;
   margin-bottom: 60px;
   border: none;
@@ -9,17 +10,18 @@
   // transform: translate(-50%, -50%);
 }
 
-.search .search-1,
-.search .search-2 {
-  width: 50%;
-}
+// .search .search-1,
+// .search .search-2 {
+//   width: 50%;
+// }
 
 .search .search-1 {
-  float: left;
+  width: 61%;
 }
 
 .search .search-2 {
-  float: right;
+  width: 28%;
+  overflow: hidden;
 }
 
 .search label {
@@ -27,11 +29,13 @@
 }
 
 #query_language {
-  display: block;
   width: 100%;
+  display: block;
+  // width: 85%;
   height: 50px;
   font-size: 18px;
   color: gray;
+  // margin-left: -40px;
 }
 
 
@@ -50,9 +54,8 @@
 .searchbutton {
   height: 50px;
   width: 90px;
-  margin-right: 0px;
-  position: absolute;
-  right: -2px;
+  // position: absolute;
+  // right: 30px;
   cursor: pointer;
   border: none;
   background: $blue;

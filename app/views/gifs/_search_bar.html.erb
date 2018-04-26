@@ -2,11 +2,12 @@
   <div class="search">
     <div class="search-1">
       <%= form_tag search_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-        placeholder: "Search by Word or Phrase"
-        %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+          placeholder: "Search by Word or Phrase"
+          %>
+      <% end %>
     </div>
       <!--  </div> -->
     <div class="search-2">
@@ -15,10 +16,8 @@
     <div class="search-3">
 
       <%= button_tag type: 'submit', class: "searchbutton" do %>
-      <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+        <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
       <% end %>
-      <% end %>
-
     </div>
   </div>
 </div>
