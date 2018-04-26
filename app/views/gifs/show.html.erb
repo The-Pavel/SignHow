@@ -43,7 +43,7 @@
             <br>
             <p class="language"><%= @gif.language %></p>
             <% @gif.tag_list.each do |tag| %>
-              <div class="tag"><%= tag %></div>
+              <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
             <% end %>
 
             <% if user_signed_in? %>
@@ -65,9 +65,9 @@
     <div class="col col-xs-12 col-sm-6 col-md-8">
       <div class="container-info">
         <div class="info-content">
-          <p>Gif ID:</p>
-          <p>Upload Date:</p>
-          <p>Created by:</p>
+          <p>Gif ID: <%= @gif.id %></p>
+          <p>Upload Date: <%= @gif.created_at.strftime("%d %b. %Y") %></p>
+          <p>Created by:<%= @gif.user.first_name %> <%= @gif.user.last_name %></p>
         </div>
         <div class="container-sign-options">
 
@@ -84,15 +84,8 @@
         </div>
         <div class="embed-info">
 
-      <p>Embed URL</p>
-      <div class="embed-bar">
-        <%= form_tag search_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-          placeholder: "https://www.signhow.co/gifs/#{@gif.id}"
-          %>
-        <% end %>
+      <p>Embed URL:</p>
+      <%= "https://www.signhow.co/gifs/#{@gif.id}" %>
 
       </div>
 
@@ -135,7 +128,7 @@
             <br>
             <p class="language"><%= gif.language %></p>
             <% gif.tag_list.each do |tag| %>
-            <div class="tag"><%= tag %></div>
+            <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
           <% end %>
           </div>
         </div>
