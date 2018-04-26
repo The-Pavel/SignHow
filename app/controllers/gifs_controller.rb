@@ -11,12 +11,12 @@ class GifsController < ApplicationController
     authorize @gif
       if current_user.voted_for? @gif
         respond_to do |format|
-          format.html { redirect_to gif_path(@gif) }
+          format.html { redirect_to request.referrer }
           format.js { render 'voted' }
         end
       else
         respond_to do |format|
-          format.html { render 'gifs/show' }
+          format.html { redirect_to request.referrer }
           format.js { render 'voted' }
         end
       end
@@ -28,12 +28,12 @@ class GifsController < ApplicationController
     authorize @gif
       if current_user.voted_as_when_voted_for @gif
         respond_to do |format|
-          format.html { redirect_to gif_path(@gif) }
+          format.html { redirect_to request.referrer }
           format.js { render 'voted' }
         end
       else
         respond_to do |format|
-          format.html { render 'gifs/show' }
+          format.html { redirect_to request.referrer }
           format.js { render 'voted' }
         end
       end
@@ -45,12 +45,12 @@ class GifsController < ApplicationController
     authorize @gif
       if @gif.favorited
         respond_to do |format|
-          format.html { redirect_to gif_path(@gif) }
+          format.html { redirect_to request.referrer }
           format.js { render 'favorite' }
         end
       else
         respond_to do |format|
-          format.html { render 'gifs/show' }
+          format.html { redirect_to request.referrer }
           format.js { render 'favorite' }
         end
       end
@@ -80,6 +80,8 @@ class GifsController < ApplicationController
 
   def show
     @gif = Gif.find(params[:id])
+    # gif_tag = @gif.tags.name.to_a
+    # @related_gifs = Gif.tagged_with(gif_tag, :any => true)
     @gifs = @gif.find_related_tags.to_a
     authorize @gif
     @title = "Signs"
