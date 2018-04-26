@@ -55,13 +55,10 @@
   background-color: #4267b2;
   padding: 12px 0;
   color: white;
-  // font-size: 18px;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
-  // width: 60%;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 0px 30px;
 }
 
 .login-page {
@@ -103,7 +100,7 @@ input:-webkit-autofill:focus {
 .form-inputs .hr-with-text {
   border-bottom: 1px solid #eee;
   text-align: center;
-  margin: 10px auto 0 auto;
+  margin: 10px auto 10px auto;
 }
 
 .hr-with-text .or {
@@ -116,20 +113,6 @@ input:-webkit-autofill:focus {
   letter-spacing: 1px;
 }
 
-.btn {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  background-color: $purple;
-  padding: 10px 60px;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  width: 45%;
-}
 
 .multi-links {
   margin: 30px;
@@ -141,9 +124,14 @@ input:-webkit-autofill:focus {
   margin-top: 2.5px;
 }
 
-.btn :hover {
-  opacity: 1;
-  text-decoration: none;
-  color: white;
-  background: #CE4ED4;
+.info {
+  padding-top: 6px;
+}
+
+.form-check-label {
+  margin-left: 10px;
+}
+
+.login-page .fb:hover {
+  background-color: #435f9e;
 }

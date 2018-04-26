@@ -19,7 +19,7 @@
 }
 
 .form-inputs {
-  margin: 25px 35px;
+  margin: 30px 30px;
 }
 
 legend {
@@ -60,8 +60,8 @@ legend {
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 36px;
+  margin-right: 36px;
 }
 
 .new {
@@ -111,6 +111,14 @@ legend {
 
 .col-md-offset-4 {
   padding-bottom: 130px;
+}
+
+.form-group {
+  margin-top: 15px;
+}
+
+.signup .fb:hover {
+  background-color: #435f9e;
 }
 
 
