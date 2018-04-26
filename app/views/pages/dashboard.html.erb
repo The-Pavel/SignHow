@@ -11,7 +11,7 @@
     <h3><i class="fa fa-user"></i></h3>
     <p> Profile</p>
   </a>
-  <a class="tab" data-toggle="tab" href="#menu2">
+  <a class="tab" data-toggle="tab" href="#menu3">
     <h3><i class="fa fa-star"></i></h3>
     <p> Premium</p>
   </a>
@@ -151,10 +151,122 @@
     </div>
   </div>
 
-  <div id="menu2" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
+<div id="menu2" class="tab-pane fade">
+  <div class="tab-content">
+    <div class="gif-tabs">
+      <div class="profile-row">
+        <div class="profile-content">
+          <%= cl_image_tag current_user.photo, class: "dashboard-avatar", id: "navbar-wagon-menu" %>
+          <br>
+          <br>
+          <%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%>
+          <br>
+          <%= current_user.email %>
+          <br>
+          Favorites: <%= current_user.favorites.count %>
+          <br>
+          Your Signs: <%= current_user.gifs.count %>
+          <br>
+          <br>
+          <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div id="menu3" class="tab-pane fade">
+  <br>
+  <div class="wrapper">
+    <div class="row">
+    <div class="cols-about">
+      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+        <div class="container-about">
+          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+            <div class="inner">
+              <p>Free $0</p>
+              <ul>
+              1 account
+              </ul>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <ul>Upload unlimited signs</ul>
+              <ul>Manage your signs</ul>
+              <ul>Favorite signs</ul>
+              <ul>Share your signs</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+        <div class="container-about">
+          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+            <div class="inner">
+              <p>Inidividual $8</p>
+              <ul>
+              1 account
+              </ul>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <ul>Upload unlimited signs</ul>
+              <ul>Manage your signs</ul>
+              <ul>Favorite signs</ul>
+              <ul>Share your signs</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+        <div class="container-about">
+          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+            <div class="inner">
+              <p>Small 30$</p>
+              <ul>
+              Up to 20 accounts
+              </ul>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <ul>Upload unlimited signs</ul>
+              <ul>Manage your signs</ul>
+              <ul>Favorite signs</ul>
+              <ul>Share your signs</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-about" ontouchstart="this.classList.toggle('hover');">
+        <div class="container-about">
+          <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
+            <div class="inner">
+              <p>Corporate 90$</p>
+              <ul>
+              Up to 50 accounts
+              </ul>
+            </div>
+          </div>
+          <div class="back">
+            <div class="inner">
+              <ul>Upload unlimited signs</ul>
+              <ul>Manage your signs</ul>
+              <ul>Favorite signs</ul>
+              <ul>Share your signs</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+<br>
 <br>
