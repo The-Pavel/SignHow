@@ -20,7 +20,6 @@
 
 .newgifs .form-inputs {
   margin: 50px 40px;
-  font-size: 14px;
   color: $blue;
 }
 
@@ -36,29 +35,27 @@
 
 #dropbox {
   position:relative;
-  height:100%;
+  min-height: 200px;
   border:2px dashed gray;
   background:white;
   margin-top: 25px;
+  background-image: url('https://image.flaticon.com/icons/svg/337/337936.svg');
+  background-position: center 60%;
+  background-repeat: no-repeat;
+  background-size: 50px;
   display: flex;
   align-items: center;
+  flex-direction: column;
+
 }
 
 #dropbox img {
-  width: 70px;
-  margin: 100px 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
-  margin-bottom: 100px;
-
 }
 
 #dropbox::before {
-  content:"or drag and drop here";
   position: absolute;
   top: 30px;
   right: 132px;
@@ -74,3 +71,11 @@
   height:auto;
   margin:0 15px 15px;
 }
+
+.form-control::placeholder{
+  color:#ccc;
+}
+
+
+
+
