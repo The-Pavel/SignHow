@@ -58,8 +58,8 @@
                 <br>
                 <p class="language"><%= gif.language %></p>
                 <% @gifs.each do |gif| %>
-                  <% gif.tags.each do |tag| %>
-                    <div class="tag"><%= tag.name %></div>
+                  <% gif.tag_list.each do |tag| %>
+                    <div class="tag"><%= tag %></div>
                   <% end %>
                 <% end %>
               </div>
