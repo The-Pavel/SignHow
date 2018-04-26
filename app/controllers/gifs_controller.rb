@@ -125,6 +125,9 @@ class GifsController < ApplicationController
         render :new
       end
     end
+
+  rescue Cloudinary::CarrierWave::UploadError
+    render plain: "Reduce video size to allow upload"
   end
 
   def edit
