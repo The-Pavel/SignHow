@@ -1,13 +1,9 @@
+require 'tempfile'
+
 class GifsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
-  # def tagged
-    # if params[:tag].present?
-      # @tags = Gif.tagged_with(params[:tag_list], :any => true)
-    # else
-      # @gifs = Gif.all
-    # end
-  # end
+
 
   def upvote
     @gif = Gif.find(params[:id])
@@ -100,10 +96,25 @@ class GifsController < ApplicationController
     @gif = Gif.new(gif_params)
     @gif.user = current_user
     authorize @gif
-    if @gif.save
-      redirect_to dashboard_path(current_user)
+    if @gif.file.path[-3..-1] == 'gif'
+      if @gif.save
+        redirect_to dashboard_path(current_user)
+      else
+        render :new
+      end
     else
-      render :new
+      file = Tempfile.new('foo')
+      file.close
+      file_name = Gif.last.id + 1
+      `ffmpeg -i #{@gif.file.path} ./public/#{file_name}.gif`
+      @gif.file = File.open("./public/#{file_name}.gif")
+      if @gif.save
+        file.unlink
+        File.delete("./public/#{file_name}.gif")
+        redirect_to dashboard_path(current_user)
+      else
+        render :new
+      end
     end
   end
 

@@ -24,7 +24,7 @@
         <br>
         <h4>Favorite Signs</h4>
         <% @favorites.each do |favorite| %>
-          <div class="col col-xs-12 col-sm-4 col-md-4">
+          <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
             <%= link_to gif_path(favorite) do %>
               <div class="card">
                 <%= cl_image_tag favorite.file, class: "gif" %>
@@ -50,7 +50,7 @@
         <br>
         <h4>My Signs</h4>
         <% @user.gifs.each do |gif| %>
-          <div class="col col-xs-12 col-sm-4 col-md-4">
+          <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-4">
             <%= link_to gif_path(gif) do %>
               <div class="card">
                 <%= cl_image_tag gif.file, class: "gif" %>
