@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @gifs = Gif.order(cached_votes_up: :desc).first(6)
-    @title = "Home"
+    @title = "Welcome to the Global Sign Language Dictionary"
   end
 
   def about
