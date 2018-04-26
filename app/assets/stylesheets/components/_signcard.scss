@@ -26,18 +26,17 @@
   width: 100%;
 }
 
-.word {
+.card-word {
     font-size: 28px;
     font-weight: bold;
-    margin-left: 30px;
     color: black;
     margin-top: 18px;
 }
 
-.language {
+.card-language {
     font-size: 16px;
     font-weight: lighter;
-    margin-left: 30px;
+
     color: black;
 }
 
@@ -48,7 +47,7 @@
 
 .tag {
     color: $blue;
-    margin-left: 30px;
+    margin-right: 5px;
     margin-top: 15px;
     display: inline;
     font-size: 16px;
@@ -87,27 +86,31 @@
 
 .container-cards {
     margin: 30px;
-    display: flex;
-    flex-wrap: wrap;
+
     padding: 25px;
 }
 
-.votes {
-    position: absolute;
+.card-votes {
+
     top: 0;
     right: 0;
-    margin-right: 30px;
+
     display: flex;
     flex-direction: column;
     font-size: 13px;
 }
 
-.votes i {
+.card-votes i {
     font-size: 20px;
 }
 
 .card-info-container {
   position: relative;
-  height: 135px;
+  // height: 135px;
+  padding: 20px;
 }
 
+.card-title {
+  display: flex;
+  justify-content: space-between;
+}

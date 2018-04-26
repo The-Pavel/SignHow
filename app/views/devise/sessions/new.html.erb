@@ -16,13 +16,15 @@
         <div class="form-inputs">
           <hr class="hr-with-text">
           <!-- <div class="or"><h3>OR</h3></div> -->
+          <div class="info">
           <%= f.input :email, required: false, autofocus: true %>
           <%= f.input :password, required: false %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
+        </div>
 
 
-          <%= f.button :submit, "Log in", :class => 'addsign'%>
+          <%= f.button :submit, "Log in", :class => 'btn-purple'%>
         <% end %>
 
           <div class="multi-links">

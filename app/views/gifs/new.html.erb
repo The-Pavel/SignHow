@@ -155,20 +155,20 @@
         "Zimbabwe Sign Language - [zib]",
         ] %>
           <%= f.input :tag_list, label: "Please input tags separated by commas" %>
-          <%= f.file_field :file, id: "avatar-upload" %>
           <div class="form-group">
-            <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/>
-            <!-- <span class="btn btn-default btn-file"> -->
-            <!-- </span> -->
-          <%= f.input :file_cache, as: :hidden %>
+            <div id="dropbox">
+              <%= f.file_field :file, id: "avatar-upload", :class => 'btn-file' %>
+              <label for="avatar-upload" class="btn-blue">Choose a file</label>
+              <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/>
+              <%= f.input :file_cache, as: :hidden %>
+            </div>
+
           </div>
 
           <div class="form-actions">
             <%= f.button :submit, "Submit", :class => 'addsign' %>
           </div>
-          <!--  Drag & Drop -->
-         <!--  <div id="dropbox"><img src="https://image.flaticon.com/icons/svg/337/337936.svg" alt=""></div>
-          <!-- end -->
+
         </div>
       </div>
       <% end %>
