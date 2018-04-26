@@ -7,7 +7,6 @@
   border: none;
   overflow: hidden;
   display: flex;
-  // transform: translate(-50%, -50%);
 }
 
 // .search .search-1,
@@ -16,12 +15,13 @@
 // }
 
 .search .search-1 {
-  width: 61%;
+  width: 58%;
 }
 
 .search .search-2 {
-  width: 28%;
+  width: 41%;
   overflow: hidden;
+  // border-radius: 20px;
 }
 
 .search label {
@@ -29,13 +29,19 @@
 }
 
 #query_language {
-  width: 100%;
+  width: 101%;
   display: block;
   // width: 85%;
   height: 50px;
   font-size: 18px;
   color: gray;
   // margin-left: -40px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  padding: 0 10px;
 }
 
 
