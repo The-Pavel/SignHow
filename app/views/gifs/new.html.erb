@@ -9,7 +9,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :title, required: true, autofocus: true %>
+          <%= f.input :title, required: true, autofocus: true, label: 'Word or phrase' %>
           <%= f.input :language, collection: ["Select Language",
         "Adamorobe Sign Language (Ghana) - [ads]",
         "Afghan Sign Language - [afg]",
@@ -154,7 +154,7 @@
         "Zambian Sign Language - [zsl]",
         "Zimbabwe Sign Language - [zib]",
         ] %>
-          <%= f.input :tag_list, label: "Please input tags separated by commas" %>
+          <%= f.input :tag_list, placeholder: "eg. travel, business, ...", label: "Input tags separated by commas:" %>
           <div class="form-group">
             <div id="dropbox">
               <%= f.file_field :file, id: "avatar-upload", :class => 'btn-file' %>
