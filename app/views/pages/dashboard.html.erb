@@ -81,7 +81,7 @@
               <p class="card-language"><%= favorite.language %></p>
               <div class= "tag-container">
                 <% favorite.tag_list.each do |tag| %>
-                  <div class="tag"><%= tag %></div>
+                  <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
                 <% end %>
               </div>
 
@@ -154,7 +154,7 @@
               <p class="card-language"><%= gif.language %></p>
               <div class="tag-container">
                 <% gif.tag_list.each do |tag| %>
-                  <div class="tag"><%= tag %></div>
+                  <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
                 <% end %>
               </div>
             </div>
@@ -189,7 +189,7 @@
             Your Signs: <%= current_user.gifs.count %>
             <br>
             <br>
-            <%= link_to "Edit profile", edit_user_registration_path(current_user) %>
+            <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn-blue" %>
           </div>
         </div>
 

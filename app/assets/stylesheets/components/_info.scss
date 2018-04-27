@@ -5,7 +5,7 @@
 
   background-color: white;
 
-  padding: 15px;
+  padding: 20px;
   border: 2px;
   border-color: gray;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -27,14 +27,12 @@ section {
 
 
 .info-content {
-  margin-left: 20px;
   font-size: 14px;
   font-weight:bold;
 
 }
 
 .container-icons {
-  padding-left: 20px;
   padding-top: 20px;
 
 }
@@ -42,18 +40,21 @@ section {
 .container-sign-options {
 
   margin-top: 30px;
-  justify-content: flex-start;
-  display: flex;
-  flex-wrap: wrap;
+  // justify-content: flex-start;
+  // display: flex;
+  // flex-wrap: wrap;
   position: relative;
 
 }
 
 .embed-info {
-  margin-left: 20px;
   font-size: 14px;
   font-weight:bold;
   padding-top: 40px;
+}
+
+.url {
+  text-decoration:underline;
 }
 
 .btn-white {
@@ -72,38 +73,6 @@ section {
   text-decoration: none;
 }
 
-.btn-blue {
-  background-color: $blue;
-  color: white;
-  padding: 10px 28px;
-  border: 1px solid $blue;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-  font-size: 15px;
-  margin: 5px;
-}
-
-.btn-blue:hover {
-  opacity: 1;
-  text-decoration: none;
-}
-
-.btn-purple {
-  background-color: $purple;
-  color: white;
-  padding: 10px 28px;
-  border: 1px solid;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-  font-size: 15px;
-  margin: 5px;
-
-}
-
-.btn-purple:hover {
-  opacity: 1;
-  text-decoration: none;
-}
 
 .btn-delete {
   background-color: red;

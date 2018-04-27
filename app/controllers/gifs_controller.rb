@@ -89,7 +89,7 @@ class GifsController < ApplicationController
     @gif = Gif.find(params[:id])
     # gif_tag = @gif.tags.name.to_a
     # @related_gifs = Gif.tagged_with(gif_tag, :any => true)
-    @gifs = @gif.find_related_tags.to_a
+    @gifs = @gif.find_related_tags.to_a.first(4)
     authorize @gif
     @title = "Signs"
   end
