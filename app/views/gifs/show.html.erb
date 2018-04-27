@@ -10,11 +10,38 @@
           placeholder: "Search by Word or Phrase"
         %>
       </div>
+
      <!--  </div> -->
       <div class="search-2">
         <%= select_tag :query_language, options_for_select(Gif::LANGUAGES), :include_blank => true, :prompt => "Select a Language" %>
       </div>
       <div class="search-3">
+
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card">
+
+            <%= @gif.file? ? (cl_image_tag @gif.file, class: "gif") : (image_tag "signhowbg.jpeg", class: "gif") %>
+
+            <div class= "card-info-container">
+              <div class="card-title">
+                <h4 class="card-word"><b><%= @gif.title %></b></h4>
+                <% if user_signed_in? %>
+                <div id="voting-action">
+                  <%= render 'voted' %>
+                </div>
+                <% end %>
+              </div>
+              <p class="card-language"><%= @gif.language %></p>
+              <% @gif.tag_list.each do |tag| %>
+                <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
+              <% end %>
+            </div>
+
 
         <%= button_tag type: 'submit', class: "searchbutton" do %>
             <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
