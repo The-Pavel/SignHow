@@ -152,16 +152,22 @@
                 </div>
               </div>
               <p class="card-language"><%= gif.language %></p>
-              <div class="tag-container">
-                <% gif.tag_list.each do |tag| %>
+              <div class="tag-container" style  >
+                <!-- #TODO: FIX THE LIMIT -->
+                <% gif.tag_list.first(3 ).each do |tag| %>
                   <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
                 <% end %>
+                <%= link_to edit_gif_path(gif) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+                <%= link_to gif_path(gif), method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+
               </div>
             </div>
             <div class= "my-cards-edit-delete">
 
-            <%= link_to "Edit ", edit_gif_path(gif) %>
-            <%= link_to "Delete ", gif_path(gif), method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } %>
             </div>
           </div>
         </div>
@@ -315,4 +321,3 @@
 
 
 </script>
-
