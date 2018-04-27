@@ -4,7 +4,7 @@
         <div class="card">
       <%= link_to gif_path(gif), class: "card-link" do %>
 
-          <%= gif.file? ? (cl_image_tag gif.file, class: "gif") : (image_tag "signhowbg.jpeg") %>
+          <%= gif.file? ? (cl_image_tag gif.file, class: "gif") : (image_tag "signhowbg.jpeg", class: "gif") %>
 
           <% end %>
 
