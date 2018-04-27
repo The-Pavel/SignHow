@@ -9,10 +9,23 @@
   display: flex;
 }
 
-// .search .search-1,
-// .search .search-2 {
-//   width: 50%;
-// }
+@media screen and (max-width: 500px) {
+.search {
+  flex-direction: column !Important;
+  align-items: center;
+  }
+ .search .search-1 {
+  width: 80% !important;
+}
+
+ .search .search-2 {
+  width: 80% !important;
+}
+
+ .search .search-3 {
+  width: 80% !important;
+}
+}
 
 .search .search-1 {
   width: 49%;
