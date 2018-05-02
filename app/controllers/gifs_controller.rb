@@ -115,19 +115,19 @@ class GifsController < ApplicationController
       file = Tempfile.new('foo')
       file.close
       file_name = Gif.last.id + 1
-      `ffmpeg -i #{@gif.file.path} ./public/#{file_name}.gif`
+      `ffmpeg -i #{@gif.file.path} -s 270x250 ./public/#{file_name}.gif`
       @gif.file = File.open("./public/#{file_name}.gif")
       if @gif.save
-        file.unlink
         File.delete("./public/#{file_name}.gif")
+        file.unlink
         redirect_to dashboard_path(current_user)
       else
         render :new
       end
     end
 
-  rescue Cloudinary::CarrierWave::UploadError
-    render plain: "Reduce video size to allow upload"
+    rescue Cloudinary::CarrierWave::UploadError
+      render plain: "File size too large. Please reduce video size and try again."
   end
 
   def edit
