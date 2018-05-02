@@ -1,19 +1,19 @@
 <div class="tabs">
   <a class="tab active" data-toggle="tab" href="#home">
-    <h3><%=@user.favorites.count%></h3>
-    <p> Favorites</p>
+    <h3><i class="fa fa-heart"></i></h3>
+    <!-- <p>Favorites</p> -->
   </a>
   <a class="tab" data-toggle="tab" href="#menu1">
-    <h3><%=@user.gifs.count%></h3>
-    <p> My Signs</p>
+    <h3><i class="fa fa-signing"></i></h3>
+    <!-- <p>My Signs</p> -->
   </a>
   <a class="tab" data-toggle="tab" href="#menu2">
     <h3><i class="fa fa-user"></i></h3>
-    <p> Profile</p>
+    <!-- <p>Profile</p> -->
   </a>
   <a class="tab" data-toggle="tab" href="#menu3">
-    <h3><i class="fa fa-star"></i></h3>
-    <p> Premium</p>
+    <h3><i class="fa fa-key"></i></h3>
+    <!-- <p>Premium</p> -->
   </a>
 </div>
 
@@ -22,7 +22,8 @@
     <div class="gif-tabs">
       <div class="row">
         <br>
-        <h4 class="section-title">Favorite Signs</h4>
+        <h4 class="section-title">Favorites</h4>
+        <br>
         <% @favorites.each do |favorite| %>
 
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
@@ -100,6 +101,7 @@
       <div class="row">
         <br>
         <h4 class="section-title">My Signs</h4>
+        <br>
         <% @gifs.each do |gif| %>
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
           <div class="card">
@@ -181,21 +183,26 @@
   <div id="menu2" class="tab-pane fade">
 
 
+    <br>
+    <h4 class="section-title">My Profile</h4>
+    <br>
         <div class="profile-row">
           <div class="profile-content">
-            <%= cl_image_tag current_user.photo, class: "dashboard-avatar", id: "navbar-wagon-menu" %>
-            <br>
-            <br>
-            <%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%>
-            <br>
-            <%= current_user.email %>
-            <br>
-            Favorites: <%= current_user.favorites.count %>
-            <br>
-            Your Signs: <%= current_user.gifs.count %>
-            <br>
-            <br>
-            <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn-blue" %>
+            <div class="content-centre-profile-tab">
+              <%= cl_image_tag current_user.photo, class: "dashboard-avatar", id: "navbar-wagon-menu" %>
+              <br>
+              <br>
+              <%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%>
+              <br>
+              <%= current_user.email %>
+              <br>
+              Favorites: <%= current_user.favorites.count %>
+              <br>
+              Your Signs: <%= current_user.gifs.count %>
+              <br>
+              <br>
+              <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn-blue" %>
+            </div>
           </div>
         </div>
 
@@ -203,6 +210,8 @@
   </div>
 
   <div id="menu3" class="tab-pane fade">
+    <br>
+    <h4 class="section-title">Upgrade Account</h4>
     <br>
     <div class="wrapper">
       <div class="row">
