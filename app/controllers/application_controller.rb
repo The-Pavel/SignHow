@@ -4,9 +4,14 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo, :is_admin])
+    attributes = [:first_name, :last_name, :photo, :is_admin]
+
     # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
+    devise_parameter_sanitizer.permit(:account_update, keys: attributes)
   end
+
+
 
   before_action :authenticate_user!
   include Pundit
@@ -21,6 +26,7 @@ class ApplicationController < ActionController::Base
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
+
 
   private
 
