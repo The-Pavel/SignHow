@@ -32,6 +32,14 @@
   margin: 20px;
 }
 
+
+@media screen and (max-width: 400px) {
+  .banner h2 {
+  font-size: 28px !important;
+  margin: 18px;
+  }
+}
+
 .banner p {
   font-size: 25px;
   font-weight: lighter;
