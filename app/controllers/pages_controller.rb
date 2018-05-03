@@ -3,10 +3,10 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def home
-    @gifs = Gif.order(cached_votes_up: :desc).first(6)
-
+    @gifs = Gif.order(cached_votes_up: :desc).first(3)
+    @recent = Gif.last(3).reverse
+    @random = Gif.all.sample(3)
     @title = "Welcome to the Global Sign Language Dictionary"
-
   end
 
   def about
@@ -34,7 +34,7 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
 
     # @gifs = Gif.order(cached_votes_up: :desc)
-    
+
     @gifs = current_user.gifs
     @favorites = @user.favorited_by_type 'Gif'
     @title = "Dashboard"
