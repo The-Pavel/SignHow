@@ -8,9 +8,6 @@
     margin-top: 15px;
     position: relative;
 
-
-
-
 }
 
 .big-card-word {
@@ -29,6 +26,7 @@
 
 .big-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    text-decoration: none;
 }
 
 .big-card-tag {
@@ -74,9 +72,20 @@
 
 
 .favorite-active {
-    color: #f00;
+  color: $blue;
 }
 
 .favorite-unactive {
-    color: #00f;
+  color: #00f;
+}
+
+.flag-spacing {
+  padding-top: 30px;
+  font-size: 15px;
+  text-decoration: none;
+  margin-bottom: 0px;
+}
+
+.fa-flag {
+  color: $red;
 }
