@@ -69,9 +69,10 @@
             <%= render 'favorited' %>
             </span>
             <% end %>
-            <a class="btn-blue">download</a>
-            <a class="btn-white">inappropriate?</a>
-
+            <br>
+              <div class="flag-spacing">
+                 Inappropriate?  <i class="far fa-flag"></i>
+              </div>
           </div>
           <div class="embed-info">
 
@@ -114,7 +115,7 @@
 
       <div class="row">
         <h4 class="section-title">Related Signs</h4>
-
+          <br>
         <% @gifs.each do |gif| %>
 
           <div class="col col-xs-12 col-sm-6 col-md-5 col-lg-3 ">

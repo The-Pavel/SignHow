@@ -19,7 +19,11 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-signhow-item">
         <div class="dropdown">
-        <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.photo.present? %>
+            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% else %>
+            <%= cl_image_tag("slmdqfq4wk9i7xhf17xc.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
+          <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-signhow-dropdown-menu">
             <li><% if current_user.admin %>
               <%= link_to admin_root_path do %>

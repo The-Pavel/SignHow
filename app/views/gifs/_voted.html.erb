@@ -7,14 +7,14 @@
       </div>
       <div>
         <%= @gif.get_downvotes.size %>
-        <%= link_to downvote_path(@gif),  method: :post do %>
+        <%= link_to downvote_path(@gif),  method: :post, remote: true do %>
           <i class="fas fa-thumbs-down downvotes-sm"></i>
         <% end %>
       </div>
     <% elsif current_user.voted_down_on? @gif %>
       <div>
         <%= @gif.get_upvotes.size %>
-        <%= link_to upvote_path(@gif),  method: :post do %>
+        <%= link_to upvote_path(@gif),  method: :post, remote: true do %>
         <i class="fas fa-thumbs-up upvotes-sm"></i>
         <% end %>
       </div>
@@ -26,13 +26,13 @@
     <% else  %>
       <div>
         <%= @gif.get_upvotes.size %>
-        <%= link_to upvote_path(@gif),  method: :post do %>
+        <%= link_to upvote_path(@gif),  method: :post, remote: true do %>
         <i class="fas fa-thumbs-up upvotes-sm"></i>
         <% end %>
       </div>
       <div>
         <%= @gif.get_downvotes.size %>
-        <%= link_to downvote_path(@gif),  method: :post do %>
+        <%= link_to downvote_path(@gif),  method: :post, remote: true do %>
         <i class="fas fa-thumbs-down downvotes-sm"></i>
         <% end %>
       </div>
