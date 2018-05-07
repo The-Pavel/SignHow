@@ -1,0 +1,10 @@
+.paginate-tabs {
+  text-align: center;
+  font-family: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  @include mq-xs {
+    font-size: 100%;
+    line-height: 1.2rem;
+  }
+}

@@ -1,7 +1,30 @@
+@mixin mq-xs {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin mq-sm {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin mq-md {
+  @media (min-width: 720px) {
+    @content;
+  }
+}
+
+@mixin mq-lg {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+
 .banner {
   color: white;
   text-align: center;
-  height: 75vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -9,6 +32,66 @@
   background-attachment: fixed;
   justify-content: center;
   width: 100%;
+  height: 75vh;
+  @include mq-xs {
+    height: 75vh !important;
+  }
+  @include mq-sm {
+    height: 75vh !important;
+  }
+  @include mq-md {
+    height: 75vh !important;
+  }
+  @include mq-lg {
+    height: 75vh !important;
+  }
+
+  h2 {
+    font-size: 72px;
+    font-weight: 300;
+    @include mq-xs {
+      font-size: 150%;
+      line-height: 4rem;
+    }
+    @include mq-sm {
+      font-size: 125%;
+      line-height: 4rem;
+    }
+    @include mq-md {
+      font-size: 175%;
+      line-height: 4rem;
+    }
+    @include mq-lg {
+      font-size: 225%;
+      line-height: 4rem;
+      padding-bottom: 35px;
+    }
+  }
+
+  p {
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    padding-bottom: 10px;
+    opacity: 0.75;
+    margin: 20px;
+    font-size: 25px;
+    @include mq-xs {
+      font-size: 100%;
+      line-height: 4rem;
+    }
+    @include mq-sm {
+      font-size: 100%;
+      line-height: 4rem;
+    }
+    @include mq-md {
+      font-size: 125%;
+      line-height: 4rem;
+    }
+    @include mq-lg {
+      font-size: 150%;
+      line-height: 4rem;
+    }
+  }
 }
 
 .banner-about {
@@ -33,28 +116,9 @@
 }
 
 
-@media screen and (max-width: 400px) {
-  .banner h2 {
-  font-size: 28px !important;
-  margin: 18px;
-  }
-}
-
-.banner p {
-  font-size: 25px;
-  font-weight: lighter;
-  color: rgb(255, 255, 255);
-  padding-bottom: 10px;
-  opacity: 0.75;
-  margin: 20px;
-}
 
 .beta-banner {
   text-align: center;
   color: RGBA(56, 185, 197, 1.00);
   justify-content: center;
-}
-
-.banner h2 {
-  font-size: 46px;
 }
