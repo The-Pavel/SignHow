@@ -5,9 +5,9 @@ class GifsController < ApplicationController
 
   def tagged
     if params[:tag].present?
-      @gifs = Gif.tagged_with(params[:tag]).order(cached_votes_up: :desc)
+      @gifs = Gif.paginate(page: params[:page], per_page: 1).tagged_with(params[:tag]).order(cached_votes_up: :desc)
     else
-      @gifs = Gif.all.order(cached_votes_up: :desc)
+      @gifs = Gif.paginate(page: params[:page], per_page: 1).all.order(cached_votes_up: :desc)
     end
     authorize @gifs
   end
