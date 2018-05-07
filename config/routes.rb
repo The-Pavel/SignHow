@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  #for Stripe
+  resources :charges, only: [:new, :create]
+  # get '/charges/new_charge', to: 'charges#new_charge', as: 'new_charge'
+
+
   get '/search', to: 'pages#search', as: 'search'
   get '/dashboard/:id' , to: "pages#dashboard", as: 'dashboard'
   post '/gifs/:id/favorite' , to: "gifs#favorite", as: 'favorite'

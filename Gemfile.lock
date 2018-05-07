@@ -25,6 +25,13 @@ GIT
       railties (>= 4.2, <= 5.2)
       responders
 
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 451805052799a6c2253943ee8191ac8198c46cde
+  specs:
+    stripe (3.13.0)
+      faraday (~> 0.10)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -351,6 +358,7 @@ DEPENDENCIES
   social-share-button
   spring
   spring-watcher-listen (~> 2.0.0)
+  stripe!
   uglifier
   web-console (>= 3.3.0)
   webpacker
