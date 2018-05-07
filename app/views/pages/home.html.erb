@@ -1,68 +1,56 @@
-    <!--
+<div class="banner" style="background-image: linear-gradient(-225deg, RGBA(26, 26, 26, .50) 50%, RGBA(26, 26, 26, .50) 50%),url('https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60');">
+  <div class="banner-content">
+    <h2>Welcome to the Global Sign Language Dictionary</h2>
 
-    <div class="beta-banner">
-      <br>
-      <h4>~ We are still in beta, please excuse the testing. ~</h4>
-      <br>
-    </div>
-
-     -->
-    <div class="banner" style="background-image: linear-gradient(-225deg, RGBA(26, 26, 26, .50) 50%, RGBA(26, 26, 26, .50) 50%),url('https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60');">
-      <div class="banner-content">
-        <h2>Welcome to the Global Sign Language Dictionary</h2>
-
-        <div class="search">
-          <div class="search-1">
-            <%= form_tag search_path, method: :get do %>
-            <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-              placeholder: "Search by Word or Phrase"
-              %>
-            </div>
-            <!--  </div> -->
-            <div class="search-2">
-
-              <%= select_tag :query_language, options_for_select(Gif::LANGUAGES), :include_blank => true, :prompt => "Select a Language" %>
-
-            </div>
-            <div class="search-3">
-
-              <%= button_tag type: 'submit', class: "searchbutton" do %>
-              <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
-              <% end %>
-              <% end %>
-
-
-            </div>
-          </div>
-
-          <p>Supporting 300+ Sign Languages | 196 Countries</p>
-
-        </div>
+    <div class="search">
+      <div class="search-1">
+        <%= form_tag search_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+          placeholder: "Search by Word or Phrase"
+          %>
       </div>
 
-        <br>
-        <h4 class="section-title" style="margin-bottom: -40px; font-weight: bold">Top rated signs</h4>
-        <br>
-        <br>
+      <div class="search-2">
+        <%= select_tag :query_language, options_for_select(Gif::LANGUAGES), :include_blank => true, :prompt => "Select a Language" %>
+      </div>
 
-        <div class="container-cards">
-          <%= render 'card' %>
-        </div>
-         <h4 class="section-title" style="margin-bottom: -40px; font-weight: bold">Recently added signs</h4>
-        <br>
-        <br>
+      <div class="search-3">
+        <%= button_tag type: 'submit', class: "searchbutton" do %>
+          <i class="fa fa-search" style = "font-size: 24px; margin: 0px; padding-top: -20px;"></i>
+        <% end %>
+        <% end %>
 
-        <div class="container-cards">
-          <%= render 'recent' %>
-        </div>
+      </div>
+    </div>
 
-        <h4 class="section-title" style="margin-bottom: -40px; font-weight: bold">Discover signs from all around the World</h4>
-        <br>
-        <br>
+    <p>Supporting 300+ Sign Languages | 196 Countries</p>
 
-        <div class="container-cards">
-          <%= render 'random' %>
-        </div>
+  </div>
+</div>
 
+  <br>
+  <br>
+  <h4 class="section-title" style="margin-bottom: -40px; font-weight: bold">Top rated signs</h4>
+  <br>
+  <br>
+
+  <div class="container-cards">
+    <%= render 'card' %>
+  </div>
+  <h4 class="section-title" style="margin-bottom: -40px; font-weight: bold">Recently added signs</h4>
+  <br>
+  <br>
+
+  <div class="container-cards">
+    <%= render 'recent' %>
+  </div>
+
+  <h4 class="section-title" style="margin-bottom: -40px; font-weight: bold">Discover signs from all around the World</h4>
+  <br>
+  <br>
+
+  <div class="container-cards">
+    <%= render 'random' %>
+  </div>
