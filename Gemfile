@@ -30,6 +30,7 @@ gem 'social-share-button'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'will_paginate', '~> 3.1.0'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
