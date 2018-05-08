@@ -17,6 +17,10 @@ class PagesController < ApplicationController
     @title = "How it Works"
   end
 
+  def upgrade
+    @title = "Upgrade"
+  end
+
   def search
     if params[:query].present? || params[:query_language].present?
       sql_query = "title ILIKE :query"
