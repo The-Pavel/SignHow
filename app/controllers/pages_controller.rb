@@ -39,7 +39,7 @@ class PagesController < ApplicationController
 
     # @gifs = Gif.order(cached_votes_up: :desc)
 
-    @gifs = current_user.gifs.paginate(page: params[:page], per_page: 9)
+    @gifs = current_user.gifs
     @favorites = @user.favorited_by_type('Gif').paginate(page: params[:page], per_page: 9)
     @title = "Dashboard"
   end
