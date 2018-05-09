@@ -75,7 +75,17 @@
             <% end %>
             <br>
               <div class="flag-spacing">
-                 Inappropriate?  <i class="far fa-flag"></i>
+              <% if current_user.voted_up_on? @gif %>
+                <%= link_to downvote_path(@gif),  method: :post, data: { confirm: 'Are you sure you want to report this sign as inappropriate?' } do %>
+                  Inappropriate?  <i class="far fa-flag"></i>
+                <% end  %>
+              <% elsif current_user.voted_down_on? @gif %>
+                <p>You have reported this sign</p>
+              <% else %>
+                <%= link_to downvote_path(@gif),  method: :post, data: { confirm: 'Are you sure you want to report this sign as inappropriate?' } do %>
+                  Inappropriate?  <i class="far fa-flag"></i>
+                <% end  %>
+              <% end  %>
               </div>
           </div>
           <div class="embed-info">

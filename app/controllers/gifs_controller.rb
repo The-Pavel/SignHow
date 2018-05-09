@@ -46,22 +46,22 @@ class GifsController < ApplicationController
       end
   end
 
-  # def downvote
-  #   @gif = Gif.find(params[:id])
-  #   @gif.downvote_from current_user
-  #   authorize @gif
-  #     if current_user.voted_as_when_voted_for @gif
-  #       respond_to do |format|
-  #         format.html { redirect_to request.referrer }
-  #         format.js { render 'voted' }
-  #       end
-  #     else
-  #       respond_to do |format|
-  #         format.html { redirect_to request.referrer }
-  #         format.js { render 'voted' }
-  #       end
-  #     end
-  # end
+  def downvote
+    @gif = Gif.find(params[:id])
+    @gif.downvote_from current_user
+    authorize @gif
+      if current_user.voted_as_when_voted_for @gif
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.js { render 'voted' }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to request.referrer }
+          format.js { render 'voted' }
+        end
+      end
+  end
 
   def favorite
     @gif = Gif.find(params[:id])
