@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "SignHow"
+meta_title: "Welcome to the Global Sign Language Dictionary"
+meta_description: "SignHow is the first global sign language dictionary created by the community for the community. You can add common signs and phrases used in your community. You can do this anywhere and anytime. The power is in your hands. "
+meta_image: "SignHowLogo.png"                       # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
