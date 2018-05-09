@@ -34,4 +34,7 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "https://www.signhow.co/" }
+  end
 end
