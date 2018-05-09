@@ -50,6 +50,10 @@ class ApplicationPolicy
     true
   end
 
+  def unvote?
+    true
+  end
+
   def tagged?
     true
   end

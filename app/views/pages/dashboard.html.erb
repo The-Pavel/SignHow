@@ -41,14 +41,16 @@
                   <% if current_user.voted_up_on? favorite %>
                     <div>
                       <%= favorite.get_upvotes.size %>
-                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <%= link_to unvote_path(favorite),  method: :post do %>
+                        <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <% end  %>
                     </div>
-                    <div>
+                    <!-- <div>
                       <%= favorite.get_downvotes.size %>
                       <%= link_to downvote_path(favorite),  method: :post do %>
                       <i class="fas fa-thumbs-down downvotes-sm"></i>
                       <% end %>
-                    </div>
+                    </div> -->
                   <% elsif current_user.voted_down_on? favorite %>
                     <div>
                       <%= favorite.get_upvotes.size %>
@@ -56,12 +58,12 @@
                       <i class="fas fa-thumbs-up upvotes-sm"></i>
                       <% end %>
                     </div>
-                    <div>
+                    <!-- <div>
                       <%= favorite.get_downvotes.size %>
                       <i class="fas fa-thumbs-down downvotes-sm"></i>
 
 
-                    </div>
+                    </div> -->
                   <% else  %>
                     <div>
                       <%= favorite.get_upvotes.size %>
@@ -69,12 +71,12 @@
                       <i class="fas fa-thumbs-up upvotes-sm"></i>
                       <% end %>
                     </div>
-                    <div>
+                    <!-- <div>
                       <%= favorite.get_downvotes.size %>
                       <%= link_to downvote_path(favorite),  method: :post do %>
                       <i class="fas fa-thumbs-down downvotes-sm"></i>
                       <% end %>
-                    </div>
+                    </div> -->
                   <% end %>
                   <% end %>
                 </div>
@@ -119,14 +121,16 @@
                   <% if current_user.voted_up_on? gif %>
                     <div>
                       <%= gif.get_upvotes.size %>
-                      <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <%= link_to unvote_path(gif),  method: :post do %>
+                        <i class="fas fa-thumbs-up upvotes-sm"></i>
+                      <% end  %>
                     </div>
-                    <div>
+                    <!-- <div>
                       <%= gif.get_downvotes.size %>
                       <%= link_to downvote_path(gif),  method: :post do %>
                       <i class="fas fa-thumbs-down downvotes-sm"></i>
                       <% end %>
-                    </div>
+                    </div> -->
                   <% elsif current_user.voted_down_on? gif %>
                     <div>
                       <%= gif.get_upvotes.size %>
@@ -134,11 +138,11 @@
                       <i class="fas fa-thumbs-up upvotes-sm"></i>
                       <% end %>
                     </div>
-                    <div>
+                    <!-- <div>
                       <%= gif.get_downvotes.size %>
                       <i class="fas fa-thumbs-down downvotes-sm"></i>
 
-                    </div>
+                    </div> -->
                   <% else  %>
                     <div>
                       <%= gif.get_upvotes.size %>
@@ -146,12 +150,12 @@
                       <i class="fas fa-thumbs-up upvotes-sm"></i>
                       <% end %>
                     </div>
-                    <div>
+                    <!-- <div>
                       <%= gif.get_downvotes.size %>
                       <%= link_to downvote_path(gif),  method: :post do %>
                       <i class="fas fa-thumbs-down downvotes-sm"></i>
                       <% end %>
-                    </div>
+                    </div> -->
                   <% end %>
                   <% end %>
                 </div>
