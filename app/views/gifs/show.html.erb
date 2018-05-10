@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@gif.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @gif.language %>
-<% content_for :meta_image, cl_image_url("https://res.cloudinary.com/signhow/#{@gif.file.identifier}") %>
+<% content_for :meta_image, cl_image_path(@gif.file.url) %>
 
 <div class="show-page">
   <div class="container">
