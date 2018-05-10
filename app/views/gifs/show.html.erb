@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@gif.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @gif.language %>
-
+<% content_for :meta_image, cl_image_path(@gif) %>
 
 <div class="show-page">
   <div class="container">
@@ -74,6 +74,7 @@
             </span>
             <% end %>
             <br>
+            <% if user_signed_in? %>
               <div class="flag-spacing">
               <% if current_user.voted_up_on? @gif %>
                 <%= link_to downvote_path(@gif),  method: :post, data: { confirm: 'Are you sure you want to report this sign as inappropriate?' } do %>
@@ -87,6 +88,7 @@
                 <% end  %>
               <% end  %>
               </div>
+            <% end  %>
           </div>
           <div class="embed-info">
 
