@@ -1,66 +1,147 @@
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+<section id=upgrade-section>
+  <div class="margins">
+  <h2>Free Services:</h2>
+
+  <ul>
+    <i class="fa fa-angellist"></i>Searching for signs is always free.
+  </ul>
+  <ul>
+    <i class="fa fa-angellist"></i>Browsing by tags is always free.
+  </ul>
+  <ul>
+    <i class="fa fa-angellist"></i>Adding new signs is always free.
+  </ul>
+  <ul>
+    <i class="fa fa-angellist"></i>Upvoting signs is always free.
+  </ul>
+
+<br>
+
+  <h2>Additional Paid Services:</h2>
+
+  <ul>
+    <i class="fa fa-key"></i>Saving signs to your favorites.
+  </ul>
+  <ul>
+    <i class="fa fa-key"></i>Creating folders for saved signs.
+  </ul>
+  <ul>
+    <i class="fa fa-key"></i>Making your signs private or public.
+  </ul>
+
+<br>
+<br>
+
+    <div class="demo-card">
+
+    <h4>Individual</h4>
+    <h5>Just you</h5>
+
+      <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+        <label class="amount">
+          <span>
+            <ul>
+              $10.00 billed monthly
+            </ul>
+            <ul>
+              $100 billed annually (save $20)
+            </ul>
+          </span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
+      <%= hidden_field_tag 'stripeToken' %>
+      <%= hidden_field_tag 'amount', 800 %>
+      <%= hidden_field_tag 'stripeEmail' %>
+      <% end %>
+
+    <br>
+
+    </div>
+
+    <div class="demo-card">
+
+    <h4>Small company</h4>
+    <h5>20 accounts</h5>
 
 
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $8.00</span>
-    </label>
-  </article>
+      <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+        <label class="amount">
+          <span>
+            <ul>
+              $120 billed monthly
+            </ul>
+            <ul>
+              $1200 billed annually (save $240)
+            </ul>
+          </span>
+        </label>
+      </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-          <%= hidden_field_tag 'stripeToken' %>
-          <%= hidden_field_tag 'amount', 800 %>
-          <%= hidden_field_tag 'stripeEmail' %>
-<% end %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
+      <%= hidden_field_tag 'stripeToken' %>
+      <%= hidden_field_tag 'amount', 3000 %>
+      <%= hidden_field_tag 'stripeEmail' %>
+      <% end %>
 
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    <br>
 
-
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $30.00</span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-          <%= hidden_field_tag 'stripeToken' %>
-          <%= hidden_field_tag 'amount', 3000 %>
-          <%= hidden_field_tag 'stripeEmail' %>
-<% end %>
-
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
 
 
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $90.00</span>
-    </label>
-  </article>
+    <div class="demo-card">
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-  data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-          <%= hidden_field_tag 'stripeToken' %>
-          <%= hidden_field_tag 'amount', 9000 %>
-          <%= hidden_field_tag 'stripeEmail' %>
-<% end %>
+      <h4>Corporate</h4>
+      <h5>100 accounts</h5>
 
+      <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+        <label class="amount">
+          <span>
+            <ul>
+              $250 billed monthly
+            </ul>
+            <ul>
+              $2500 billed annually (save $500)
+            </ul>
+          </span>
+        </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
+      <%= hidden_field_tag 'stripeToken' %>
+      <%= hidden_field_tag 'amount', 9000 %>
+      <%= hidden_field_tag 'stripeEmail' %>
+      <% end %>
+
+    <br>
+
+    </div>
+
+  </div> <!-- end of "margins" -->
+
+</section>
+
+
+<!-- <br> -->

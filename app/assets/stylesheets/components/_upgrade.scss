@@ -1,0 +1,122 @@
+$background: #FFFFFF;
+$box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+
+@mixin mq-xs {
+  @media (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin mq-sm {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin mq-md {
+  @media (min-width: 720px) {
+    @content;
+  }
+}
+
+@mixin mq-lg {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+
+#upgrade-section {
+  text-align: center;
+  padding: 50px 0;
+  h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-family: $headers-font;
+    font-size: 2rem;
+    color: #20B9C7;
+  }
+
+  h3 {
+    font-family: $headers-font;
+    font-size: 1.8rem;
+    color: #20B9C7;
+    margin-top: 15px;
+  }
+
+  h4 {
+    font-size: 1.7rem;
+    color: #20B9C7;
+    padding: 15px;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    // line-height: 2.5rem;
+    font-size: 1.7rem;
+    // padding: 10px;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  ul {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    @include mq-xs {
+      font-size: 1.1rem;
+    }
+    @include mq-sm {
+      font-size: 1.2rem;
+    }
+    @include mq-md {
+      font-size: 1.3rem;
+    }
+    @include mq-lg {
+      font-size: 1.5rem;
+    }
+  }
+
+  .margins {
+    margin-left: 75px;
+    margin-right: 75px;
+    @include mq-xs {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+
+  .tier-wrapper{
+    background: $background;
+  }
+
+  i {
+    color: #20B9C7;
+  }
+
+  span {
+    padding-bottom: 15px;
+    p {
+      font-size: 1.5rem;
+      font-weight: 100px;
+      font-family: inherit;
+    }
+  }
+
+  .demo-card {
+    position: relative;
+    display: block;
+    margin: 10px auto 40px;
+    max-width: 75%;
+    box-shadow: $box-shadow;
+    background: $background;
+    margin-bottom: 75px;
+    // padding: 20px;
+  }
+}
