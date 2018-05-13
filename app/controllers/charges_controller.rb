@@ -11,12 +11,19 @@ class ChargesController < ApplicationController
       :source  => params[:stripeToken]
     )
 
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => params[:amount],
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd'
-    )
+
+
+    # charge = Stripe::Charge.create(
+    #   :customer    => customer.id,
+    #   :amount      => params[:amount],
+    #   :description => 'Rails Stripe customer',
+    #   :currency    => 'usd'
+    # )
+
+    subscription = Stripe::Subscription.create({
+      customer: customer.id,
+      items: [{plan: params[:plan]}],
+    })
 
     skip_authorization
   rescue Stripe::CardError => e

@@ -59,8 +59,8 @@
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
       <%= hidden_field_tag 'stripeToken' %>
-      <%= hidden_field_tag 'amount', 800 %>
       <%= hidden_field_tag 'stripeEmail' %>
+      <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
       <% end %>
 
     <br>
@@ -95,7 +95,7 @@
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
       <%= hidden_field_tag 'stripeToken' %>
-      <%= hidden_field_tag 'amount', 3000 %>
+      <%= hidden_field_tag 'plan', 'plan_CqDK8OAA4WHvTI' %>
       <%= hidden_field_tag 'stripeEmail' %>
       <% end %>
 
@@ -131,7 +131,7 @@
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
       <%= hidden_field_tag 'stripeToken' %>
-      <%= hidden_field_tag 'amount', 9000 %>
+      <%= hidden_field_tag 'plan', 'plan_CqDLqxy0kjlxUy' %>
       <%= hidden_field_tag 'stripeEmail' %>
       <% end %>
 
