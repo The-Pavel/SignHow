@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, except: [:upgrade]
 
   def home
     @gifs = Gif.order(cached_votes_up: :desc).first(3)
