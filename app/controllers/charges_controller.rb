@@ -4,31 +4,36 @@ class ChargesController < ApplicationController
   end
 
   def create
-    # Amount in cents
+
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
-      :source  => params[:stripeToken]
+      :source  => params[:stripeToken],
     )
-
-
-
-    # charge = Stripe::Charge.create(
-    #   :customer    => customer.id,
-    #   :amount      => params[:amount],
-    #   :description => 'Rails Stripe customer',
-    #   :currency    => 'usd'
-    # )
 
     subscription = Stripe::Subscription.create({
       customer: customer.id,
       items: [{plan: params[:plan]}],
     })
 
+    current_user.subscribed = true
+    current_user.stripe_id = customer.id
+    current_user.stripe_subscription_id = subscription.id
+    current_user.save
+
+
     skip_authorization
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
+  end
+
+  def cancel_plan
+    subscription = Stripe::Subscription.retrieve(current_user.stripe_subscription_id)
+    subscription.delete
+    current_user.subscribed = false
+    current_user.save
+    skip_authorization
   end
 end
 
