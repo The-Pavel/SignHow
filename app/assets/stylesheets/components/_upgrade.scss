@@ -28,6 +28,7 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 #upgrade-section {
   // display: flex;
   justify-content: center;
+  float: none;
   align-items: center;
   padding: 75px 0;
   h1 {
@@ -129,7 +130,7 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
     border: 2px;
     border-color: gray;
     background-color: white;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -138,11 +139,24 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
     padding-bottom: 15px;
     height: 300px;
     width: 250px;
-    display: inline-flex;
-    flex-wrap: wrap;
+    margin: auto;
+
+    // display: flex;
+    // flex-wrap: wrap;
   }
 }
 
+.upgrade-wrapper {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  float: none !important;
+  @include mq-xs {
+    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+}
 
 .upgrade-card-word {
     font-size: 20px;
@@ -156,4 +170,8 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
     font-size: 12px;
     // font-weight: lighter;
     color: black;
+}
+
+.cancel-subscription {
+  text-align: center;
 }

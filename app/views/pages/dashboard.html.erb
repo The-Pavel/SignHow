@@ -30,7 +30,7 @@
           <div class="card">
 
             <%= link_to gif_path(favorite) do %>
-              <%= favorite.file? ? (cl_image_tag favorite.file, class: "gif") : (image_tag "signhowbg.jpeg", class: "gif") %>
+            <%= favorite.file? ? (cl_image_tag favorite.file, class: "gif") : (image_tag "signhowbg.jpeg", class: "gif") %>
 
             <% end %>
             <div class="card-info-container">
@@ -39,44 +39,42 @@
                 <div class="card-votes">
                   <% if user_signed_in? %>
                   <% if current_user.voted_up_on? favorite %>
-                    <div>
-                      <%= favorite.get_upvotes.size %>
-                      <%= link_to unvote_path(favorite),  method: :post do %>
-                        <i class="fas fa-thumbs-up upvotes-sm"></i>
-                      <% end  %>
-                    </div>
-                    <!-- <div>
-                      <%= favorite.get_downvotes.size %>
-                      <%= link_to downvote_path(favorite),  method: :post do %>
-                      <i class="fas fa-thumbs-down downvotes-sm"></i>
-                      <% end %>
-                    </div> -->
+                  <div>
+                    <%= favorite.get_upvotes.size %>
+                    <i class="fas fa-thumbs-up upvotes-sm"></i>
+                  </div>
+                  <div>
+                    <%= favorite.get_downvotes.size %>
+                    <%= link_to downvote_path(favorite),  method: :post do %>
+                    <i class="fas fa-thumbs-down downvotes-sm"></i>
+                    <% end %>
+                  </div>
                   <% elsif current_user.voted_down_on? favorite %>
-                    <div>
-                      <%= favorite.get_upvotes.size %>
-                      <%= link_to upvote_path(favorite),  method: :post do %>
-                      <i class="fas fa-thumbs-up upvotes-sm"></i>
-                      <% end %>
-                    </div>
-                    <!-- <div>
-                      <%= favorite.get_downvotes.size %>
-                      <i class="fas fa-thumbs-down downvotes-sm"></i>
+                  <div>
+                    <%= favorite.get_upvotes.size %>
+                    <%= link_to upvote_path(favorite),  method: :post do %>
+                    <i class="fas fa-thumbs-up upvotes-sm"></i>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= favorite.get_downvotes.size %>
+                    <i class="fas fa-thumbs-down downvotes-sm"></i>
 
 
-                    </div> -->
+                  </div>
                   <% else  %>
-                    <div>
-                      <%= favorite.get_upvotes.size %>
-                      <%= link_to upvote_path(favorite),  method: :post do %>
-                      <i class="fas fa-thumbs-up upvotes-sm"></i>
-                      <% end %>
-                    </div>
-                    <!-- <div>
-                      <%= favorite.get_downvotes.size %>
-                      <%= link_to downvote_path(favorite),  method: :post do %>
-                      <i class="fas fa-thumbs-down downvotes-sm"></i>
-                      <% end %>
-                    </div> -->
+                  <div>
+                    <%= favorite.get_upvotes.size %>
+                    <%= link_to upvote_path(favorite),  method: :post do %>
+                    <i class="fas fa-thumbs-up upvotes-sm"></i>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= favorite.get_downvotes.size %>
+                    <%= link_to downvote_path(favorite),  method: :post do %>
+                    <i class="fas fa-thumbs-down downvotes-sm"></i>
+                    <% end %>
+                  </div>
                   <% end %>
                   <% end %>
                 </div>
@@ -84,7 +82,7 @@
               <p class="card-language"><%= favorite.language %></p>
               <div class= "tag-container">
                 <% favorite.tag_list.each do |tag| %>
-                  <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
+                <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
                 <% end %>
               </div>
 
@@ -111,7 +109,7 @@
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
           <div class="card">
             <%= link_to gif_path(gif) do %>
-              <%= gif.file? ? (cl_image_tag gif.file, class: "gif") : (image_tag "signhowbg.jpeg", class: "gif") %>
+            <%= gif.file? ? (cl_image_tag gif.file, class: "gif") : (image_tag "signhowbg.jpeg", class: "gif") %>
             <% end %>
             <div class="card-info-container">
               <div class="card-title">
@@ -119,43 +117,41 @@
                 <div class="card-votes">
                   <% if user_signed_in? %>
                   <% if current_user.voted_up_on? gif %>
-                    <div>
-                      <%= gif.get_upvotes.size %>
-                      <%= link_to unvote_path(gif),  method: :post do %>
-                        <i class="fas fa-thumbs-up upvotes-sm"></i>
-                      <% end  %>
-                    </div>
-                    <!-- <div>
-                      <%= gif.get_downvotes.size %>
-                      <%= link_to downvote_path(gif),  method: :post do %>
-                      <i class="fas fa-thumbs-down downvotes-sm"></i>
-                      <% end %>
-                    </div> -->
+                  <div>
+                    <%= gif.get_upvotes.size %>
+                    <i class="fas fa-thumbs-up upvotes-sm"></i>
+                  </div>
+                  <div>
+                    <%= gif.get_downvotes.size %>
+                    <%= link_to downvote_path(gif),  method: :post do %>
+                    <i class="fas fa-thumbs-down downvotes-sm"></i>
+                    <% end %>
+                  </div>
                   <% elsif current_user.voted_down_on? gif %>
-                    <div>
-                      <%= gif.get_upvotes.size %>
-                      <%= link_to upvote_path(gif),  method: :post do %>
-                      <i class="fas fa-thumbs-up upvotes-sm"></i>
-                      <% end %>
-                    </div>
-                    <!-- <div>
-                      <%= gif.get_downvotes.size %>
-                      <i class="fas fa-thumbs-down downvotes-sm"></i>
+                  <div>
+                    <%= gif.get_upvotes.size %>
+                    <%= link_to upvote_path(gif),  method: :post do %>
+                    <i class="fas fa-thumbs-up upvotes-sm"></i>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= gif.get_downvotes.size %>
+                    <i class="fas fa-thumbs-down downvotes-sm"></i>
 
-                    </div> -->
+                  </div>
                   <% else  %>
-                    <div>
-                      <%= gif.get_upvotes.size %>
-                      <%= link_to upvote_path(gif),  method: :post do %>
-                      <i class="fas fa-thumbs-up upvotes-sm"></i>
-                      <% end %>
-                    </div>
-                    <!-- <div>
-                      <%= gif.get_downvotes.size %>
-                      <%= link_to downvote_path(gif),  method: :post do %>
-                      <i class="fas fa-thumbs-down downvotes-sm"></i>
-                      <% end %>
-                    </div> -->
+                  <div>
+                    <%= gif.get_upvotes.size %>
+                    <%= link_to upvote_path(gif),  method: :post do %>
+                    <i class="fas fa-thumbs-up upvotes-sm"></i>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= gif.get_downvotes.size %>
+                    <%= link_to downvote_path(gif),  method: :post do %>
+                    <i class="fas fa-thumbs-down downvotes-sm"></i>
+                    <% end %>
+                  </div>
                   <% end %>
                   <% end %>
                 </div>
@@ -164,13 +160,13 @@
               <div class="tag-container" style  >
                 <!-- #TODO: FIX THE LIMIT -->
                 <% gif.tag_list.first(3 ).each do |tag| %>
-                  <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
+                <div class="tag"><%= link_to tag, tagged_path(tag: tag) %></div>
                 <% end %>
                 <%= link_to edit_gif_path(gif) do %>
-                  <i class="far fa-edit"></i>
+                <i class="far fa-edit"></i>
                 <% end %>
                 <%= link_to gif_path(gif), method: :delete, data: { confirm: 'Are you sure you want to delete this gif?' } do %>
-                  <i class="far fa-trash-alt"></i>
+                <i class="far fa-trash-alt"></i>
                 <% end %>
 
               </div>
@@ -193,25 +189,25 @@
     <br>
     <h4 class="section-title">My Profile</h4>
     <br>
-        <div class="profile-row">
-          <div class="profile-content">
-            <div class="content-centre-profile-tab">
-              <%= cl_image_tag current_user.photo, class: "dashboard-avatar", id: "navbar-wagon-menu" %>
-              <br>
-              <br>
-              <%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%>
-              <br>
-              <%= current_user.email %>
-              <br>
-              Favorites: <%= current_user.favorites.count %>
-              <br>
-              Your Signs: <%= current_user.gifs.count %>
-              <br>
-              <br>
-              <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn-blue-sm" %>
-            </div>
-          </div>
+    <div class="profile-row">
+      <div class="profile-content">
+        <div class="content-centre-profile-tab">
+          <%= cl_image_tag current_user.photo, class: "dashboard-avatar", id: "navbar-wagon-menu" %>
+          <br>
+          <br>
+          <%= current_user.first_name.capitalize%> <%= current_user.last_name.capitalize%>
+          <br>
+          <%= current_user.email %>
+          <br>
+          Favorites: <%= current_user.favorites.count %>
+          <br>
+          Your Signs: <%= current_user.gifs.count %>
+          <br>
+          <br>
+          <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn-blue-sm" %>
         </div>
+      </div>
+    </div>
 
 
   </div>
@@ -220,125 +216,138 @@
     <br>
     <h4 class="section-title">Upgrade Account</h4>
     <br>
-    <div class="wrapper">
-      <div class="row">
-      <div class="cols-about">
-        <!-- <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-          <div class="container-about">
-            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-              <div class="inner">
-                <p>Free $0</p>
-                <ul>
-                1 account
-                </ul>
-              </div>
-            </div>
-            <div class="back">
-              <div class="inner">
-                <ul>Upload unlimited signs</ul>
-                <ul>Manage your signs</ul>
-                <ul>Favorite signs</ul>
-                <ul>Share your signs</ul>
-              </div>
-            </div>
-          </div>
-        </div> -->
+    <section id=upgrade-section>
+      <div class="upgrade-wrapper">
 
-        <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-        <%= link_to upgrade_path do %>
-          <div class="container-about">
-            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-              <div class="inner">
-                <p>Inidividual $8</p>
+        <% if current_user.subscribed == false %>
+
+        <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+          <div class="upgrade-card">
+            <h4 class="upgrade-card-word"><b><i class="fa fa-angellist"></i>Free Services</b></h4>
+            <label class="amount">
+              <span>
                 <ul>
-                1 account
+                  Always Free!
                 </ul>
-              </div>
-            </div>
-            <div class="back">
-              <div class="inner">
-                <ul>Upload unlimited signs</ul>
-                <ul>Manage your signs</ul>
-                <ul>Favorite signs</ul>
-                <ul>Share your signs</ul>
-              </div>
-            </div>
+              </span>
+            </label>
+            <br>
+            <br>
+            <p class="upgrade-card-language">Searching for signs is always free.</p>
+            <p class="upgrade-card-language">Browsing by tags is always free.</p>
+            <p class="upgrade-card-language">Adding new signs is always free.</p>
+            <p class="upgrade-card-language">Upvoting signs is always free.</p>
           </div>
+        </div>
+
+        <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+          <div class="upgrade-card">
+            <h4 class="upgrade-card-word"><i class="fa fa-key"></i><b>Paid Services</b></h4>
+            <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+              <% end %>
+              <label class="amount">
+                <span>
+                  <ul>
+                    $10 monthly
+                  </ul>
+                </span>
+              </label>
+            </article>
+
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-email="<%= current_user.email %>"
+            data-label="Monthly Subscription"
+            data-amount="1000"></script>
+            <%= hidden_field_tag 'stripeToken' %>
+            <%= hidden_field_tag 'stripeEmail' %>
+            <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
+            <% end %>
+
+            <br>
+
+            <p class="upgrade-card-language">Save signs to your favorites.</p>
+            <p class="upgrade-card-language">Create folders for saved signs.</p>
+            <p class="upgrade-card-language">Make your signs private or public.</p>
+          </div>
+        </div>
+
+        <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+          <div class="upgrade-card">
+            <h4 class="upgrade-card-word"><i class="fa fa-key"></i><b>Paid Services</b></h4>
+            <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+              <% end %>
+              <label class="amount">
+                <span>
+                  <ul>
+                    $100 anually
+                  </ul>
+                </span>
+              </label>
+            </article>
+
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-email="<%= current_user.email %>"
+                data-label="Yearly Subscription"
+                data-amount="10000"></script>
+                <%= hidden_field_tag 'stripeToken' %>
+                <%= hidden_field_tag 'stripeEmail' %>
+                <%= hidden_field_tag 'plan', 'plan_CrJanLK0RWP3i1' %>
+            <% end %>
+
+            <br>
+
+              <p class="upgrade-card-language">Save signs to your favorites.</p>
+              <p class="upgrade-card-language">Create folders for saved signs.</p>
+              <p class="upgrade-card-language">Make your signs private or public.</p>
+          </div>
+        </div>
+
+        <% else %>
+          <h5>You are currently subscribed to our Individual plan. </h5>
+          <h6><%= link_to ' Cancel Subscription', cancel_plan_path, method: :delete, data: { confirm: 'Are you sure you want to cancel your subscription?' } %></h6>
         <% end %>
-        </div>
 
-        <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-          <%= link_to upgrade_path do %>
-          <div class="container-about">
-            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-              <div class="inner">
-                <p>Small 30$</p>
-                <ul>
-                Up to 20 accounts
-                </ul>
-              </div>
-            </div>
-            <div class="back">
-              <div class="inner">
-                <ul>Upload unlimited signs</ul>
-                <ul>Manage your signs</ul>
-                <ul>Favorite signs</ul>
-                <ul>Share your signs</ul>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </div>
-
-        <div class="col-about" ontouchstart="this.classList.toggle('hover');">
-          <%= link_to upgrade_path do %>
-          <div class="container-about">
-            <div class="front" style="background-image: url(https://images.unsplash.com/photo-1493851449704-07ee5725d916?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2201f7a90289ef05567fc836dcba456d&auto=format&fit=crop&w=800&q=60)">
-              <div class="inner">
-                <p>Corporate 90$</p>
-                <ul>
-                Up to 50 accounts
-                </ul>
-              </div>
-            </div>
-            <div class="back">
-              <div class="inner">
-                <ul>Upload unlimited signs</ul>
-                <ul>Manage your signs</ul>
-                <ul>Favorite signs</ul>
-                <ul>Share your signs</ul>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </div>
       </div>
-    </div>
-    </div>
+    </section>
   </div>
 </div>
+</div>
+</div>
+</div>
 
-<br>
-<br>
+<!-- <br>
+<br> -->
 
 <script type="text/javascript">
-  var tabs = document.getElementsByClassName('tab');
-  console.log(tabs);
+var tabs = document.getElementsByClassName('tab');
+console.log(tabs);
 
-  for (var i = 0; i < tabs.length; i++) {
-    (function(index) {
+for (var i = 0; i < tabs.length; i++) {
+  (function(index) {
 
-      tabs[index].addEventListener("click", function(event)
-        {
-          for (var i = 0; i < tabs.length; i++) {
-            tabs[i].classList.remove("active")
-          }
-          console.log("clicked");
-          var clickedTab = tabs[index];
-          clickedTab.classList.add("active");
-        });
-    })(i);
-  }
+    tabs[index].addEventListener("click", function(event)
+    {
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active")
+      }
+      console.log("clicked");
+      var clickedTab = tabs[index];
+      clickedTab.classList.add("active");
+    });
+  })(i);
+}
 
 
 
