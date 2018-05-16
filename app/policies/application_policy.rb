@@ -58,6 +58,10 @@ class ApplicationPolicy
     true
   end
 
+  def cancel_plan?
+    true
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end

@@ -131,7 +131,11 @@
         </div>
       </div>
 
-    <!-- <div class="demo-card">
+
+  <% if current_user.subscribed == false %>
+
+    <div class="demo-card">
+
 
     <h4>Individual</h4> -->
     <!-- <h5>Just you</h5> -->
@@ -147,24 +151,55 @@
           <span>
             <ul>
               $10.00 billed monthly
-            </ul> -->
-            <!-- <ul>
-              $100 billed annually (save $20) -->
-            <!-- </ul>
+
+            </ul>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-email="<%= current_user.email %>"
+              data-label="Monthly Subscription"
+              data-amount="1000"></script>
+              <%= hidden_field_tag 'stripeToken' %>
+              <%= hidden_field_tag 'stripeEmail' %>
+              <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
+            </span>
+        </label>
+      </article>
+      <% end %>
+              <br>
+      <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+        <% end %>
+        <label class="amount">
+          <span>
+            <ul>
+              $100 billed annually (save $20)
+            </ul>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-email="<%= current_user.email %>"
+              data-label="Yearly Subscription"
+              data-amount="10000"></script>
+              <%= hidden_field_tag 'stripeToken' %>
+              <%= hidden_field_tag 'stripeEmail' %>
+              <%= hidden_field_tag 'plan', 'plan_CrJanLK0RWP3i1' %>
           </span>
         </label>
-      </article> -->
+      </article>
 
-      <!-- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-      <%= hidden_field_tag 'stripeToken' %>
-      <%= hidden_field_tag 'stripeEmail' %>
-      <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
       <% end %>
 
     <br>
 
-    </div> -->
+
+    </div>
+  <% else %>
+    <h5>You are currently subscribed to our Individual plan.</h5>
+    <%= link_to 'Cancel Subscription', cancel_plan_path, method: :delete, data: { confirm: 'Are you sure you want to cancel your subscription?' } %>
+  <% end %>
 
     <!-- <div class="demo-card">
 
@@ -236,7 +271,10 @@
 
     <br>
 
-    </div> -->
+
+    </div>
+
+  </div> --> <!-- end of "margins" -->
 
   <!-- </div> -->
   </div>

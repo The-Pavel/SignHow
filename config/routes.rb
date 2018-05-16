@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #for Stripe
   resources :charges, only: [:new, :create]
   # get '/charges/new_charge', to: 'charges#new_charge', as: 'new_charge'
-
+  delete '/cancel_plan', to: 'charges#cancel_plan', as: 'cancel_plan'
 
   get '/search', to: 'pages#search', as: 'search'
   get '/dashboard/:id' , to: "pages#dashboard", as: 'dashboard'
