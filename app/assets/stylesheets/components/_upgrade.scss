@@ -26,12 +26,14 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 }
 
 #upgrade-section {
-  text-align: center;
-  padding: 50px 0;
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 75px 0;
   h1 {
     font-size: 3rem;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   h2 {
@@ -61,19 +63,20 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 
   ul {
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2.5rem;
     margin-left: 10px;
+    font-weight: lighter;
     margin-right: 10px;
     @include mq-xs {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
     }
     @include mq-sm {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
     @include mq-md {
       font-size: 1.3rem;
@@ -83,14 +86,14 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
     }
   }
 
-  .margins {
-    margin-left: 75px;
-    margin-right: 75px;
-    @include mq-xs {
-      margin-left: 10%;
-      margin-right: 10%;
-    }
-  }
+  // .margins {
+    // margin-left: 75px;
+    // margin-right: 75px;
+  //   @include mq-xs {
+  //     margin-left: 10%;
+  //     margin-right: 10%;
+  //   }
+  // }
 
   .tier-wrapper{
     background: $background;
@@ -109,14 +112,48 @@ $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
     }
   }
 
-  .demo-card {
-    position: relative;
-    display: block;
-    margin: 10px auto 40px;
-    max-width: 75%;
-    box-shadow: $box-shadow;
-    background: $background;
-    margin-bottom: 75px;
+  // .demo-card {
+  //   position: relative;
+  //   display: block;
+  //   margin: 10px auto 40px;
+  //   max-width: 75%;
+  //   box-shadow: $box-shadow;
+  //   background: $background;
+  //   margin-bottom: 75px;
     // padding: 20px;
+  // }
+
+  .upgrade-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border: 2px;
+    border-color: gray;
+    background-color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    padding-top: 2px;
+    padding-bottom: 15px;
+    height: 300px;
+    width: 250px;
+    display: inline-flex;
+    flex-wrap: wrap;
   }
+}
+
+
+.upgrade-card-word {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-top: 14px;
+}
+
+
+.upgrade-card-language {
+    font-size: 12px;
+    // font-weight: lighter;
+    color: black;
 }
