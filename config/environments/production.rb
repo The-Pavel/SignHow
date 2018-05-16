@@ -75,7 +75,7 @@ Rails.application.configure do
 
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "www.signhow.com" }
+  config.action_mailer.default_url_options = { host: "www.signhow.co" }
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
