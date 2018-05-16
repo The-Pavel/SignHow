@@ -1,40 +1,10 @@
 <section id=upgrade-section>
   <div class="upgrade-wrapper">
 
-  <!-- <div class="margins"> -->
-
-
-  <!-- <h2>Free Services:</h2>
-
-  <ul>
-    <i class="fa fa-angellist"></i>Searching for signs is always free.
-  </ul>
-  <ul>
-    <i class="fa fa-angellist"></i>Browsing by tags is always free.
-  </ul>
-  <ul>
-    <i class="fa fa-angellist"></i>Adding new signs is always free.
-  </ul>
-  <ul>
-    <i class="fa fa-angellist"></i>Upvoting signs is always free.
-  </ul>
-
-<br>
-
-  <h2>Additional Paid Services:</h2>
-
-  <ul>
-    <i class="fa fa-key"></i>Saving signs to your favorites.
-  </ul>
-  <ul>
-    <i class="fa fa-key"></i>Creating folders for saved signs.
-  </ul>
-  <ul>
-    <i class="fa fa-key"></i>Making your signs private or public.
-  </ul> -->
-
       <br>
       <br>
+
+  <% if current_user.subscribed == false %>
 
       <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
         <div class="upgrade-card">
@@ -68,20 +38,20 @@
             <label class="amount">
               <span>
                 <ul>
-                  $10.00 billed monthly
-                </ul>
-                <!-- <ul>
-                  $100 billed annually (save $20) -->
+                  $10 monthly
                 </ul>
               </span>
             </label>
           </article>
 
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-          <%= hidden_field_tag 'stripeToken' %>
-          <%= hidden_field_tag 'stripeEmail' %>
-          <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-email="<%= current_user.email %>"
+              data-label="Monthly Subscription"
+              data-amount="1000"></script>
+              <%= hidden_field_tag 'stripeToken' %>
+              <%= hidden_field_tag 'stripeEmail' %>
+              <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
           <% end %>
 
           <br>
@@ -89,7 +59,6 @@
             <p class="upgrade-card-language">Save signs to your favorites.</p>
             <p class="upgrade-card-language">Create folders for saved signs.</p>
             <p class="upgrade-card-language">Make your signs private or public.</p>
-          <!-- <p class="upgrade-card-language">Paid Services</p> -->
         </div>
       </div>
 
@@ -106,79 +75,13 @@
             <label class="amount">
               <span>
                 <ul>
-                  $100.00 billed annually
-                </ul>
-                <!-- <ul>
-                  $100 billed annually (save $20) -->
+                  $100 anually
                 </ul>
               </span>
             </label>
           </article>
 
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-          <%= hidden_field_tag 'stripeToken' %>
-          <%= hidden_field_tag 'stripeEmail' %>
-          <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
-          <% end %>
-
-          <br>
-
-            <p class="upgrade-card-language">Save signs to your favorites.</p>
-            <p class="upgrade-card-language">Create folders for saved signs.</p>
-            <p class="upgrade-card-language">Make your signs private or public.</p>
-          <!-- <p class="upgrade-card-language">Paid Services</p> -->
-        </div>
-      </div>
-
-
-  <% if current_user.subscribed == false %>
-
-    <div class="demo-card">
-
-
-    <h4>Individual</h4> -->
-    <!-- <h5>Just you</h5> -->
-
-      <!-- <%= form_tag charges_path do %>
-      <article>
-        <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-        <% end %>
-        <label class="amount">
-          <span>
-            <ul>
-              $10.00 billed monthly
-
-            </ul>
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-email="<%= current_user.email %>"
-              data-label="Monthly Subscription"
-              data-amount="1000"></script>
-              <%= hidden_field_tag 'stripeToken' %>
-              <%= hidden_field_tag 'stripeEmail' %>
-              <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
-            </span>
-        </label>
-      </article>
-      <% end %>
-              <br>
-      <%= form_tag charges_path do %>
-      <article>
-        <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-        <% end %>
-        <label class="amount">
-          <span>
-            <ul>
-              $100 billed annually (save $20)
-            </ul>
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-email="<%= current_user.email %>"
               data-label="Yearly Subscription"
@@ -186,96 +89,21 @@
               <%= hidden_field_tag 'stripeToken' %>
               <%= hidden_field_tag 'stripeEmail' %>
               <%= hidden_field_tag 'plan', 'plan_CrJanLK0RWP3i1' %>
-          </span>
-        </label>
-      </article>
+          <% end %>
 
-      <% end %>
+          <br>
 
-    <br>
+            <p class="upgrade-card-language">Save signs to your favorites.</p>
+            <p class="upgrade-card-language">Create folders for saved signs.</p>
+            <p class="upgrade-card-language">Make your signs private or public.</p>
+        </div>
+      </div>
 
 
-    </div>
   <% else %>
     <h5>You are currently subscribed to our Individual plan.</h5>
     <%= link_to 'Cancel Subscription', cancel_plan_path, method: :delete, data: { confirm: 'Are you sure you want to cancel your subscription?' } %>
   <% end %>
 
-    <!-- <div class="demo-card">
-
-    <h4>Small company</h4>
-    <h5>20 accounts</h5>
-
-
-      <%= form_tag charges_path do %>
-      <article>
-        <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-        <% end %>
-        <label class="amount">
-          <span>
-            <ul>
-              $120 billed monthly
-            </ul>
-            <ul>
-              $1200 billed annually (save $240)
-            </ul>
-          </span>
-        </label>
-      </article>
-
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-      <%= hidden_field_tag 'stripeToken' %>
-      <%= hidden_field_tag 'plan', 'plan_CqDK8OAA4WHvTI' %>
-      <%= hidden_field_tag 'stripeEmail' %>
-      <% end %>
-
-    <br>
-
-    </div> -->
-
-
-    <!-- <div class="demo-card">
-
-      <h4>Corporate</h4>
-      <h5>100 accounts</h5>
-
-      <%= form_tag charges_path do %>
-      <article>
-        <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-        <% end %>
-        <label class="amount">
-          <span>
-            <ul>
-              $250 billed monthly
-            </ul>
-            <ul>
-              $2500 billed annually (save $500)
-            </ul>
-          </span>
-        </label>
-      </article>
-
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
-      <%= hidden_field_tag 'stripeToken' %>
-      <%= hidden_field_tag 'plan', 'plan_CqDLqxy0kjlxUy' %>
-      <%= hidden_field_tag 'stripeEmail' %>
-      <% end %>
-
-    <br>
-
-
-    </div>
-
-  </div> --> <!-- end of "margins" -->
-
-  <!-- </div> -->
   </div>
 </section>
