@@ -1,6 +1,10 @@
 <section id=upgrade-section>
-  <div class="margins">
-  <h2>Free Services:</h2>
+  <div class="upgrade-wrapper">
+
+  <!-- <div class="margins"> -->
+
+
+  <!-- <h2>Free Services:</h2>
 
   <ul>
     <i class="fa fa-angellist"></i>Searching for signs is always free.
@@ -27,19 +31,116 @@
   </ul>
   <ul>
     <i class="fa fa-key"></i>Making your signs private or public.
-  </ul>
+  </ul> -->
 
-<br>
-<br>
+      <br>
+      <br>
+
+      <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+        <div class="upgrade-card">
+          <h4 class="upgrade-card-word"><b><i class="fa fa-angellist"></i>Free Services</b></h4>
+          <label class="amount">
+            <span>
+              <ul>
+                Always Free!
+              </ul>
+            </span>
+          </label>
+          <br>
+          <br>
+            <p class="upgrade-card-language">Searching for signs is always free.</p>
+            <p class="upgrade-card-language">Browsing by tags is always free.</p>
+            <p class="upgrade-card-language">Adding new signs is always free.</p>
+            <p class="upgrade-card-language">Upvoting signs is always free.</p>
+        </div>
+      </div>
+
+      <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+        <div class="upgrade-card">
+          <h4 class="upgrade-card-word"><i class="fa fa-key"></i><b>Paid Services</b></h4>
+          <%= form_tag charges_path do %>
+          <article>
+            <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+            <% end %>
+            <label class="amount">
+              <span>
+                <ul>
+                  $10.00 billed monthly
+                </ul>
+                <!-- <ul>
+                  $100 billed annually (save $20) -->
+                </ul>
+              </span>
+            </label>
+          </article>
+
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
+          <%= hidden_field_tag 'stripeToken' %>
+          <%= hidden_field_tag 'stripeEmail' %>
+          <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
+          <% end %>
+
+          <br>
+
+            <p class="upgrade-card-language">Save signs to your favorites.</p>
+            <p class="upgrade-card-language">Create folders for saved signs.</p>
+            <p class="upgrade-card-language">Make your signs private or public.</p>
+          <!-- <p class="upgrade-card-language">Paid Services</p> -->
+        </div>
+      </div>
+
+      <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+        <div class="upgrade-card">
+          <h4 class="upgrade-card-word"><i class="fa fa-key"></i><b>Paid Services</b></h4>
+          <%= form_tag charges_path do %>
+          <article>
+            <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+            <% end %>
+            <label class="amount">
+              <span>
+                <ul>
+                  $100.00 billed annually
+                </ul>
+                <!-- <ul>
+                  $100 billed annually (save $20) -->
+                </ul>
+              </span>
+            </label>
+          </article>
+
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>" ></script>
+          <%= hidden_field_tag 'stripeToken' %>
+          <%= hidden_field_tag 'stripeEmail' %>
+          <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
+          <% end %>
+
+          <br>
+
+            <p class="upgrade-card-language">Save signs to your favorites.</p>
+            <p class="upgrade-card-language">Create folders for saved signs.</p>
+            <p class="upgrade-card-language">Make your signs private or public.</p>
+          <!-- <p class="upgrade-card-language">Paid Services</p> -->
+        </div>
+      </div>
+
 
   <% if current_user.subscribed == false %>
 
     <div class="demo-card">
 
-    <h4>Individual</h4>
-    <h5>Just you</h5>
 
-      <%= form_tag charges_path do %>
+    <h4>Individual</h4> -->
+    <!-- <h5>Just you</h5> -->
+
+      <!-- <%= form_tag charges_path do %>
       <article>
         <% if flash[:error].present? %>
         <div id="error_explanation">
@@ -50,6 +151,7 @@
           <span>
             <ul>
               $10.00 billed monthly
+
             </ul>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -87,9 +189,11 @@
           </span>
         </label>
       </article>
+
       <% end %>
 
     <br>
+
 
     </div>
   <% else %>
@@ -131,10 +235,10 @@
 
     <br>
 
-    </div>
+    </div> -->
 
 
-    <div class="demo-card">
+    <!-- <div class="demo-card">
 
       <h4>Corporate</h4>
       <h5>100 accounts</h5>
@@ -167,11 +271,11 @@
 
     <br>
 
+
     </div>
 
   </div> --> <!-- end of "margins" -->
 
+  <!-- </div> -->
+  </div>
 </section>
-
-
-<!-- <br> -->

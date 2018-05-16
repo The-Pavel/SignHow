@@ -9,7 +9,6 @@
     color: black;
     padding-bottom: 15px;
     max-height: 400px;
-
 }
 
 
@@ -42,10 +41,8 @@
 }
 
 .card-language {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: lighter;
-
-
     color: black;
 }
 
@@ -65,48 +62,33 @@
     border: 1px solid $blue;
     border-radius: 5px;
     padding: 4px 4px;
-
 }
 
 .gif {
     width: 100%;
     height: 240px;
     object-fit: cover;
-
 }
 
 .upvotes-sm {
   margin-left: 5px;
   margin-bottom: 8px;
   position: relative;
-
-
-
-
-
 }
 
 .downvotes-sm {
   margin-left: 5px;
   position: relative;
-
-
-
 }
-
-
 
 .container-cards {
     margin: 30px;
-
     padding: 25px;
 }
 
 .card-votes {
-
     top: 0;
     right: 0;
-
     display: flex;
     flex-direction: column;
     font-size: 13px;
