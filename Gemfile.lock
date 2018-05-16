@@ -77,6 +77,8 @@ GEM
     acts_as_favoritor (2.0.1)
       activerecord (>= 5.0)
     acts_as_votable (0.11.1)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (8.0.0)
@@ -163,6 +165,10 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.6.0)
+      launchy (~> 2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -212,6 +218,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
+    public_suffix (3.0.2)
     puma (3.11.4)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
@@ -341,6 +348,7 @@ DEPENDENCIES
   font-awesome-sass (~> 4.7)
   inherited_resources!
   jbuilder (~> 2.0)
+  letter_opener
   listen (~> 3.0.5)
   ngrok-tunnel
   omniauth
