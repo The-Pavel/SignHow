@@ -1,11 +1,11 @@
 class ChargesController < ApplicationController
+  skip_before_action  :verify_authenticity_token, :authenticate_user!
+
   def new
     skip_authorization
   end
 
   def create
-
-
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken],
@@ -20,9 +20,8 @@ class ChargesController < ApplicationController
     current_user.stripe_id = customer.id
     current_user.stripe_subscription_id = subscription.id
     current_user.save
-
-
     skip_authorization
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
