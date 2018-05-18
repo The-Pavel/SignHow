@@ -51,7 +51,7 @@
               data-amount="1000"></script>
               <%= hidden_field_tag 'stripeToken' %>
               <%= hidden_field_tag 'stripeEmail' %>
-              <%= hidden_field_tag 'plan', 'plan_CqDMOVy8qGmsdb' %>
+              <%= hidden_field_tag :plan, params[:plan] %>
           <% end %>
 
           <br>
@@ -62,7 +62,7 @@
         </div>
       </div>
 
-      <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+      <!-- <div class="col col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
         <div class="upgrade-card">
           <h4 class="upgrade-card-word"><i class="fa fa-key"></i><b>Paid Services</b></h4>
           <%= form_tag charges_path do %>
@@ -88,7 +88,7 @@
               data-amount="10000"></script>
               <%= hidden_field_tag 'stripeToken' %>
               <%= hidden_field_tag 'stripeEmail' %>
-              <%= hidden_field_tag 'plan', 'plan_CrJanLK0RWP3i1' %>
+              <%= hidden_field_tag :plan_id, params[:plan_id] %>
           <% end %>
 
           <br>
@@ -97,7 +97,7 @@
             <p class="upgrade-card-language">Create folders for saved signs.</p>
             <p class="upgrade-card-language">Make your signs private or public.</p>
         </div>
-      </div>
+      </div> -->
 
 
   <% else %>
