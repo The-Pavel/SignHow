@@ -6,7 +6,7 @@ class ChargesController < ApplicationController
     skip_authorization
     begin
     event_json = JSON.parse(request.body.read)
-    event_object = event_json['data']['object']
+    event_object = event_json['data']['object']['customer']
     #refer event types here https://stripe.com/docs/api#event_types
     case event_json['type']
       when 'invoice.payment_succeeded'
@@ -16,6 +16,8 @@ class ChargesController < ApplicationController
       when 'charge.failed'
         handle_failure_charge event_object
       when 'customer.subscription.deleted'
+        user = User.find_by(stripe_id: event_object)
+        user.update(subscribed: false)
       when 'customer.subscription.updated'
     end
   rescue Exception => ex
