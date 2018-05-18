@@ -5,20 +5,20 @@ Rails.configuration.stripe = {
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
-StripeEvent.configure do |events|
-  events.all do |event|
-    if event.type == 'customer.subscription.created'
-      subscription = event.data.object
-      user = User.where('stripe_id LIKE ?', "%#{subscription['customer']}%").first
-    if user
-      customer = Stripe::Customer.retrieve(JSON.parse(user.stripe_id)['id'])
-      plan =
-      user.stripe_id = customer.to_json
-      user.save
-    end
-  end
-    end
-end
+# StripeEvent.configure do |events|
+#   events.all do |event|
+#     if event.type == 'customer.subscription.created'
+#       subscription = event.data.object
+#       user = User.where('stripe_id LIKE ?', "%#{subscription['customer']}%").first
+#     if user
+#       customer = Stripe::Customer.retrieve(JSON.parse(user.stripe_id)['id'])
+#       plan =
+#       user.stripe_id = customer.to_json
+#       user.save
+#     end
+#   end
+#     end
+# end
 
 
 # StripeEvent.configure do |events|
