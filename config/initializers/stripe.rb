@@ -12,7 +12,7 @@ StripeEvent.configure do |events|
       user = User.where('stripe_id LIKE ?', "%#{subscription['customer']}%").first
     if user
       customer = Stripe::Customer.retrieve(JSON.parse(user.stripe_id)['id'])
-      # plan = customer.subscriptions.data[0].items.data[0].plan.id
+      plan =
       user.stripe_id = customer.to_json
       user.save
     end
@@ -21,6 +21,12 @@ StripeEvent.configure do |events|
 end
 
 
+# StripeEvent.configure do |events|
+#   events.subscribe "invoice.payment_failed" do |event|
+#     stripe_customer_id = user.event.data.object.customer
+#     user = User.find_by(stripe_id: stripe_customer_id)
+#   end
+# end
 
 
 
